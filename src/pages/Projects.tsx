@@ -1,16 +1,22 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
 import { Project, projects } from "../data/projects";
 
 const Projects = () => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Extract all unique tags from projects
   const allTags = Array.from(
     new Set(projects.flatMap(project => project.tags))
   ).sort();
+
+  useEffect(() => {
+    // Set loading to false after initial mount
+    setIsLoading(false);
+  }, []);
 
   const handleTagFilter = (tag: string) => {
     if (activeTag === tag) {
@@ -32,7 +38,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className={`max-w-6xl mx-auto ${isLoading ? "opacity-0" : "opacity-100 transition-opacity duration-300"}`}>
       <h1 className="text-3xl md:text-4xl font-bold mb-2">Projects</h1>
       <p className="text-muted-foreground mb-8">
         Explore my work in robotics, automation, and engineering design.
