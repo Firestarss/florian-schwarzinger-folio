@@ -7,14 +7,20 @@ import { ArrowRight } from "lucide-react";
 
 interface ProjectCardProps {
   project: Project;
+  index: number;
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
+      transition={{ 
+        duration: 0.4,
+        delay: index * 0.1,
+        ease: "easeOut"
+      }}
       className="group bg-muted/5 border border-border rounded-lg overflow-hidden hover:border-primary/100 hover:shadow-md hover:shadow-primary/20 transition-all duration-300 focus-within:border-primary/70"
     >
       <Link to={`/projects/${project.id}`} className="block focus:outline-none">

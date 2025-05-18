@@ -32,24 +32,8 @@ const Projects = () => {
     setFilteredProjects(projects);
   };
 
-  // Animation variants for staggered list
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
   return (
-    <motion.div 
-      // initial={{ opacity: 0 }}
-      // animate={{ opacity: 1 }}
-      // exit={{ opacity: 0 }}
-      className="max-w-6xl mx-auto"
-    >
+    <div className="max-w-6xl mx-auto">
       <h1 className="text-3xl md:text-4xl font-bold mb-2">Projects</h1>
       <p className="text-muted-foreground mb-8">
         Explore my work in robotics, automation, and engineering design.
@@ -88,13 +72,16 @@ const Projects = () => {
       {/* Projects grid */}
       {filteredProjects.length > 0 ? (
         <motion.div 
-          variants={container}
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: 0 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
         >
-          {filteredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} />
+          {filteredProjects.map((project, index) => (
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index}
+            />
           ))}
         </motion.div>
       ) : (
@@ -108,7 +95,7 @@ const Projects = () => {
           </button>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
