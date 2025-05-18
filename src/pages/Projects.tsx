@@ -71,11 +71,7 @@ const Projects = () => {
 
       {/* Projects grid */}
       {filteredProjects.length > 0 ? (
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
@@ -83,7 +79,7 @@ const Projects = () => {
               index={index}
             />
           ))}
-        </motion.div>
+        </div>
       ) : (
         <div className="text-center py-12 text-muted-foreground">
           <p>No projects found matching the selected filter.</p>
