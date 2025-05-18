@@ -11,21 +11,21 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <div className="group bg-muted/5 border border-border rounded-lg overflow-hidden hover:border-primary/100 hover:shadow-md hover:shadow-primary/20 transition-all duration-300 focus-within:border-primary/70">
+    <div className="bg-muted/5 border border-border rounded-lg overflow-hidden">
       <Link to={`/projects/${project.id}`} className="block focus:outline-none">
         <AspectRatio ratio={16 / 9} className="bg-muted/20">
           <img
             src={project.image}
             alt={project.title}
-            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+            className="object-cover w-full h-full"
           />
         </AspectRatio>
         <div className="p-5">
           <div className="flex justify-between items-start">
-            <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">
+            <h3 className="font-bold text-lg mb-1">
               {project.title}
             </h3>
-            <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-primary">
               <ArrowRight size={18} />
             </span>
           </div>

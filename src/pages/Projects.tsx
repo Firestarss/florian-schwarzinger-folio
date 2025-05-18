@@ -45,7 +45,7 @@ const Projects = () => {
           {activeTag && (
             <button
               onClick={clearFilter}
-              className="text-sm text-primary hover:underline"
+              className="text-sm text-primary"
             >
               Clear filter
             </button>
@@ -56,10 +56,10 @@ const Projects = () => {
             <button
               key={tag}
               onClick={() => handleTagFilter(tag)}
-              className={`px-3 py-1 text-sm rounded-full border transition-colors ${
+              className={`px-3 py-1 text-sm rounded-full border ${
                 activeTag === tag
                   ? "bg-primary text-primary-foreground border-primary"
-                  : "border-border hover:bg-muted/60"
+                  : "border-border"
               }`}
             >
               {tag}
@@ -84,7 +84,7 @@ const Projects = () => {
           <p>No projects found matching the selected filter.</p>
           <button 
             onClick={clearFilter}
-            className="mt-4 text-primary hover:underline"
+            className="mt-4 text-primary"
           >
             Clear filter and show all projects
           </button>
