@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import { Project, projects } from "../data/projects";
 

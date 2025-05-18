@@ -1,6 +1,5 @@
 
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Project } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { ArrowRight } from "lucide-react";
@@ -12,17 +11,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
-      transition={{ 
-        duration: 0.4,
-        delay: index * 0.1,
-        ease: "easeOut"
-      }}
-      className="group bg-muted/5 border border-border rounded-lg overflow-hidden hover:border-primary/100 hover:shadow-md hover:shadow-primary/20 transition-all duration-300 focus-within:border-primary/70"
-    >
+    <div className="group bg-muted/5 border border-border rounded-lg overflow-hidden hover:border-primary/100 hover:shadow-md hover:shadow-primary/20 transition-all duration-300 focus-within:border-primary/70">
       <Link to={`/projects/${project.id}`} className="block focus:outline-none">
         <AspectRatio ratio={16 / 9} className="bg-muted/20">
           <img
@@ -55,7 +44,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 };
 
