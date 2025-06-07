@@ -1,28 +1,29 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { fadeInAnimation } from "@/lib/utils";
 
 const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false);
+  const resumeUrl = `${import.meta.env.BASE_URL}resume-florian-schwarzinger.pdf`;
 
   const socialLinks = [
     {
       name: "GitHub",
       icon: <Github size={20} />,
-      url: "https://github.com",
+      url: "https://github.comhttps://github.com/Firestarss",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={20} />,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/fschwarzinger/",
     },
     {
       name: "Email",
       icon: <Mail size={20} />,
-      url: "mailto:florian@example.com",
+      url: "mailto:florianmschwarzinger@gmail.com",
     },
   ];
 
@@ -31,11 +32,12 @@ const Contact = () => {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
+    <motion.main
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={fadeInAnimation}
+      transition={fadeInAnimation.transition}
       className="max-w-5xl mx-auto"
     >
       <h1 className="text-3xl md:text-4xl font-bold mb-2">Contact</h1>
@@ -71,11 +73,11 @@ const Contact = () => {
           <div className="flex items-center mb-6 gap-4">
             <Avatar className="h-16 w-16 border-2 border-primary">
               <AvatarImage src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Florian" />
-              <AvatarFallback>F</AvatarFallback>
+              <AvatarFallback>FS</AvatarFallback>
             </Avatar>
             <div>
               <h3 className="font-medium text-lg">Florian Schwarzinger</h3>
-              <p className="text-muted-foreground">Robotics Engineer & Developer</p>
+              <p className="text-muted-foreground">Robotics Engineer</p>
             </div>
           </div>
           
@@ -108,16 +110,19 @@ const Contact = () => {
               Download my resume to learn more about my experience and qualifications.
             </p>
             <a
-              href="#"
+              href={resumeUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
             >
               <Download size={18} className="mr-2" />
-              Download CV
+              Download Resume
             </a>
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.main>
   );
 };
 

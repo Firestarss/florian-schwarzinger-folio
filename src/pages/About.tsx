@@ -1,13 +1,15 @@
-
 import { motion } from "framer-motion";
+import { fadeInAnimation } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
+    <motion.main
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={fadeInAnimation}
+      transition={fadeInAnimation.transition}
       className="max-w-4xl mx-auto"
     >
       <section className="mb-12">
@@ -24,18 +26,19 @@ const About = () => {
               designing and implementing cutting-edge solutions for industrial and research applications.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="/contact" 
-                className="px-5 py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-              >
-                Get in Touch
-              </a>
-              <a 
-                href="/projects" 
-                className="px-5 py-2.5 border border-border rounded-md hover:bg-muted/50 transition-colors"
-              >
-                View Projects
-              </a>
+            <Link 
+              to="/projects" 
+              className="px-5 py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            >
+              View Projects
+            </Link>
+
+            <Link 
+              to="/contact" 
+              className="px-5 py-2.5 border border-border rounded-md hover:bg-muted/50 transition-colors"
+            >
+              Get in Touch
+            </Link>
             </div>
           </div>
           <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-lg">
@@ -52,24 +55,49 @@ const About = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">About Me</h2>
         <p className="text-muted-foreground mb-4 leading-relaxed">
-          I'm a passionate Robotics Engineer with a focus on autonomous navigation systems and human-robot interaction. 
-          With a background in mechanical engineering and computer science, I bridge the gap between hardware and software 
-          to create intelligent robotic systems that solve real-world problems.
+          I'm a Robotics Engineer passionate about building intelligent systems that bridge the gap between mechanical
+          function and software-driven autonomy. With a background in both engineering and applied research, I specialize
+          in designing, programming, and integrating advanced robotic platforms for real-world applications.
         </p>
         <p className="text-muted-foreground mb-4 leading-relaxed">
-          My work spans from industrial automation to research-oriented projects exploring the frontiers of 
-          machine learning in robotics. I believe in creating systems that are not only technically impressive 
-          but also intuitive and accessible for end-users.
+          I'm a Robotics Engineer and Olin College of Engineering graduate passionate about building intelligent systems
+          that bridge mechanical design and software-driven autonomy. I thrive when working across the full electro-mechanical
+          stack of a robot—especially during the early-stage prototyping and design phase. With a history of developing mobile robotic systems, I have a deep interest in subsea and underwater robotics, where complexity and creativity go hand in hand.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          When I'm not building robots, you can find me hiking in the mountains, participating in robotics 
-          competitions, or mentoring the next generation of engineers through STEM education programs.
+          During my free time, you can usually find me spinning fire, playing video games with friends, training in
+          Brazilian Jiu-Jitsu, or working behind the scenes in technical theater.
         </p>
       </section>
 
       <section>
         <h2 className="text-2xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Skills & Expertise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+            <h3 className="font-semibold mb-3 text-foreground">Technical Skills</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Robot Operating System (ROS/ROS2)
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Computer Vision & Sensor Fusion
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Machine Learning for Robotics
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                CAD/CAM Software
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Embedded Systems Programming
+              </li>
+            </ul>
+          </div>
           <div>
             <h3 className="font-semibold mb-3 text-foreground">Technical Skills</h3>
             <ul className="space-y-2 text-muted-foreground">
@@ -122,7 +150,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </motion.div>
+    </motion.main>
   );
 };
 

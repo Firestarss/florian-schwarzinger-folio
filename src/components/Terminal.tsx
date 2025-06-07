@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Command, X } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
 import { projects } from "@/data/projects";
 
 const Terminal = () => {
@@ -13,7 +12,6 @@ const Terminal = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const { toast } = useToast();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -85,10 +83,6 @@ const Terminal = () => {
       navigate('/contact');
       return 'Navigating to Contact page...';
     } else if (lowercaseCmd === 'resume') {
-      toast({
-        title: "Resume",
-        description: "Opening resume page...",
-      });
       navigate('/resume');
       return 'Navigating to Resume page...';
     } else if (lowercaseCmd === 'clear') {

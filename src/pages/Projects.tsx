@@ -1,69 +1,53 @@
-
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import { Project, projects } from "../data/projects";
 
 const Projects = () => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  
-  // Extract all unique tags from projects
-  const allTags = Array.from(
-    new Set(projects.flatMap(project => project.tags))
-  ).sort();
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [pendingFilter, setPendingFilter] = useState<string | null>(null);
+
+  const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
 
   const handleTagFilter = (tag: string) => {
     if (activeTag === tag) {
-      // If clicking the active tag, clear filter
-      setActiveTag(null);
-      setFilteredProjects(projects);
+      setPendingFilter(null);
     } else {
-      // Apply filter for the selected tag
-      setActiveTag(tag);
-      setFilteredProjects(projects.filter(project => 
-        project.tags.includes(tag)
-      ));
+      setPendingFilter(tag);
     }
+    setIsAnimating(true);  // Trigger fade out
   };
 
   const clearFilter = () => {
-    setActiveTag(null);
-    setFilteredProjects(projects);
+    setPendingFilter(null);
+    setIsAnimating(true);  // Trigger fade out
   };
 
-  // Animation variants for staggered list
-  const container = {
+  const containerVariants = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0 } },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <motion.div 
-      // initial={{ opacity: 0 }}
-      // animate={{ opacity: 1 }}
-      // exit={{ opacity: 0 }}
-      className="max-w-6xl mx-auto"
-    >
+    <>
       <h1 className="text-3xl md:text-4xl font-bold mb-2">Projects</h1>
       <p className="text-muted-foreground mb-8">
         Explore my work in robotics, automation, and engineering design.
       </p>
 
-      {/* Filter tags */}
+      {/* Filter UI */}
       <div className="mb-8">
         <div className="mb-2 flex items-center">
           <h2 className="text-lg font-medium mr-4">Filter by:</h2>
           {activeTag && (
-            <button
-              onClick={clearFilter}
-              className="text-sm text-primary hover:underline"
-            >
+            <button onClick={clearFilter} className="text-sm text-primary hover:underline">
               Clear filter
             </button>
           )}
@@ -85,30 +69,48 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Projects grid */}
-      {filteredProjects.length > 0 ? (
-        <motion.div 
-          variants={container}
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {filteredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </motion.div>
-      ) : (
-        <div className="text-center py-12 text-muted-foreground">
-          <p>No projects found matching the selected filter.</p>
-          <button 
-            onClick={clearFilter}
-            className="mt-4 text-primary hover:underline"
+      {/* AnimatePresence wrapping the grid container */}
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() => {
+          // After fade out, update the filtered projects and fade in
+          if (pendingFilter === null) {
+            setFilteredProjects(projects);
+            setActiveTag(null);
+          } else {
+            setFilteredProjects(projects.filter(p => p.tags.includes(pendingFilter)));
+            setActiveTag(pendingFilter);
+          }
+          setIsAnimating(false);
+        }}
+      >
+        {!isAnimating && (
+          <motion.div
+            key={activeTag || "all"}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            Clear filter and show all projects
-          </button>
-        </div>
-      )}
-    </motion.div>
+            {filteredProjects.length > 0 ? (
+              filteredProjects.map(project => (
+                <motion.div key={project.id} variants={cardVariants}>
+                  <ProjectCard project={project} />
+                </motion.div>
+              ))
+            ) : (
+              <div className="text-center py-12 text-muted-foreground col-span-full">
+                <p>No projects found matching the selected filter.</p>
+                <button onClick={clearFilter} className="mt-4 text-primary hover:underline">
+                  Clear filter and show all projects
+                </button>
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
