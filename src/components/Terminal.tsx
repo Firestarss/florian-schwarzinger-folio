@@ -9,6 +9,7 @@ const Terminal = () => {
   const [output, setOutput] = useState<string[]>([
     "Welcome to Florian's terminal. Type \"help\" for available commands.",
   ]);
+  const [awaitingProjectSelection, setAwaitingProjectSelection] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ const Terminal = () => {
         help: "Show this help message",
         about: "View about information",
         projects: "List all projects",
-        "list-projects": "List all project titles",
+        "sub-projects": "Navigate to a specific project (numbered list)",
         contact: "Go to contact page",
         resume: "View resume",
         clear: "Clear terminal",
@@ -85,8 +86,14 @@ const Terminal = () => {
     } else if (lowercaseCmd === 'projects') {
       navigate('/projects');
       return 'Navigating to Projects page...';
-    } else if (lowercaseCmd === 'list-projects') {
-      return projects.map(p => `- ${p.title}`).join('\n');
+    } else if (lowercaseCmd === 'sub-projects') {
+      setAwaitingProjectSelection(true);
+      return [
+        "Select a project:",
+        ...projects.map((p, idx) => `${idx + 1}. ${p.title}`),
+        "",
+        "Enter a number to navigate, or type 'random' for a random project.",
+      ].join('\n');
     } else if (lowercaseCmd === 'contact') {
       navigate('/contact');
       return 'Navigating to Contact page...';
@@ -106,10 +113,37 @@ const Terminal = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newOutput = [...output, `> ${input}`];
+    
+    if (awaitingProjectSelection) {
+      const trimmedInput = input.trim().toLowerCase();
+      
+      if (trimmedInput === 'random') {
+        const randomProject = projects[Math.floor(Math.random() * projects.length)];
+        navigate(`/projects/${randomProject.id}`);
+        newOutput.push(`Navigating to random project: ${randomProject.title}...`);
+        setAwaitingProjectSelection(false);
+      } else {
+        const projectIndex = parseInt(trimmedInput) - 1;
+        if (projectIndex >= 0 && projectIndex < projects.length) {
+          const selectedProject = projects[projectIndex];
+          navigate(`/projects/${selectedProject.id}`);
+          newOutput.push(`Navigating to ${selectedProject.title}...`);
+          setAwaitingProjectSelection(false);
+        } else {
+          newOutput.push(`Invalid selection. Please enter a number between 1 and ${projects.length}, or type 'random'.`);
+        }
+      }
+      
+      setOutput(newOutput);
+      setInput('');
+      return;
+    }
+    
     const result = processCommand(input);
 
     if (result === '__CLEAR__') {
       setOutput([]);
+      setAwaitingProjectSelection(false);
     } else if (result) {
       newOutput.push(result);
       setOutput(newOutput);
