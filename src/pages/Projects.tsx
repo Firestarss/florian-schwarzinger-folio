@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 import { Project, projects } from "../data/projects";
 
 const Projects = () => {
+  const navigate = useNavigate();
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [pendingFilter, setPendingFilter] = useState<string | null>(null);
 
   const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
+
+  const goToRandomProject = () => {
+    const randomProject = projects[Math.floor(Math.random() * projects.length)];
+    navigate(`/projects/${randomProject.id}`);
+  };
 
   const handleTagFilter = (tag: string) => {
     if (activeTag === tag) {
@@ -39,7 +46,14 @@ const Projects = () => {
     <>
       <h1 className="text-3xl md:text-4xl font-bold mb-2">Projects</h1>
       <p className="text-muted-foreground mb-8">
-        Explore my work in robotics, automation, and engineering design.
+        Explore my work in robotics, automation, and engineering design—or{" "}
+        <button 
+          onClick={goToRandomProject}
+          className="text-primary hover:underline font-medium"
+        >
+          jump to a random project
+        </button>
+        .
       </p>
 
       {/* Filter UI */}

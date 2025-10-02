@@ -13,7 +13,7 @@ const Footer = () => {
           </p>
           <div className="flex space-x-4">
             <a 
-              href="https://github.com" 
+              href="https://github.com/Firestarss" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -22,7 +22,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/fschwarzinger" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -31,7 +31,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="mailto:florian@example.com" 
+              href="mailto:florianmschwarzinger@gmail.com" 
               aria-label="Email"
               className="p-2 text-muted-foreground hover:text-primary rounded-full hover:bg-muted/50 transition-colors"
             >

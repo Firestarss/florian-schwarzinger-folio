@@ -44,7 +44,7 @@ const Header = () => {
           <NavLink 
             to="/" 
             className={({isActive}) => 
-              `hover:text-primary transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+              `text-base font-semibold hover:text-primary transition-colors ${isActive ? "text-primary" : "text-foreground"}`
             }
             end
           >
@@ -53,7 +53,7 @@ const Header = () => {
           <NavLink 
             to="/projects" 
             className={({isActive}) => 
-              `hover:text-primary transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+              `text-base font-semibold hover:text-primary transition-colors ${isActive ? "text-primary" : "text-foreground"}`
             }
           >
             Projects
@@ -61,7 +61,7 @@ const Header = () => {
           <NavLink 
             to="/resume" 
             className={({isActive}) => 
-              `hover:text-primary transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+              `text-base font-semibold hover:text-primary transition-colors ${isActive ? "text-primary" : "text-foreground"}`
             }
           >
             Resume
@@ -69,7 +69,7 @@ const Header = () => {
           <NavLink 
             to="/contact" 
             className={({isActive}) => 
-              `hover:text-primary transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+              `text-base font-semibold hover:text-primary transition-colors ${isActive ? "text-primary" : "text-foreground"}`
             }
           >
             Contact
@@ -85,7 +85,7 @@ const Header = () => {
               to="/" 
               onClick={closeMenu}
               className={({isActive}) => 
-                `block py-2 px-4 hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+                `block py-2 px-4 text-base font-semibold hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary" : "text-foreground"}`
               }
               end
             >
@@ -95,7 +95,7 @@ const Header = () => {
               to="/projects" 
               onClick={closeMenu}
               className={({isActive}) => 
-                `block py-2 px-4 hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+                `block py-2 px-4 text-base font-semibold hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary" : "text-foreground"}`
               }
             >
               Projects
@@ -104,7 +104,7 @@ const Header = () => {
               to="/resume" 
               onClick={closeMenu}
               className={({isActive}) => 
-                `block py-2 px-4 hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+                `block py-2 px-4 text-base font-semibold hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary" : "text-foreground"}`
               }
             >
               Resume
@@ -113,7 +113,7 @@ const Header = () => {
               to="/contact" 
               onClick={closeMenu}
               className={({isActive}) => 
-                `block py-2 px-4 hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary font-medium" : "text-foreground"}`
+                `block py-2 px-4 text-base font-semibold hover:bg-muted/50 rounded-md transition-colors ${isActive ? "text-primary" : "text-foreground"}`
               }
             >
               Contact
