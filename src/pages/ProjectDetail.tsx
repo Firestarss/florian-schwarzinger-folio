@@ -7,6 +7,7 @@ import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
 
 const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
@@ -99,15 +100,20 @@ const ProjectDetail = () => {
         </AspectRatio>
       </div>
 
-      {/* Main Story Content */}
-      <article className="prose prose-lg dark:prose-invert max-w-none mb-12">
-        <ReactMarkdown>{project.content}</ReactMarkdown>
-      </article>
+      {/* Project Description */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-semibold mb-2">Project Description</h2>
+        <Separator className="mb-6" />
+        <article className="prose prose-lg dark:prose-invert max-w-none">
+          <ReactMarkdown>{project.content}</ReactMarkdown>
+        </article>
+      </div>
 
       {/* Gallery */}
       {project.gallery && project.gallery.length > 0 && (
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Project Gallery</h2>
+          <h2 className="text-2xl font-semibold mb-2">Project Gallery</h2>
+          <Separator className="mb-6" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.gallery.map((image, index) => (
               <GalleryImage 
@@ -123,10 +129,11 @@ const ProjectDetail = () => {
       {/* Demo Video */}
       {project.videoUrl && (
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 flex items-center">
+          <h2 className="text-2xl font-semibold mb-2 flex items-center">
             <Youtube className="text-primary mr-2" size={28} />
             Demo Video
           </h2>
+          <Separator className="mb-6" />
           <div className="rounded-lg overflow-hidden shadow-lg">
             <div className="aspect-video">
               <iframe 
@@ -147,7 +154,8 @@ const ProjectDetail = () => {
       {/* Technologies Used */}
       {project.techStack && project.techStack.length > 0 && (
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Technologies Used</h2>
+          <h2 className="text-2xl font-semibold mb-2">Technologies Used</h2>
+          <Separator className="mb-6" />
           <div className="flex flex-wrap gap-2">
             {project.techStack.map(tech => (
               <span 
