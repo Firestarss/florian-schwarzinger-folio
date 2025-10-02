@@ -16,9 +16,19 @@ const Header = () => {
   return (
     <header className="bg-background border-b border-border py-4 sticky top-0 z-10">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-foreground transition-colors hover:text-primary">
-          Florian<span className="text-primary">.</span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={openTerminal}
+            className="p-2 rounded-md hover:bg-muted/50 hover:text-primary transition-colors"
+            aria-label="Open terminal"
+            title="Open Terminal (Ctrl+`)"
+          >
+            <Terminal size={20} />
+          </button>
+          <Link to="/" className="text-2xl font-bold text-foreground transition-colors hover:text-primary">
+            Florian<span className="text-primary">.</span>
+          </Link>
+        </div>
 
         {/* Mobile menu button */}
         <button 
@@ -64,14 +74,6 @@ const Header = () => {
           >
             Contact
           </NavLink>
-          <button
-            onClick={openTerminal}
-            className="p-2 rounded-md hover:bg-muted/50 hover:text-primary transition-colors"
-            aria-label="Open terminal"
-            title="Open Terminal (Ctrl+`)"
-          >
-            <Terminal size={20} />
-          </button>
         </nav>
       </div>
 

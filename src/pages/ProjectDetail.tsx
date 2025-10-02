@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Youtube } from "lucide-react";
+import { ArrowLeft, Youtube, FileText, Images } from "lucide-react";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
@@ -102,17 +103,23 @@ const ProjectDetail = () => {
 
       {/* Project Description */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-2">Project Description</h2>
+        <h2 className="text-2xl font-semibold mb-2 flex items-center">
+          <FileText className="text-primary mr-2" size={28} />
+          Project Description
+        </h2>
         <Separator className="mb-6" />
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <ReactMarkdown>{project.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.content}</ReactMarkdown>
         </article>
       </div>
 
       {/* Gallery */}
       {project.gallery && project.gallery.length > 0 && (
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-2">Project Gallery</h2>
+          <h2 className="text-2xl font-semibold mb-2 flex items-center">
+            <Images className="text-primary mr-2" size={28} />
+            Project Gallery
+          </h2>
           <Separator className="mb-6" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.gallery.map((image, index) => (
@@ -157,7 +164,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl font-semibold mb-2">Challenges & Solutions</h2>
           <Separator className="mb-6" />
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown>{project.challenges}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.challenges}</ReactMarkdown>
           </article>
         </div>
       )}
@@ -168,7 +175,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
           <Separator className="mb-6" />
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown>{project.keyFeatures}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.keyFeatures}</ReactMarkdown>
           </article>
         </div>
       )}
@@ -179,7 +186,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl font-semibold mb-2">Lessons Learned</h2>
           <Separator className="mb-6" />
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown>{project.lessonsLearned}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.lessonsLearned}</ReactMarkdown>
           </article>
         </div>
       )}
