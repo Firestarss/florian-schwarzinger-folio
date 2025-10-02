@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import { Project, projects } from "../data/projects";
+import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -35,11 +35,9 @@ const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const [project, setProject] = useState<Project | null>(null);
+  const project = projects.find(p => p.id === id);
   
   useEffect(() => {
-    const foundProject = projects.find(p => p.id === id);
-    setProject(foundProject || null);
     window.scrollTo(0, 0);
   }, [id]);
   
@@ -60,80 +58,38 @@ const ProjectDetail = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="max-w-5xl mx-auto"
+      className="max-w-4xl mx-auto"
     >
-      {/* Header */}
-      <div className="mb-8">
-        <Button 
-          variant="ghost" 
-          asChild 
-          className="mb-4 -ml-2"
-        >
-          <Link to="/projects">
-            <ArrowLeft className="mr-2" />
-            Back to Projects
-          </Link>
-        </Button>
-        
-        <h1 className="text-3xl md:text-4xl font-bold mb-3">{project.title}</h1>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map(tag => (
-            <span 
-              key={tag}
-              className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      {/* Back Button */}
+      <Button 
+        variant="ghost" 
+        asChild 
+        className="mb-6 -ml-2"
+      >
+        <Link to="/projects">
+          <ArrowLeft className="mr-2" />
+          Back to Projects
+        </Link>
+      </Button>
 
-        <p className="text-lg text-muted-foreground mb-6">{project.description}</p>
-        
-        {/* Project Metadata */}
-        {(project.techStack || project.duration || project.role || project.teamSize) && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-muted/30 rounded-lg border border-border">
-            {project.duration && (
-              <div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Duration</div>
-                <div className="font-medium">{project.duration}</div>
-              </div>
-            )}
-            {project.role && (
-              <div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Role</div>
-                <div className="font-medium">{project.role}</div>
-              </div>
-            )}
-            {project.teamSize && (
-              <div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Team Size</div>
-                <div className="font-medium">{project.teamSize} members</div>
-              </div>
-            )}
-            {project.techStack && project.techStack.length > 0 && (
-              <div className="md:col-span-2 lg:col-span-1">
-                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Tech Stack</div>
-                <div className="flex flex-wrap gap-1">
-                  {project.techStack.slice(0, 3).map(tech => (
-                    <span key={tech} className="text-xs px-2 py-0.5 bg-muted rounded">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.techStack.length > 3 && (
-                    <span className="text-xs px-2 py-0.5 text-muted-foreground">
-                      +{project.techStack.length - 3}
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+      {/* Title and Tags */}
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
+      
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.tags.map(tag => (
+          <span 
+            key={tag}
+            className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary border border-primary/20"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
 
+      <p className="text-xl text-muted-foreground mb-8 leading-relaxed">{project.description}</p>
+
       {/* Hero Image */}
-      <div className="mb-12 border rounded-lg overflow-hidden shadow-lg">
+      <div className="mb-12 rounded-lg overflow-hidden shadow-xl">
         <AspectRatio ratio={16 / 9}>
           <img 
             src={project.image}
@@ -143,90 +99,60 @@ const ProjectDetail = () => {
         </AspectRatio>
       </div>
 
-      {/* Outcomes */}
-      {project.outcomes && project.outcomes.length > 0 && (
-        <div className="mb-12 p-6 bg-primary/5 border border-primary/20 rounded-lg">
-          <h2 className="text-xl font-semibold mb-4 text-primary">Key Outcomes</h2>
-          <ul className="space-y-2">
-            {project.outcomes.map((outcome, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-primary mr-3 mt-1">▸</span>
-                <span>{outcome}</span>
-              </li>
+      {/* Main Story Content */}
+      <article className="prose prose-lg dark:prose-invert max-w-none mb-12">
+        <ReactMarkdown>{project.content}</ReactMarkdown>
+      </article>
+
+      {/* Gallery */}
+      {project.gallery && project.gallery.length > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">Project Gallery</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.gallery.map((image, index) => (
+              <GalleryImage 
+                key={index}
+                src={image.src} 
+                alt={image.alt} 
+              />
             ))}
-          </ul>
+          </div>
         </div>
       )}
-      
-      {/* Content Sections */}
-      {project.sections && project.sections.map((section, index) => (
-        <div key={index} className="mb-12">
-          {section.type === 'overview' || section.type === 'technical' || section.type === 'results' ? (
-            <>
-              {section.title && (
-                <h2 className="text-2xl font-semibold mb-4 pb-2 border-b border-border">
-                  {section.title}
-                </h2>
-              )}
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <ReactMarkdown>{section.content || ''}</ReactMarkdown>
-              </div>
-            </>
-          ) : section.type === 'gallery' && section.images ? (
-            <>
-              {section.title && (
-                <h2 className="text-2xl font-semibold mb-4 pb-2 border-b border-border">
-                  {section.title}
-                </h2>
-              )}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {section.images.map((image, imgIndex) => (
-                  <GalleryImage 
-                    key={imgIndex}
-                    src={image.src} 
-                    alt={image.alt || `Gallery image ${imgIndex + 1}`} 
-                  />
-                ))}
-              </div>
-            </>
-          ) : section.type === 'video' && section.videoUrl ? (
-            <>
-              {section.title && (
-                <h2 className="text-2xl font-semibold mb-4 pb-2 border-b border-border flex items-center">
-                  <Youtube className="text-primary mr-2" size={24} />
-                  {section.title}
-                </h2>
-              )}
-              <div className="border rounded-lg overflow-hidden shadow-md">
-                <div className="aspect-video">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src={section.videoUrl}
-                    title={`${project.title} - ${section.title || 'Video'}`}
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-              </div>
-            </>
-          ) : null}
-        </div>
-      ))}
 
-      {/* Tech Stack (if not shown above) */}
-      {project.techStack && project.techStack.length > 3 && (
+      {/* Demo Video */}
+      {project.videoUrl && (
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 pb-2 border-b border-border">
-            Technologies Used
+          <h2 className="text-2xl font-semibold mb-6 flex items-center">
+            <Youtube className="text-primary mr-2" size={28} />
+            Demo Video
           </h2>
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <div className="aspect-video">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src={project.videoUrl}
+                title={`${project.title} - Demo`}
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Technologies Used */}
+      {project.techStack && project.techStack.length > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">Technologies Used</h2>
           <div className="flex flex-wrap gap-2">
             {project.techStack.map(tech => (
               <span 
                 key={tech}
-                className="px-3 py-1.5 text-sm bg-muted/50 border border-border rounded-md"
+                className="px-4 py-2 text-sm bg-muted/50 border border-border rounded-lg font-medium"
               >
                 {tech}
               </span>
