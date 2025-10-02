@@ -32,7 +32,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <ArrowRight size={18} />
             </span>
           </div>
-          <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
+          <p className="text-muted-foreground text-sm mb-3 line-clamp-3">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-1.5">
