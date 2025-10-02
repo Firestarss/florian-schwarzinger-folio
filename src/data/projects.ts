@@ -12,8 +12,294 @@ export interface Project {
   techStack?: string[];
   gallery?: { src: string; alt: string; }[];
   videoUrl?: string;
+  challenges?: string;
+  keyFeatures?: string;
+  lessonsLearned?: string;
 }
 export const projects: Project[] = [
+  {
+    id: "rubiks-cube-robot",
+    title: "Rubik's Cube Robot",
+    description: "An autonomous robotic system capable of solving a standard 3x3 Rubik's Cube in under 10 seconds using computer vision and advanced solving algorithms.",
+    image: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2000",
+    tags: ["Computer Vision", "Robotics", "OpenCV", "Python", "ROS", "Machine Learning"],
+    content: `# Rubik's Cube Robot - Markdown Feature Showcase
+
+This project description demonstrates **every markdown feature** supported by react-markdown.
+
+![Rubik's Cube](https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=1200)
+
+## Headers and Text Formatting
+
+This section shows different **header levels** and *text formatting* options.
+
+### Level 3 Header
+#### Level 4 Header
+##### Level 5 Header
+###### Level 6 Header
+
+You can make text **bold**, *italic*, or ***both bold and italic***. You can also use ~~strikethrough~~ text.
+
+## Lists
+
+### Unordered Lists
+
+* First item with basic bullet
+* Second item
+  * Nested item 1
+  * Nested item 2
+    * Deeply nested item
+* Third item
+
+### Ordered Lists
+
+1. First step in solving algorithm
+2. Second step - color detection
+3. Third step - move calculation
+   1. Sub-step A
+   2. Sub-step B
+4. Fourth step - execution
+
+### Task Lists
+
+- [x] Design mechanical gripper
+- [x] Implement computer vision
+- [x] Integrate solving algorithm
+- [ ] Optimize for speed
+- [ ] Add voice announcements
+
+## Code Examples
+
+Here's an inline code example: \`solve_cube()\` is the main function.
+
+### Python Code Block
+
+\`\`\`python
+def detect_cube_colors(image):
+    """
+    Detects colors on each face of the Rubik's Cube
+    using OpenCV and HSV color space conversion
+    """
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    
+    colors = {
+        'red': [(0, 100, 100), (10, 255, 255)],
+        'green': [(40, 100, 100), (80, 255, 255)],
+        'blue': [(100, 100, 100), (130, 255, 255)]
+    }
+    
+    detected_faces = []
+    for color, (lower, upper) in colors.items():
+        mask = cv2.inRange(hsv, lower, upper)
+        detected_faces.append(color)
+    
+    return detected_faces
+\`\`\`
+
+### JavaScript Code Block
+
+\`\`\`javascript
+class RubiksCubeSolver {
+  constructor() {
+    this.moveHistory = [];
+    this.solved = false;
+  }
+  
+  async solveCube(cubeState) {
+    const solution = await this.calculateOptimalSolution(cubeState);
+    await this.executeMoves(solution);
+    this.solved = true;
+    return solution;
+  }
+}
+\`\`\`
+
+## Blockquotes
+
+> The Rubik's Cube is a 3-D combination puzzle invented in 1974 by Hungarian sculptor and professor of architecture Ernő Rubik.
+
+> **Note:** This robot uses the Kociemba algorithm for solving, which guarantees solutions in 20 moves or fewer.
+
+> You can also have multi-paragraph quotes.
+>
+> Just like this one, which spans multiple lines and provides additional context about the solving strategy.
+
+## Links
+
+Here are some useful links:
+- [Rubik's Cube Wikipedia](https://en.wikipedia.org/wiki/Rubik%27s_Cube)
+- [Kociemba Algorithm Explanation](https://www.speedsolving.com)
+- Visit [OpenCV Documentation](https://docs.opencv.org) for computer vision details
+
+## Images
+
+Here's an example of embedded images in the project:
+
+![Robot Gripper Close-up](https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800)
+
+*The custom-designed gripper mechanism with servo motors*
+
+![Color Detection](https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800)
+
+*Computer vision system detecting cube face colors*
+
+## Tables
+
+### Algorithm Performance Comparison
+
+| Algorithm | Avg Moves | Avg Time | Complexity |
+|-----------|-----------|----------|------------|
+| Kociemba | 18-20 | 0.1s | O(n²) |
+| CFOP | 50-60 | 0.05s | O(n³) |
+| Beginner | 100+ | 0.02s | O(n) |
+
+### Hardware Specifications
+
+| Component | Specification | Quantity |
+|-----------|--------------|----------|
+| Servo Motor | MG996R | 6 |
+| Camera | Raspberry Pi Camera v2 | 1 |
+| Microcontroller | Arduino Mega | 1 |
+| Power Supply | 12V 5A | 1 |
+
+## Horizontal Rules
+
+The following sections are separated by horizontal rules:
+
+---
+
+### Section 1: Computer Vision
+
+The vision system uses OpenCV to detect colors on all six faces of the cube.
+
+***
+
+### Section 2: Solving Algorithm
+
+The Kociemba algorithm provides optimal solutions in minimal moves.
+
+---
+
+## Emphasis and Strong Emphasis
+
+This is *emphasized text* and this is **strong text**. You can also use _underscores for emphasis_ and __double underscores for strong__.
+
+## Escaping Characters
+
+Sometimes you need to show markdown syntax literally: \\*not italic\\* and \\**not bold\\**.
+
+## Technical Deep Dive
+
+The robot operates in several phases:
+
+1. **Scanning Phase**: The cube is rotated by servo motors while a camera captures images of each face
+2. **Recognition Phase**: OpenCV processes images using HSV color space to identify each sticker's color
+3. **Solving Phase**: The detected cube state is fed into the Kociemba two-phase algorithm
+4. **Execution Phase**: The calculated solution moves are executed by coordinated servo movements
+
+The entire process, from scrambled to solved, takes approximately 8-10 seconds, with the solving algorithm itself computing the solution in under 100 milliseconds.
+
+### Performance Metrics
+
+\`\`\`
+Average solve time: 8.7 seconds
+Success rate: 98.3%
+Average moves: 19.2
+Fastest solve: 6.1 seconds
+\`\`\`
+
+## Conclusion
+
+This Rubik's Cube Robot project combines **mechanical engineering**, *computer vision*, and ***algorithmic problem-solving*** into one cohesive system. The integration of ROS for robot control, OpenCV for perception, and Python for high-level logic demonstrates a full-stack robotics application.
+
+> "Any sufficiently advanced technology is indistinguishable from magic." - Arthur C. Clarke
+
+The project continues to evolve with improvements in speed, accuracy, and reliability.`,
+    techStack: [
+      "Python",
+      "OpenCV",
+      "ROS (Robot Operating System)",
+      "Arduino",
+      "Raspberry Pi",
+      "NumPy",
+      "Kociemba Algorithm",
+      "Computer Vision",
+      "Servo Control",
+      "Image Processing"
+    ],
+    gallery: [
+      {
+        src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200",
+        alt: "Robot mechanical assembly with servo motors"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1200",
+        alt: "Computer vision color detection system"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=1200",
+        alt: "Solved Rubik's Cube"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200",
+        alt: "Control electronics and wiring"
+      }
+    ],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    challenges: `## Challenges & Solutions
+
+### Challenge 1: Color Recognition Reliability
+
+**Problem**: Initial color detection failed under varying lighting conditions, causing misidentification of colors.
+
+**Solution**: Implemented adaptive thresholding and HSV color space conversion with dynamic range adjustment based on ambient light sensors. Also added calibration routines that run before each solve.
+
+### Challenge 2: Mechanical Precision
+
+**Problem**: Servo motors lacked the precision needed for consistent 90-degree rotations, leading to cube misalignment.
+
+**Solution**: Upgraded to metal-gear servos (MG996R) and implemented closed-loop feedback using hall effect sensors to verify exact rotation angles.
+
+### Challenge 3: Processing Speed
+
+**Problem**: Initial implementation took 30+ seconds per solve due to inefficient image processing.
+
+**Solution**: Optimized computer vision pipeline using NumPy vectorization and implemented multi-threading for parallel face analysis, reducing processing time by 70%.`,
+    keyFeatures: `## Key Features
+
+- **Sub-10 Second Solves**: Consistently solves cubes in under 10 seconds from scrambled state to completion
+- **98%+ Success Rate**: Highly reliable with minimal failed attempts due to robust error detection
+- **Optimal Solutions**: Uses Kociemba algorithm guaranteeing solutions in 20 moves or fewer
+- **Real-time Visualization**: Live camera feed with overlay showing detected colors
+- **Adaptive Lighting**: Automatically adjusts to different lighting conditions
+- **Web Interface**: Control panel for monitoring solve progress and viewing statistics
+- **Move History**: Records and displays all moves executed during solving
+- **Multiple Solving Algorithms**: Supports Kociemba, CFOP, and beginner methods`,
+    lessonsLearned: `## Lessons Learned
+
+### Technical Insights
+
+1. **Computer Vision is Hard**: What seems simple to human eyes (recognizing colors) requires extensive tuning, calibration, and error handling in software. Environmental factors like lighting and shadows have massive impacts on reliability.
+
+2. **Hardware Matters**: The quality of servos, cameras, and mechanical components directly impacts performance. Investing in better hardware early saves debugging time later.
+
+3. **Algorithm Selection**: While the Kociemba algorithm provides optimal solutions, simpler algorithms (like CFOP) can be faster to compute for real-time applications. The trade-off between move optimality and computation speed is important.
+
+### Project Management
+
+1. **Iterative Development**: Breaking the project into phases (mechanical → vision → solving → integration) made debugging much easier than trying to build everything at once.
+
+2. **Testing Framework**: Creating a test suite with known cube configurations was invaluable for validating changes without needing physical hardware.
+
+3. **Documentation**: Keeping detailed notes about calibration values, color thresholds, and mechanical adjustments saved countless hours when revisiting code months later.
+
+### Future Improvements
+
+- Implement machine learning for color detection instead of hard-coded thresholds
+- Add voice commands for hands-free operation
+- Create a mobile app for wireless control
+- Optimize for one-handed solving to compete in speed-solving competitions`
+  },
   {
     id: "autonomous-nav",
     title: "Autonomous Navigation System",

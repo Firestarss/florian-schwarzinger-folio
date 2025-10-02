@@ -25,8 +25,16 @@ const Terminal = () => {
       }
     };
 
+    const handleOpenTerminal = () => {
+      setIsOpen(true);
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('open-terminal', handleOpenTerminal);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('open-terminal', handleOpenTerminal);
+    };
   }, [isOpen]);
 
   useEffect(() => {

@@ -23,12 +23,13 @@ const Resume = () => {
 
       <div className="grid gap-6">
         <Card className="bg-muted/10 border border-border overflow-hidden">
-          <CardContent className="p-0 h-[600px] overflow-hidden">
-            <object
-              data={resumeUrl}
-              type="application/pdf"
+          <CardContent className="p-0 h-[800px] overflow-hidden">
+            <iframe
+              src={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`}
               className="w-full h-full border-0"
-            >
+              title="Resume PDF"
+            />
+            <noscript>
               <p className="p-4 text-center">
                 Your browser does not support PDFs. Download the resume{" "}
                 <a
@@ -41,7 +42,7 @@ const Resume = () => {
                 </a>
                 .
               </p>
-            </object>
+            </noscript>
           </CardContent>
         </Card>
 

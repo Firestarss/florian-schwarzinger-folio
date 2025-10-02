@@ -151,6 +151,39 @@ const ProjectDetail = () => {
         </div>
       )}
 
+      {/* Challenges & Solutions */}
+      {project.challenges && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-2">Challenges & Solutions</h2>
+          <Separator className="mb-6" />
+          <article className="prose prose-lg dark:prose-invert max-w-none">
+            <ReactMarkdown>{project.challenges}</ReactMarkdown>
+          </article>
+        </div>
+      )}
+
+      {/* Key Features */}
+      {project.keyFeatures && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
+          <Separator className="mb-6" />
+          <article className="prose prose-lg dark:prose-invert max-w-none">
+            <ReactMarkdown>{project.keyFeatures}</ReactMarkdown>
+          </article>
+        </div>
+      )}
+
+      {/* Lessons Learned */}
+      {project.lessonsLearned && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-2">Lessons Learned</h2>
+          <Separator className="mb-6" />
+          <article className="prose prose-lg dark:prose-invert max-w-none">
+            <ReactMarkdown>{project.lessonsLearned}</ReactMarkdown>
+          </article>
+        </div>
+      )}
+
       {/* Technologies Used */}
       {project.techStack && project.techStack.length > 0 && (
         <div className="mb-12">
