@@ -11,7 +11,6 @@ export interface Project {
   content: string;
   
   // Optional elements
-  techStack?: string[];
   gallery?: { src: string; alt: string; }[];
   videoUrl?: string;
   challenges?: string;
@@ -217,18 +216,6 @@ This Rubik's Cube Robot project combines **mechanical engineering**, *computer v
 > "Any sufficiently advanced technology is indistinguishable from magic." - Arthur C. Clarke
 
 The project continues to evolve with improvements in speed, accuracy, and reliability.`,
-    techStack: [
-      "Python",
-      "OpenCV",
-      "ROS (Robot Operating System)",
-      "Arduino",
-      "Raspberry Pi",
-      "NumPy",
-      "Kociemba Algorithm",
-      "Computer Vision",
-      "Servo Control",
-      "Image Processing"
-    ],
     gallery: [
       {
         src: getProjectImage("rubiks-cube-robot", "assembly.jpg"),
@@ -343,7 +330,6 @@ The system ran for 8 hours on a single charge and, most importantly, maintained 
 Today, this system operates in three major warehouse facilities. The improvement in logistics efficiency has been tangible—faster material transport, fewer bottlenecks, and robots that work alongside humans naturally rather than getting in their way.
 
 Looking back, what started as frustration with rigid navigation systems turned into a flexible, intelligent solution that actually understands its environment. That's the beauty of robotics: taking real-world chaos and finding elegant ways to navigate through it.`,
-    techStack: ["ROS", "Python", "C++", "LiDAR", "OpenCV", "TensorFlow"],
     gallery: [
       { src: getProjectImage("autonomous-navigation", "visualization.jpg"), alt: "Navigation system visualization" },
       { src: getProjectImage("autonomous-navigation", "sensors.jpg"), alt: "Circuit board and sensors" },
@@ -385,7 +371,6 @@ Using high-resolution optical encoders (0.01° resolution) and predictive modeli
 In production, the arm reduced assembly time by 35% while maintaining accuracy that human operators couldn't match over extended periods. The force feedback prevented damage to delicate components, and the visual servoing ensured perfect alignment every time.
 
 What started as a challenge in precision engineering became a lesson in sensor fusion and adaptive control. Sometimes the best solutions come from combining different sensing modalities, letting the system perceive its environment the way humans do—through multiple senses working together.`,
-    techStack: ["C++", "Real-Time Linux", "CAD", "Simulink", "Force Sensors"],
     gallery: [
       { src: getProjectImage("robotic-arm", "control-interface.jpg"), alt: "Control interface" },
       { src: getProjectImage("robotic-arm", "system-code.jpg"), alt: "System code" }
@@ -438,7 +423,6 @@ We reduced mapping time by 75% compared to single-drone operations, but more imp
 What I learned from this project goes beyond robotics. When you design systems where individual agents follow simple rules but interact intelligently, complex behaviors emerge naturally. The swarm became more than the sum of its parts.
 
 That's the beauty of distributed systems—resilience and intelligence arise from collaboration rather than central control.`,
-    techStack: ["Python", "ROS", "OpenCV", "ArduPilot", "NetworkX"],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     gallery: [
       { src: getProjectImage("drone-coordination", "field-testing.jpg"), alt: "Field testing setup" },
@@ -491,7 +475,6 @@ Running this system required serious optimization. I implemented an edge computi
 Building this system taught me that the best AI solutions aren't always the most complex. Sometimes it's about combining proven techniques with modern approaches, optimizing ruthlessly for performance, and designing systems that learn from their mistakes.
 
 Quality control might seem mundane, but when you're catching defects that would cost thousands of dollars downstream, every fraction of a percent in accuracy matters.`,
-    techStack: ["Python", "PyTorch", "OpenCV", "CUDA", "Docker"],
     gallery: [
       { src: getProjectImage("machine-vision", "defect-detection.jpg"), alt: "Real-time defect detection in action" },
       { src: getProjectImage("machine-vision", "processing-pipeline.jpg"), alt: "Vision processing pipeline" }
@@ -536,7 +519,6 @@ One tester told me they felt "normal again." That's when I knew we'd gotten it r
 This project taught me that the best assistive technology is invisible. It's not about showcasing clever engineering—it's about giving people back their independence in a way that feels natural and dignified.
 
 Sometimes the most meaningful engineering challenges aren't about pushing technical boundaries—they're about understanding human needs and building solutions that genuinely improve lives.`,
-    techStack: ["SolidWorks", "Arduino", "EMG Sensors", "Embedded C", "MATLAB"],
     gallery: [
       { src: getProjectImage("exoskeleton", "prototype.jpg"), alt: "Exoskeleton prototype assembly" },
       { src: getProjectImage("exoskeleton", "testing.jpg"), alt: "User testing session" },
@@ -587,7 +569,6 @@ What fascinated me most was watching operators use the system. After an initial 
 That's the goal of good teleoperation design: making the technology transparent so operators can focus on the task rather than the interface.
 
 This project reinforced a principle I've carried into other work: when building human-machine interfaces, the best designs are the ones that feel natural enough to become invisible.`,
-    techStack: ["ROS", "C++", "UDP", "Haptic Devices", "Real-Time Systems"],
     gallery: [
       { src: getProjectImage("haptic-interface", "operator-setup.jpg"), alt: "Operator control station with haptic device" },
       { src: getProjectImage("haptic-interface", "force-feedback.jpg"), alt: "Force feedback mechanism close-up" }
