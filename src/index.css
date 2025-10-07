@@ -158,7 +158,7 @@
   
   /* Task Lists */
   .prose input[type="checkbox"] {
-    @apply mr-2 align-middle cursor-pointer;
+    @apply mr-2 align-middle;
     width: 1.125rem;
     height: 1.125rem;
     border: 2px solid hsl(var(--primary));
@@ -167,12 +167,6 @@
     background-color: transparent;
     position: relative;
     flex-shrink: 0;
-    transition: all 0.2s ease;
-  }
-  
-  .prose input[type="checkbox"]:hover {
-    border-color: hsl(var(--primary));
-    background-color: hsl(var(--primary) / 0.1);
   }
   
   .prose input[type="checkbox"]:checked {
