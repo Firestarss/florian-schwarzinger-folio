@@ -21,7 +21,7 @@ export const projects: Project[] = [
     id: "rubiks-cube-robot",
     title: "Rubik's Cube Robot",
     description: "An autonomous robotic system capable of solving a standard 3x3 Rubik's Cube in under 10 seconds using computer vision and advanced solving algorithms.",
-    image: "/images/projects/hero/rubiks-cube.jpg",
+    image: "/images/projects/rubiks-cube-robot/hero.jpg",
     tags: ["Computer Vision", "Robotics", "OpenCV", "Python", "ROS", "Machine Learning"],
     content: `# Rubik's Cube Robot - Markdown Feature Showcase
 
@@ -304,7 +304,7 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
     id: "autonomous-nav",
     title: "Autonomous Navigation System",
     description: "A robust navigation system for industrial robots, featuring SLAM algorithms and dynamic obstacle avoidance for warehouse environments.",
-    image: "/images/projects/hero/autonomous-nav.jpg",
+    image: "/images/projects/autonomous-navigation/hero.jpg",
     tags: ["Robotics", "Computer Vision", "AI/ML"],
     content: `It started with a simple observation: warehouse robots were struggling to navigate dynamic environments. They'd stop at every unexpected obstacle, waiting for human intervention. I knew we could do better.
 
@@ -354,7 +354,7 @@ Looking back, what started as frustration with rigid navigation systems turned i
     id: "arm-control",
     title: "Precision Robotic Arm Controller",
     description: "High-precision control system for a 6-DOF robotic arm used in sensitive material handling and assembly tasks.",
-    image: "/images/projects/hero/robotic-arm.jpg",
+    image: "/images/projects/robotic-arm/hero.jpg",
     tags: ["Robotics", "Control Systems", "Mechatronics"],
     content: `When you're assembling semiconductor components or medical devices, "close enough" doesn't cut it. We're talking about precision measured in microns—that's millionths of a meter. One tremor, one miscalculation, and you've ruined an expensive part.
 
@@ -393,7 +393,7 @@ What started as a challenge in precision engineering became a lesson in sensor f
     id: "drone-swarm",
     title: "Multi-Drone Coordination System",
     description: "Software framework enabling autonomous coordination of drone swarms for environmental monitoring and mapping applications.",
-    image: "/images/projects/hero/drone-swarm.jpg",
+    image: "/images/projects/drone-coordination/hero.jpg",
     tags: ["Robotics", "Distributed Systems", "AI/ML"],
     content: `One drone can map an area. But twelve drones working together? That's when things get interesting.
 
@@ -448,7 +448,7 @@ That's the beauty of distributed systems—resilience and intelligence arise fro
     id: "vision-system",
     title: "Advanced Machine Vision System",
     description: "Computer vision system for real-time object detection, classification and quality control in manufacturing settings.",
-    image: "/images/projects/hero/machine-vision.jpg",
+    image: "/images/projects/machine-vision/hero.jpg",
     tags: ["Computer Vision", "AI/ML", "Manufacturing"],
     content: `Quality control in manufacturing is tedious, repetitive work. Human inspectors get tired, miss defects, and can't keep up with modern production speeds. But what if a machine could see defects smaller than 0.1mm while inspecting 120 items per minute without ever getting tired?
 
@@ -499,7 +499,7 @@ Quality control might seem mundane, but when you're catching defects that would 
     id: "exoskeleton",
     title: "Assistive Exoskeleton Design",
     description: "Lightweight exoskeleton with adaptive control systems to assist with rehabilitation and mobility for patients with limited motor functions.",
-    image: "/images/projects/hero/exoskeleton.jpg",
+    image: "/images/projects/exoskeleton/hero.jpg",
     tags: ["Mechatronics", "Biomedical", "Hardware"],
     content: `Imagine losing the ability to lift your arm. Simple tasks—eating, dressing, reaching for things—become exhausting struggles. I wanted to build something that could give people that capability back without making them feel like they're wearing a machine.
 
@@ -545,7 +545,7 @@ Sometimes the most meaningful engineering challenges aren't about pushing techni
     id: "teleoperation",
     title: "Haptic Teleoperation Interface",
     description: "A teleoperation system with haptic feedback enabling precise remote control of robotic systems in hazardous environments.",
-    image: "/images/projects/hero/haptic-interface.jpg",
+    image: "/images/projects/haptic-interface/hero.jpg",
     tags: ["Robotics", "HCI", "Control Systems"],
     content: `Sending robots into dangerous environments is one thing. Controlling them precisely from a distance is another challenge entirely. The problem with traditional remote control is the disconnect—you're watching through a camera, guessing at forces, and struggling with tasks that would be trivial with your own hands.
 
