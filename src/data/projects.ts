@@ -16,6 +16,7 @@ export interface Project {
   challenges?: string;
   keyFeatures?: string;
   lessonsLearned?: string;
+  techStack?: string[]; // Optional array of technologies used
 }
 export const projects: Project[] = [
   {

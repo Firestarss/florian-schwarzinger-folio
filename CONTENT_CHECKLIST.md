@@ -28,19 +28,16 @@ This file contains all project information displayed throughout the portfolio. E
 #### Basic Project Fields
 - `id`: Unique identifier (used in URLs)
 - `title`: Project name
-- `subtitle`: Brief tagline
-- `category`: Type of project (e.g., "Robotics", "Computer Vision")
-- `year`: Completion year
-- `duration`: Time invested
-- `team`: Team size or "Individual"
-- `heroImage`: Main project image using `getProjectImage(projectId, 'hero.jpg')`
-- `shortDescription`: Brief overview for project cards
-- `overview`: Detailed project description (supports markdown)
-- `challenge`: Problem statement (supports markdown)
-- `solution`: Your approach (supports markdown)
-- `results`: Outcomes and achievements (supports markdown)
-- `github`: GitHub repository URL (optional)
-- `external`: External link/demo URL (optional)
+- `description`: Brief overview for project cards
+- `image`: Main project image using `getProjectImage(projectId, 'hero.jpg')`
+- `tags`: Array of technology/category tags displayed as chips
+- `content`: Detailed project description (supports markdown)
+- `techStack`: (Optional) Array of technologies used, displayed as badges
+- `gallery`: (Optional) Array of additional project images
+- `videoUrl`: (Optional) Demo video URL
+- `challenges`: (Optional) Challenges faced (supports markdown)
+- `keyFeatures`: (Optional) Array of key features
+- `lessonsLearned`: (Optional) Array of lessons learned
 
 #### Managing Project Images
 
@@ -56,9 +53,9 @@ public/images/projects/
 
 **Using Images in Project Data:**
 
-1. **For the heroImage field:**
+1. **For the image field:**
    ```typescript
-   heroImage: getProjectImage('your-project-id', 'hero.jpg')
+   image: getProjectImage('your-project-id', 'hero.jpg')
    ```
 
 2. **In markdown content:**
@@ -166,9 +163,9 @@ public/images/
 1. **In Project Data:**
    ```typescript
    {
-     heroImage: getProjectImage('my-project', 'https://cdn.example.com/hero.jpg'),
+     image: getProjectImage('my-project', 'https://cdn.example.com/hero.jpg'),
      // or
-     heroImage: 'https://cdn.example.com/hero.jpg', // Direct URL also works
+     image: 'https://cdn.example.com/hero.jpg', // Direct URL also works
    }
    ```
 
@@ -190,7 +187,7 @@ public/images/
 
 ### Supported in Project Descriptions
 
-All project content fields (`overview`, `challenge`, `solution`, `results`) support markdown with these features:
+All project content fields (`content`, `challenges`) support markdown with these features:
 
 - **Headers**: `## Header`, `### Subheader`
 - **Bold/Italic**: `**bold**`, `*italic*`
@@ -222,18 +219,34 @@ All project content fields (`overview`, `challenge`, `solution`, `results`) supp
 
 ---
 
+## GitHub Pages Deployment
+
+### 404 Handling
+
+This project includes special configuration for GitHub Pages to handle client-side routing properly:
+
+- **`public/404.html`**: Redirects 404 errors to index.html while preserving the URL
+- **`index.html`**: Contains script to restore the original URL after redirect
+- **`src/main.tsx`**: Processes redirected URLs on app initialization
+
+These files work together to ensure that direct navigation to routes (like `/projects/my-project`) works correctly on GitHub Pages. **Do not modify these files** unless you understand the GitHub Pages SPA routing workaround.
+
+---
+
 ## Quick Start Checklist
 
 - [ ] Replace resume PDF in `public/` folder
 - [ ] Update Formspree form ID in `ContactForm.tsx`
 - [ ] Replace profile images (avatar, about-hero)
 - [ ] Update About page bio, skills, education, and experience
-- [ ] Customize all 7 projects in `src/data/projects.ts` or remove/add as needed
+- [ ] Customize projects in `src/data/projects.ts` or remove/add as needed
 - [ ] Add your project images to `public/images/projects/[project-id]/` folders
+- [ ] Add optional `techStack` arrays to projects you want to display technologies
 - [ ] Update contact page introductory text
 - [ ] Test all links (GitHub, external project links)
 - [ ] Verify all images display correctly
 - [ ] Verify contact form works with your Formspree account
+- [ ] Test routing on GitHub Pages after deployment
 
 ---
 
@@ -245,3 +258,4 @@ All project content fields (`overview`, `challenge`, `solution`, `results`) supp
 - **Consistency**: Keep a consistent visual style across all project images
 - **Alt Text**: Always provide descriptive alt text for accessibility
 - **Testing**: Preview each page after making changes to ensure everything displays correctly
+- **Tech Stack Badges**: Add a `techStack` array to projects where you want to highlight specific technologies used

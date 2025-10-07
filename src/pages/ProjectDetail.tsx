@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
@@ -99,6 +100,20 @@ const ProjectDetail = () => {
           />
         </AspectRatio>
       </div>
+
+      {/* Technologies Used */}
+      {project.techStack && project.techStack.length > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.map((tech) => (
+              <Badge key={tech} variant="secondary">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Project Description */}
       <div className="mb-12">
