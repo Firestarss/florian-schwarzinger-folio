@@ -16,10 +16,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className="group bg-muted/5 border border-border rounded-lg overflow-hidden hover:border-primary/100 hover:shadow-md hover:shadow-primary/20 transition-all duration-300 focus-within:border-primary/70"
     >
       <Link to={`/projects/${project.id}`} className="block focus:outline-none">
-        <AspectRatio ratio={16 / 9} className="bg-muted/20">
+      <AspectRatio ratio={16 / 9} className="bg-muted/20">
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
           />
         </AspectRatio>

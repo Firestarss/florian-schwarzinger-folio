@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# Florian Schwarzinger - Portfolio
 
-## Project info
+A modern, responsive portfolio website showcasing robotics engineering projects, featuring interactive project galleries, detailed case studies, and a terminal-inspired interface.
 
-**URL**: https://lovable.dev/projects/167b2d5d-4a9e-4fe6-a97c-ec8676a5af41
+## 🚀 Features
 
-## How can I edit this code?
+- **Project Showcase**: Interactive project cards with filtering by technology tags
+- **Detailed Case Studies**: Comprehensive project pages with markdown support, image galleries, and demo videos
+- **Terminal Interface**: Fun easter egg terminal for navigation
+- **Dark/Light Theme**: Seamless theme switching with system preference detection
+- **Responsive Design**: Mobile-first design that works beautifully on all devices
+- **SEO Optimized**: Semantic HTML, meta tags, and performance optimizations
+- **GitHub Pages Ready**: Configured for SPA routing on GitHub Pages
 
-There are several ways of editing your application.
+## 🛠️ Technologies
 
-**Use Lovable**
+- **React 18** with TypeScript
+- **Vite** for blazing-fast builds
+- **Tailwind CSS** for styling
+- **shadcn/ui** for beautiful, accessible components
+- **Framer Motion** for smooth animations
+- **React Router** for navigation
+- **React Markdown** for rich content
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/167b2d5d-4a9e-4fe6-a97c-ec8676a5af41) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🏗️ Build & Deploy
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Build for production
+npm run build
 
-**Use GitHub Codespaces**
+# Preview production build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Deploy to GitHub Pages
 
-## What technologies are used for this project?
+This project is configured for GitHub Pages deployment with SPA routing support. Simply push to your repository and enable GitHub Pages in your repo settings.
 
-This project is built with:
+## 📝 Customization
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+See [CONTENT_CHECKLIST.md](./CONTENT_CHECKLIST.md) for a comprehensive guide on personalizing this portfolio with your own content, including:
 
-## How can I deploy this project?
+- Replacing placeholder images
+- Adding your projects
+- Updating bio and resume
+- Configuring contact form
+- Using external image URLs
 
-Simply open [Lovable](https://lovable.dev/projects/167b2d5d-4a9e-4fe6-a97c-ec8676a5af41) and click on Share -> Publish.
+## 🎨 Project Structure
 
-## Can I connect a custom domain to my Lovable project?
+```
+src/
+├── components/        # Reusable UI components
+├── data/             # Project data and content
+├── lib/              # Utility functions
+├── pages/            # Route pages
+└── hooks/            # Custom React hooks
+```
 
-Yes, you can!
+## 📄 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is open source and available under the [MIT License](LICENSE).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## 📧 Contact
+
+Florian Schwarzinger - florianmschwarzinger@gmail.com
+
+Portfolio: [https://yourdomain.com](https://yourdomain.com)

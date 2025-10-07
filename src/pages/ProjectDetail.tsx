@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Youtube, FileText, Images } from "lucide-react";
 import { motion } from "framer-motion";
@@ -19,6 +19,7 @@ const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
             <img 
               src={src} 
               alt={alt}
+              loading="lazy"
               className="object-cover w-full h-full hover:scale-105 transition-transform duration-200" 
             />
           </AspectRatio>
@@ -95,7 +96,7 @@ const ProjectDetail = () => {
         <AspectRatio ratio={16 / 9}>
           <img 
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} - Hero image showcasing the project`}
             className="object-cover w-full h-full"
           />
         </AspectRatio>

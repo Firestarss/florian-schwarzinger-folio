@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-background border-b border-border py-4 sticky top-0 z-10">
+    <header className="bg-background border-b border-border py-4 sticky top-0 z-10 backdrop-blur-sm bg-background/95">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <button
@@ -79,7 +79,7 @@ const Header = () => {
 
       {/* Mobile navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-background border-t border-border animate-fade-in">
+        <nav className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <NavLink 
               to="/" 
