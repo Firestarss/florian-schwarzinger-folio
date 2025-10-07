@@ -24,6 +24,73 @@ export interface Project {
 }
 export const projects: Project[] = [
   {
+    id: "terminal-secret",
+    title: "The Hidden Project",
+    description: "A secret experimental project exploring advanced AI-driven motion planning. Only accessible via the terminal interface.",
+    image: getProjectImage("autonomous-navigation", "visualization.jpg"),
+    tags: ["AI/ML", "Motion Planning", "Experimental"],
+    showInProjects: false,
+    showInTerminal: true,
+    content: `# The Hidden Project
+
+Congratulations! You found the secret project accessible only through the terminal.
+
+## What is this?
+
+This is an experimental project exploring advanced AI-driven motion planning algorithms. The work here is cutting-edge and still under active research, which is why it's kept hidden from the main projects page.
+
+## Key Research Areas
+
+- **Neural Motion Planning**: Using deep learning to predict optimal robot trajectories
+- **Real-time Adaptation**: Systems that adapt to unexpected obstacles using reinforcement learning
+- **Multi-Agent Coordination**: Algorithms for coordinating multiple robots in shared spaces
+
+## Why Terminal-Only?
+
+This project represents experimental work that's not ready for public showcase but is documented here for reference and testing purposes. The terminal interface provides a more technical, developer-focused way to access this content.
+
+> *"The best way to predict the future is to invent it."* - Alan Kay
+
+Stay curious, and keep exploring!`
+  },
+  {
+    id: "wip-exoskeleton-v2",
+    title: "Advanced Exoskeleton System v2",
+    description: "Next-generation powered exoskeleton with enhanced force feedback and adaptive control. Currently in development.",
+    image: getProjectImage("exoskeleton", "hero.jpg"),
+    tags: ["Robotics", "Biomechanics", "Control Systems", "WIP"],
+    showInProjects: false,
+    showInTerminal: false,
+    content: `# Advanced Exoskeleton System v2
+
+**Status**: Work in Progress
+
+This project is currently under development and not yet ready for public display. However, you can preview the content structure here.
+
+## Overview
+
+Building on the success of the original exoskeleton project, version 2 aims to incorporate:
+
+- Advanced haptic feedback systems
+- Machine learning-based gait prediction
+- Lighter composite materials
+- Extended battery life (8+ hours)
+- Modular design for different use cases
+
+## Current Development Phase
+
+We're currently in the prototyping phase, testing various actuator configurations and control algorithms. Early results show promising improvements in both user comfort and system efficiency.
+
+## Technical Challenges
+
+- Reducing system weight while maintaining strength
+- Improving power efficiency for longer operation times
+- Creating more natural movement patterns
+- Ensuring safety under all operating conditions
+
+*This page is accessible only via direct URL for development and testing purposes.*`
+  },
+  {
     id: "rubiks-cube-robot",
     title: "Rubik's Cube Robot",
     description: "An autonomous robotic system capable of solving a standard 3x3 Rubik's Cube in under 10 seconds using computer vision and advanced solving algorithms.",
