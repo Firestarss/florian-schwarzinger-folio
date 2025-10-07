@@ -4,6 +4,7 @@ import { Github, Linkedin, Mail, Download } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { fadeInAnimation } from "@/lib/utils";
+import { getProfileImage } from "@/lib/images";
 
 const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false);
@@ -72,7 +73,7 @@ const Contact = () => {
           
           <div className="flex items-center mb-6 gap-4">
             <Avatar className="h-16 w-16 border-2 border-primary">
-              <AvatarImage src={`${import.meta.env.BASE_URL}images/profile/avatar.jpg`} alt="Florian" />
+              <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian" />
               <AvatarFallback>FS</AvatarFallback>
             </Avatar>
             <div>

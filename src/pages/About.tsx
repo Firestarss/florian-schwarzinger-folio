@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInAnimation } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { getProfileImage } from "@/lib/images";
 
 const About = () => {
   return (
@@ -44,7 +45,7 @@ const About = () => {
           <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/10"></div>
             <img 
-              src={`${import.meta.env.BASE_URL}images/profile/about-hero.jpg`}
+              src={getProfileImage("about-hero.jpg")}
               alt="Robot Engineering" 
               className="w-full h-full object-cover object-center"
             />

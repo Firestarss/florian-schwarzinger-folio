@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Youtube, FileText, Images } from "lucide-react";
 import { motion } from "framer-motion";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
 
 const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
@@ -109,7 +108,7 @@ const ProjectDetail = () => {
         </h2>
         <Separator className="mb-6" />
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.content}</ReactMarkdown>
+          <MarkdownRenderer>{project.content}</MarkdownRenderer>
         </article>
       </div>
 
@@ -164,7 +163,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl font-semibold mb-2">Challenges & Solutions</h2>
           <Separator className="mb-6" />
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.challenges}</ReactMarkdown>
+            <MarkdownRenderer>{project.challenges}</MarkdownRenderer>
           </article>
         </div>
       )}
@@ -175,7 +174,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
           <Separator className="mb-6" />
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.keyFeatures}</ReactMarkdown>
+            <MarkdownRenderer>{project.keyFeatures}</MarkdownRenderer>
           </article>
         </div>
       )}
@@ -186,7 +185,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl font-semibold mb-2">Lessons Learned</h2>
           <Separator className="mb-6" />
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.lessonsLearned}</ReactMarkdown>
+            <MarkdownRenderer>{project.lessonsLearned}</MarkdownRenderer>
           </article>
         </div>
       )}
