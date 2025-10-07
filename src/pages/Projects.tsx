@@ -6,15 +6,17 @@ import { Project, projects } from "../data/projects";
 
 const Projects = () => {
   const navigate = useNavigate();
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+  // Filter out projects that shouldn't be shown on the Projects page
+  const visibleProjects = projects.filter(p => p.showInProjects !== false);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(visibleProjects);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [pendingFilter, setPendingFilter] = useState<string | null>(null);
 
-  const allTags = Array.from(new Set(projects.flatMap(p => p.tags))).sort();
+  const allTags = Array.from(new Set(visibleProjects.flatMap(p => p.tags))).sort();
 
   const goToRandomProject = () => {
-    const randomProject = projects[Math.floor(Math.random() * projects.length)];
+    const randomProject = visibleProjects[Math.floor(Math.random() * visibleProjects.length)];
     navigate(`/projects/${randomProject.id}`);
   };
 
@@ -89,10 +91,10 @@ const Projects = () => {
         onExitComplete={() => {
           // After fade out, update the filtered projects and fade in
           if (pendingFilter === null) {
-            setFilteredProjects(projects);
+            setFilteredProjects(visibleProjects);
             setActiveTag(null);
           } else {
-            setFilteredProjects(projects.filter(p => p.tags.includes(pendingFilter)));
+            setFilteredProjects(visibleProjects.filter(p => p.tags.includes(pendingFilter)));
             setActiveTag(pendingFilter);
           }
           setIsAnimating(false);

@@ -88,9 +88,10 @@ const Terminal = () => {
       return 'Navigating to Projects page...';
     } else if (lowercaseCmd === 'sub-projects') {
       setAwaitingProjectSelection(true);
+      const terminalProjects = projects.filter(p => p.showInTerminal !== false);
       return [
         "Select a project:",
-        ...projects.map((p, idx) => `${idx + 1}. ${p.title}`),
+        ...terminalProjects.map((p, idx) => `${idx + 1}. ${p.title}`),
         "",
         "Enter a number to navigate, or type 'random' for a random project.",
       ].join('\n');
@@ -146,21 +147,22 @@ const Terminal = () => {
     
     if (awaitingProjectSelection) {
       const trimmedInput = input.trim().toLowerCase();
+      const terminalProjects = projects.filter(p => p.showInTerminal !== false);
       
       if (trimmedInput === 'random') {
-        const randomProject = projects[Math.floor(Math.random() * projects.length)];
+        const randomProject = terminalProjects[Math.floor(Math.random() * terminalProjects.length)];
         navigate(`/projects/${randomProject.id}`);
         newOutput.push(`Navigating to random project: ${randomProject.title}...`);
         setAwaitingProjectSelection(false);
       } else {
         const projectIndex = parseInt(trimmedInput) - 1;
-        if (projectIndex >= 0 && projectIndex < projects.length) {
-          const selectedProject = projects[projectIndex];
+        if (projectIndex >= 0 && projectIndex < terminalProjects.length) {
+          const selectedProject = terminalProjects[projectIndex];
           navigate(`/projects/${selectedProject.id}`);
           newOutput.push(`Navigating to ${selectedProject.title}...`);
           setAwaitingProjectSelection(false);
         } else {
-          newOutput.push(`Invalid selection. Please enter a number between 1 and ${projects.length}, or type 'random'.`);
+          newOutput.push(`Invalid selection. Please enter a number between 1 and ${terminalProjects.length}, or type 'random'.`);
         }
       }
       

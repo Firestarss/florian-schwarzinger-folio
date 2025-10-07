@@ -17,6 +17,10 @@ export interface Project {
   keyFeatures?: string;
   lessonsLearned?: string;
   techStack?: string[]; // Optional array of technologies used
+  
+  // Visibility controls
+  showInProjects?: boolean; // If false, hidden from Projects page (defaults to true)
+  showInTerminal?: boolean; // If false, hidden from terminal sub-projects (defaults to true)
 }
 export const projects: Project[] = [
   {
