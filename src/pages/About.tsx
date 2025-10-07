@@ -74,7 +74,7 @@ const About = () => {
 
       <section>
         <h2 className="text-2xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Skills & Expertise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <h3 className="font-semibold mb-3 text-foreground">Technical Skills</h3>
             <ul className="space-y-2 text-muted-foreground">
@@ -122,6 +122,31 @@ const About = () => {
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
                 Path Planning Algorithms
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-3 text-foreground">Tools & Platforms</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Git & Version Control
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Docker & Containerization
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Linux & Ubuntu Systems
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Gazebo & RViz Simulation
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Hardware Prototyping
               </li>
             </ul>
           </div>
