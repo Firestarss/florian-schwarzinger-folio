@@ -158,7 +158,38 @@
   
   /* Task Lists */
   .prose input[type="checkbox"] {
-    @apply mr-2 align-middle;
+    @apply mr-2 align-middle cursor-pointer;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 2px solid hsl(var(--primary));
+    border-radius: 0.25rem;
+    appearance: none;
+    background-color: transparent;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  
+  .prose input[type="checkbox"]:hover {
+    border-color: hsl(var(--primary));
+    background-color: hsl(var(--primary) / 0.1);
+  }
+  
+  .prose input[type="checkbox"]:checked {
+    background-color: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+  }
+  
+  .prose input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    top: 0.0625rem;
+    width: 0.375rem;
+    height: 0.625rem;
+    border: solid hsl(var(--primary-foreground));
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
   }
   
   /* Blockquotes */
