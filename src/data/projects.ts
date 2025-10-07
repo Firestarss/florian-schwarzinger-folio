@@ -1,3 +1,6 @@
+// Helper to get proper image paths for GitHub Pages
+const getImagePath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 export interface Project {
   id: string;
   title: string;
@@ -21,13 +24,13 @@ export const projects: Project[] = [
     id: "rubiks-cube-robot",
     title: "Rubik's Cube Robot",
     description: "An autonomous robotic system capable of solving a standard 3x3 Rubik's Cube in under 10 seconds using computer vision and advanced solving algorithms.",
-    image: "/images/projects/rubiks-cube-robot/hero.jpg",
+    image: getImagePath("images/projects/rubiks-cube-robot/hero.jpg"),
     tags: ["Computer Vision", "Robotics", "OpenCV", "Python", "ROS", "Machine Learning"],
     content: `# Rubik's Cube Robot - Markdown Feature Showcase
 
 This project description demonstrates **every markdown feature** supported by react-markdown.
 
-![Rubik's Cube](/images/projects/rubiks-cube-robot/hero.jpg)
+![Rubik's Cube](${import.meta.env.BASE_URL}images/projects/rubiks-cube-robot/hero.jpg)
 
 ## Headers and Text Formatting
 
@@ -135,11 +138,11 @@ Here are some useful links:
 
 Here's an example of embedded images in the project:
 
-![Robot Gripper Close-up](/images/projects/rubiks-cube-robot/gripper.jpg)
+![Robot Gripper Close-up](${import.meta.env.BASE_URL}images/projects/rubiks-cube-robot/gripper.jpg)
 
 *The custom-designed gripper mechanism with servo motors*
 
-![Color Detection](/images/projects/rubiks-cube-robot/color-detection.jpg)
+![Color Detection](${import.meta.env.BASE_URL}images/projects/rubiks-cube-robot/color-detection.jpg)
 
 *Computer vision system detecting cube face colors*
 
@@ -229,19 +232,19 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
     ],
     gallery: [
       {
-        src: "/images/projects/rubiks-cube-robot/assembly.jpg",
+        src: getImagePath("images/projects/rubiks-cube-robot/assembly.jpg"),
         alt: "Robot mechanical assembly with servo motors"
       },
       {
-        src: "/images/projects/rubiks-cube-robot/vision-system.jpg",
+        src: getImagePath("images/projects/rubiks-cube-robot/vision-system.jpg"),
         alt: "Computer vision color detection system"
       },
       {
-        src: "/images/projects/rubiks-cube-robot/solved-cube.jpg",
+        src: getImagePath("images/projects/rubiks-cube-robot/solved-cube.jpg"),
         alt: "Solved Rubik's Cube"
       },
       {
-        src: "/images/projects/rubiks-cube-robot/electronics.jpg",
+        src: getImagePath("images/projects/rubiks-cube-robot/electronics.jpg"),
         alt: "Control electronics and wiring"
       }
     ],
@@ -304,7 +307,7 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
     id: "autonomous-nav",
     title: "Autonomous Navigation System",
     description: "A robust navigation system for industrial robots, featuring SLAM algorithms and dynamic obstacle avoidance for warehouse environments.",
-    image: "/images/projects/autonomous-navigation/hero.jpg",
+    image: getImagePath("images/projects/autonomous-navigation/hero.jpg"),
     tags: ["Robotics", "Computer Vision", "AI/ML"],
     content: `It started with a simple observation: warehouse robots were struggling to navigate dynamic environments. They'd stop at every unexpected obstacle, waiting for human intervention. I knew we could do better.
 
@@ -343,10 +346,10 @@ Today, this system operates in three major warehouse facilities. The improvement
 Looking back, what started as frustration with rigid navigation systems turned into a flexible, intelligent solution that actually understands its environment. That's the beauty of robotics: taking real-world chaos and finding elegant ways to navigate through it.`,
     techStack: ["ROS", "Python", "C++", "LiDAR", "OpenCV", "TensorFlow"],
     gallery: [
-      { src: "/images/projects/autonomous-navigation/visualization.jpg", alt: "Navigation system visualization" },
-      { src: "/images/projects/autonomous-navigation/sensors.jpg", alt: "Circuit board and sensors" },
-      { src: "/images/projects/autonomous-navigation/dashboard.jpg", alt: "System monitoring dashboard" },
-      { src: "/images/projects/autonomous-navigation/code.jpg", alt: "Code implementation" }
+      { src: getImagePath("images/projects/autonomous-navigation/visualization.jpg"), alt: "Navigation system visualization" },
+      { src: getImagePath("images/projects/autonomous-navigation/sensors.jpg"), alt: "Circuit board and sensors" },
+      { src: getImagePath("images/projects/autonomous-navigation/dashboard.jpg"), alt: "System monitoring dashboard" },
+      { src: getImagePath("images/projects/autonomous-navigation/code.jpg"), alt: "Code implementation" }
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
@@ -354,7 +357,7 @@ Looking back, what started as frustration with rigid navigation systems turned i
     id: "arm-control",
     title: "Precision Robotic Arm Controller",
     description: "High-precision control system for a 6-DOF robotic arm used in sensitive material handling and assembly tasks.",
-    image: "/images/projects/robotic-arm/hero.jpg",
+    image: getImagePath("images/projects/robotic-arm/hero.jpg"),
     tags: ["Robotics", "Control Systems", "Mechatronics"],
     content: `When you're assembling semiconductor components or medical devices, "close enough" doesn't cut it. We're talking about precision measured in microns—that's millionths of a meter. One tremor, one miscalculation, and you've ruined an expensive part.
 
@@ -385,15 +388,15 @@ In production, the arm reduced assembly time by 35% while maintaining accuracy t
 What started as a challenge in precision engineering became a lesson in sensor fusion and adaptive control. Sometimes the best solutions come from combining different sensing modalities, letting the system perceive its environment the way humans do—through multiple senses working together.`,
     techStack: ["C++", "Real-Time Linux", "CAD", "Simulink", "Force Sensors"],
     gallery: [
-      { src: "/images/projects/robotic-arm/control-interface.jpg", alt: "Control interface" },
-      { src: "/images/projects/robotic-arm/system-code.jpg", alt: "System code" }
+      { src: getImagePath("images/projects/robotic-arm/control-interface.jpg"), alt: "Control interface" },
+      { src: getImagePath("images/projects/robotic-arm/system-code.jpg"), alt: "System code" }
     ]
   },
   {
     id: "drone-swarm",
     title: "Multi-Drone Coordination System",
     description: "Software framework enabling autonomous coordination of drone swarms for environmental monitoring and mapping applications.",
-    image: "/images/projects/drone-coordination/hero.jpg",
+    image: getImagePath("images/projects/drone-coordination/hero.jpg"),
     tags: ["Robotics", "Distributed Systems", "AI/ML"],
     content: `One drone can map an area. But twelve drones working together? That's when things get interesting.
 
@@ -439,16 +442,16 @@ That's the beauty of distributed systems—resilience and intelligence arise fro
     techStack: ["Python", "ROS", "OpenCV", "ArduPilot", "NetworkX"],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     gallery: [
-      { src: "/images/projects/drone-coordination/field-testing.jpg", alt: "Field testing setup" },
-      { src: "/images/projects/drone-coordination/control-station.jpg", alt: "Control station" },
-      { src: "/images/projects/drone-coordination/swarm-data.jpg", alt: "Swarm coordination data visualization" }
+      { src: getImagePath("images/projects/drone-coordination/field-testing.jpg"), alt: "Field testing setup" },
+      { src: getImagePath("images/projects/drone-coordination/control-station.jpg"), alt: "Control station" },
+      { src: getImagePath("images/projects/drone-coordination/swarm-data.jpg"), alt: "Swarm coordination data visualization" }
     ]
   },
   {
     id: "vision-system",
     title: "Advanced Machine Vision System",
     description: "Computer vision system for real-time object detection, classification and quality control in manufacturing settings.",
-    image: "/images/projects/machine-vision/hero.jpg",
+    image: getImagePath("images/projects/machine-vision/hero.jpg"),
     tags: ["Computer Vision", "AI/ML", "Manufacturing"],
     content: `Quality control in manufacturing is tedious, repetitive work. Human inspectors get tired, miss defects, and can't keep up with modern production speeds. But what if a machine could see defects smaller than 0.1mm while inspecting 120 items per minute without ever getting tired?
 
@@ -491,15 +494,15 @@ Building this system taught me that the best AI solutions aren't always the most
 Quality control might seem mundane, but when you're catching defects that would cost thousands of dollars downstream, every fraction of a percent in accuracy matters.`,
     techStack: ["Python", "PyTorch", "OpenCV", "CUDA", "Docker"],
     gallery: [
-      { src: "/images/projects/machine-vision/defect-detection.jpg", alt: "Real-time defect detection in action" },
-      { src: "/images/projects/machine-vision/processing-pipeline.jpg", alt: "Vision processing pipeline" }
+      { src: getImagePath("images/projects/machine-vision/defect-detection.jpg"), alt: "Real-time defect detection in action" },
+      { src: getImagePath("images/projects/machine-vision/processing-pipeline.jpg"), alt: "Vision processing pipeline" }
     ]
   },
   {
     id: "exoskeleton",
     title: "Assistive Exoskeleton Design",
     description: "Lightweight exoskeleton with adaptive control systems to assist with rehabilitation and mobility for patients with limited motor functions.",
-    image: "/images/projects/exoskeleton/hero.jpg",
+    image: getImagePath("images/projects/exoskeleton/hero.jpg"),
     tags: ["Mechatronics", "Biomedical", "Hardware"],
     content: `Imagine losing the ability to lift your arm. Simple tasks—eating, dressing, reaching for things—become exhausting struggles. I wanted to build something that could give people that capability back without making them feel like they're wearing a machine.
 
@@ -536,16 +539,16 @@ This project taught me that the best assistive technology is invisible. It's not
 Sometimes the most meaningful engineering challenges aren't about pushing technical boundaries—they're about understanding human needs and building solutions that genuinely improve lives.`,
     techStack: ["SolidWorks", "Arduino", "EMG Sensors", "Embedded C", "MATLAB"],
     gallery: [
-      { src: "/images/projects/exoskeleton/prototype.jpg", alt: "Exoskeleton prototype assembly" },
-      { src: "/images/projects/exoskeleton/testing.jpg", alt: "User testing session" },
-      { src: "/images/projects/exoskeleton/biomechanics.jpg", alt: "Biomechanics analysis" }
+      { src: getImagePath("images/projects/exoskeleton/prototype.jpg"), alt: "Exoskeleton prototype assembly" },
+      { src: getImagePath("images/projects/exoskeleton/testing.jpg"), alt: "User testing session" },
+      { src: getImagePath("images/projects/exoskeleton/biomechanics.jpg"), alt: "Biomechanics analysis" }
     ]
   },
   {
     id: "teleoperation",
     title: "Haptic Teleoperation Interface",
     description: "A teleoperation system with haptic feedback enabling precise remote control of robotic systems in hazardous environments.",
-    image: "/images/projects/haptic-interface/hero.jpg",
+    image: getImagePath("images/projects/haptic-interface/hero.jpg"),
     tags: ["Robotics", "HCI", "Control Systems"],
     content: `Sending robots into dangerous environments is one thing. Controlling them precisely from a distance is another challenge entirely. The problem with traditional remote control is the disconnect—you're watching through a camera, guessing at forces, and struggling with tasks that would be trivial with your own hands.
 
@@ -587,8 +590,8 @@ That's the goal of good teleoperation design: making the technology transparent 
 This project reinforced a principle I've carried into other work: when building human-machine interfaces, the best designs are the ones that feel natural enough to become invisible.`,
     techStack: ["ROS", "C++", "UDP", "Haptic Devices", "Real-Time Systems"],
     gallery: [
-      { src: "/images/projects/haptic-interface/operator-setup.jpg", alt: "Operator control station with haptic device" },
-      { src: "/images/projects/haptic-interface/force-feedback.jpg", alt: "Force feedback mechanism close-up" }
+      { src: getImagePath("images/projects/haptic-interface/operator-setup.jpg"), alt: "Operator control station with haptic device" },
+      { src: getImagePath("images/projects/haptic-interface/force-feedback.jpg"), alt: "Force feedback mechanism close-up" }
     ]
   }
 ];
