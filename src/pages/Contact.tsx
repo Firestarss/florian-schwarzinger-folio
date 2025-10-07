@@ -72,7 +72,7 @@ const Contact = () => {
           
           <div className="flex items-center mb-6 gap-4">
             <Avatar className="h-16 w-16 border-2 border-primary">
-              <AvatarImage src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Florian" />
+              <AvatarImage src="/images/profile/avatar.jpg" alt="Florian" />
               <AvatarFallback>FS</AvatarFallback>
             </Avatar>
             <div>

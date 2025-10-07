@@ -44,7 +44,7 @@ const About = () => {
           <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/10"></div>
             <img 
-              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
+              src="/images/profile/about-hero.jpg" 
               alt="Robot Engineering" 
               className="w-full h-full object-cover object-center"
             />
