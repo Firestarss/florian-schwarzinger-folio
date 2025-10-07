@@ -110,6 +110,36 @@ const Terminal = () => {
     }
   };
 
+  const handleTabComplete = () => {
+    if (awaitingProjectSelection) {
+      // Don't autocomplete during project selection
+      return;
+    }
+
+    const commands = ['help', 'about', 'projects', 'sub-projects', 'contact', 'resume', 'clear', 'exit'];
+    const trimmedInput = input.trim().toLowerCase();
+    
+    if (!trimmedInput) return;
+
+    const matches = commands.filter(cmd => cmd.startsWith(trimmedInput));
+    
+    if (matches.length === 1) {
+      // Single match - autocomplete
+      setInput(matches[0]);
+    } else if (matches.length > 1) {
+      // Multiple matches - show suggestions
+      const suggestions = matches.join('  ');
+      setOutput([...output, `> ${input}`, suggestions]);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      handleTabComplete();
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newOutput = [...output, `> ${input}`];
@@ -193,6 +223,7 @@ const Terminal = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
                 className="bg-transparent flex-1 focus:outline-none text-foreground font-mono text-sm"
                 autoComplete="off"
                 spellCheck="false"
