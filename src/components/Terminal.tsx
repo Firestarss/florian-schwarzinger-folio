@@ -192,16 +192,69 @@ const Terminal = () => {
       if (inputHash === PASSWORD_HASH) {
         newOutput.push("Access granted. Listing all projects (including hidden):");
         newOutput.push("");
-        newOutput.push(
-          ...projects.map((p, idx) => {
-            const visibility = [];
-            if (p.showInProjects !== false) visibility.push("public");
-            if (p.showInTerminal !== false) visibility.push("terminal");
-            if (p.showInProjects === false && !p.showInTerminal) visibility.push("url-only");
-            return `${idx + 1}. ${p.title} [${visibility.join(", ")}]`;
-          }),
-        );
-        newOutput.push("");
+        
+        // Group projects by visibility status
+        const grouped = {
+          urlOnly: [] as typeof projects,
+          terminalOnly: [] as typeof projects,
+          publicOnly: [] as typeof projects,
+          both: [] as typeof projects,
+        };
+        
+        projects.forEach((p) => {
+          const inProjects = p.showInProjects !== false;
+          const inTerminal = p.showInTerminal !== false;
+          
+          if (!inProjects && !inTerminal) {
+            grouped.urlOnly.push(p);
+          } else if (inTerminal && !inProjects) {
+            grouped.terminalOnly.push(p);
+          } else if (inProjects && !inTerminal) {
+            grouped.publicOnly.push(p);
+          } else {
+            grouped.both.push(p);
+          }
+        });
+        
+        // Display grouped projects with continuous numbering
+        let projectIndex = 1;
+        
+        if (grouped.urlOnly.length > 0) {
+          newOutput.push("URL-ONLY (hidden from both terminal and projects page):");
+          grouped.urlOnly.forEach((p) => {
+            newOutput.push(`  ${projectIndex}. ${p.title}`);
+            projectIndex++;
+          });
+          newOutput.push("");
+        }
+        
+        if (grouped.terminalOnly.length > 0) {
+          newOutput.push("TERMINAL-ONLY (hidden from projects page):");
+          grouped.terminalOnly.forEach((p) => {
+            newOutput.push(`  ${projectIndex}. ${p.title}`);
+            projectIndex++;
+          });
+          newOutput.push("");
+        }
+        
+        if (grouped.publicOnly.length > 0) {
+          newOutput.push("PUBLIC-ONLY (hidden from terminal):");
+          grouped.publicOnly.forEach((p) => {
+            newOutput.push(`  ${projectIndex}. ${p.title}`);
+            projectIndex++;
+          });
+          newOutput.push("");
+        }
+        
+        if (grouped.both.length > 0) {
+          newOutput.push("PUBLIC & TERMINAL (visible everywhere):");
+          grouped.both.forEach((p) => {
+            newOutput.push(`  ${projectIndex}. ${p.title}`);
+            projectIndex++;
+          });
+          newOutput.push("");
+        }
+        
         newOutput.push("Enter a number to navigate to any project.");
         setAwaitingPassword(false);
         setAwaitingProjectSelection(true);
