@@ -28,13 +28,13 @@ const About = () => {
               designing and implementing cutting-edge solutions for industrial and research applications.
             </p>
             <div className="flex space-x-4">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="text-base font-semibold">
                 <Link to="/projects">
                   View Projects
                 </Link>
               </Button>
 
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="text-base font-semibold border-primary/30 hover:border-primary/50 bg-background/50">
                 <Link to="/contact">
                   Get in Touch
                 </Link>
