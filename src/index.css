@@ -261,6 +261,14 @@
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   }
   
+  /* Override for images in multi-column layouts */
+  .prose .image-row .markdown-image,
+  .prose .image-grid .markdown-image {
+    max-width: 100%;
+    margin: 0;
+    display: block;
+  }
+  
   /* Strong/Bold */
   .prose strong {
     @apply font-bold text-foreground;
