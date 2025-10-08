@@ -21,6 +21,7 @@ export interface Project {
   // Visibility controls
   showInProjects?: boolean; // If false, hidden from Projects page (defaults to true)
   showInTerminal?: boolean; // If false, hidden from terminal sub-projects (defaults to true)
+  showInRandom?: boolean; // If false, excluded from random selection. If undefined, included only if both showInProjects and showInTerminal are not false
 }
 export const projects: Project[] = [
   {

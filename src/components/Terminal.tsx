@@ -150,9 +150,20 @@ const Terminal = () => {
       const terminalProjects = projects.filter(p => p.showInTerminal !== false);
       
       if (trimmedInput === 'random') {
-        const randomProject = terminalProjects[Math.floor(Math.random() * terminalProjects.length)];
-        navigate(`/projects/${randomProject.id}`);
-        newOutput.push(`Navigating to random project: ${randomProject.title}...`);
+        const randomEligibleProjects = projects.filter(p => {
+          if (p.showInRandom !== undefined) {
+            return p.showInRandom;
+          }
+          return p.showInProjects !== false && p.showInTerminal !== false;
+        });
+        
+        if (randomEligibleProjects.length === 0) {
+          newOutput.push('No projects available for random selection.');
+        } else {
+          const randomProject = randomEligibleProjects[Math.floor(Math.random() * randomEligibleProjects.length)];
+          navigate(`/projects/${randomProject.id}`);
+          newOutput.push(`Navigating to random project: ${randomProject.title}...`);
+        }
         setAwaitingProjectSelection(false);
       } else {
         const projectIndex = parseInt(trimmedInput) - 1;
