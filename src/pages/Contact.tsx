@@ -42,10 +42,18 @@ const Contact = () => {
       transition={fadeInAnimation.transition}
       className="max-w-5xl mx-auto"
     >
-      <h1 className="text-3xl md:text-4xl font-bold mb-2">Contact</h1>
-      <p className="text-muted-foreground mb-10">
-        Let's connect! Feel free to reach out via the form below or through social media.
-      </p>
+      {/* Professional Headshot Hero Section */}
+      <div className="flex flex-col items-center mb-12 text-center">
+        <Avatar className="h-40 w-40 mb-6 border-4 border-primary shadow-xl">
+          <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian Schwarzinger - Professional Headshot" />
+          <AvatarFallback>FS</AvatarFallback>
+        </Avatar>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Florian Schwarzinger</h1>
+        <p className="text-xl text-muted-foreground mb-4">Robotics Engineer</p>
+        <p className="text-muted-foreground max-w-2xl">
+          Let's connect! Feel free to reach out via the form below or through social media.
+        </p>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-10">
         <div>
@@ -71,17 +79,6 @@ const Contact = () => {
 
         <div>
           <h2 className="text-xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Connect</h2>
-          
-          <div className="flex items-center mb-6 gap-4">
-            <Avatar className="h-32 w-32 border-2 border-primary">
-              <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian" />
-              <AvatarFallback>FS</AvatarFallback>
-            </Avatar>
-            <div>
-              <h3 className="font-medium text-lg">Florian Schwarzinger</h3>
-              <p className="text-muted-foreground">Robotics Engineer</p>
-            </div>
-          </div>
           
           <div className="mb-8">
             <p className="text-muted-foreground mb-4">
