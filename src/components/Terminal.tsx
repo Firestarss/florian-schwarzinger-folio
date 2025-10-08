@@ -219,6 +219,7 @@ const Terminal = () => {
         let projectIndex = 1;
 
         if (grouped.urlOnly.length > 0) {
+          newOutput.push("");
           newOutput.push("URL-ONLY (hidden from both terminal and projects page):");
           grouped.urlOnly.forEach((p) => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
@@ -228,6 +229,7 @@ const Terminal = () => {
         }
 
         if (grouped.terminalOnly.length > 0) {
+          newOutput.push("");
           newOutput.push("TERMINAL-ONLY (hidden from projects page):");
           grouped.terminalOnly.forEach((p) => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
@@ -237,6 +239,7 @@ const Terminal = () => {
         }
 
         if (grouped.publicOnly.length > 0) {
+          newOutput.push("");
           newOutput.push("PUBLIC-ONLY (hidden from terminal):");
           grouped.publicOnly.forEach((p) => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
@@ -246,6 +249,7 @@ const Terminal = () => {
         }
 
         if (grouped.both.length > 0) {
+          newOutput.push("");
           newOutput.push("PUBLIC & TERMINAL (visible everywhere):");
           grouped.both.forEach((p) => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
@@ -254,6 +258,7 @@ const Terminal = () => {
           newOutput.push("");
         }
 
+        newOutput.push("");
         newOutput.push("Enter a number to navigate to any project.");
         setAwaitingPassword(false);
         setAwaitingProjectSelection(true);
