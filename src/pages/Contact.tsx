@@ -111,7 +111,7 @@ const Contact = () => {
             <p className="text-muted-foreground mb-4">
               Download my resume to learn more about my experience and qualifications.
             </p>
-            <Button asChild variant="hero" size="lg">
+            <Button asChild variant="hero" size="lg" className="text-base">
               <a
                 href={resumeUrl}
                 download

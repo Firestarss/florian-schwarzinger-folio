@@ -52,7 +52,7 @@ const Resume = () => {
             <p className="text-muted-foreground mb-6">
               This resume highlights my experience in robotics engineering and automation.
             </p>
-            <Button asChild>
+            <Button asChild variant="hero" size="lg" className="text-base">
               <a
                 href={resumeUrl}
                 download
