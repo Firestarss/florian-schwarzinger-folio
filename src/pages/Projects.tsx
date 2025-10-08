@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Search } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
 import { Project, projects } from "../data/projects";
+import { Input } from "@/components/ui/input";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -10,8 +12,10 @@ const Projects = () => {
   const visibleProjects = projects.filter(p => p.showInProjects !== false);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(visibleProjects);
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
   const [pendingFilter, setPendingFilter] = useState<string | null>(null);
+  const [pendingSearch, setPendingSearch] = useState("");
 
   const allTags = Array.from(new Set(visibleProjects.flatMap(p => p.tags))).sort();
 
@@ -40,7 +44,15 @@ const Projects = () => {
 
   const clearFilter = () => {
     setPendingFilter(null);
+    setPendingSearch("");
+    setSearchQuery("");
     setIsAnimating(true);  // Trigger fade out
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setPendingSearch(query);
+    setIsAnimating(true);
   };
 
   const containerVariants = {
@@ -67,30 +79,45 @@ const Projects = () => {
         .
       </p>
 
-      {/* Filter UI */}
-      <div className="mb-8">
-        <div className="mb-2 flex items-center">
-          <h2 className="text-lg font-medium mr-4">Filter by:</h2>
-          {activeTag && (
-            <button onClick={clearFilter} className="text-sm text-primary hover:underline">
-              Clear filter
-            </button>
-          )}
+      {/* Search and Filter UI */}
+      <div className="mb-8 space-y-4">
+        {/* Search Bar */}
+        <div className="relative max-w-md">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
+          <Input
+            type="text"
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => handleSearch(e.target.value)}
+            className="pl-10"
+          />
         </div>
-        <div className="flex flex-wrap gap-2">
-          {allTags.map(tag => (
-            <button
-              key={tag}
-              onClick={() => handleTagFilter(tag)}
-              className={`px-3 py-1 text-sm rounded-full border transition-colors ${
-                activeTag === tag
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "border-border hover:bg-muted/60"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+
+        {/* Tag Filters */}
+        <div>
+          <div className="mb-2 flex items-center">
+            <h2 className="text-lg font-medium mr-4">Filter by tag:</h2>
+            {(activeTag || searchQuery) && (
+              <button onClick={clearFilter} className="text-sm text-primary hover:underline">
+                Clear all filters
+              </button>
+            )}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {allTags.map(tag => (
+              <button
+                key={tag}
+                onClick={() => handleTagFilter(tag)}
+                className={`px-3 py-1 text-sm rounded-full border transition-colors ${
+                  activeTag === tag
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "border-border hover:bg-muted/60"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -99,13 +126,27 @@ const Projects = () => {
         mode="wait"
         onExitComplete={() => {
           // After fade out, update the filtered projects and fade in
-          if (pendingFilter === null) {
-            setFilteredProjects(visibleProjects);
-            setActiveTag(null);
-          } else {
-            setFilteredProjects(visibleProjects.filter(p => p.tags.includes(pendingFilter)));
+          let filtered = visibleProjects;
+          
+          // Apply tag filter
+          if (pendingFilter !== null) {
+            filtered = filtered.filter(p => p.tags.includes(pendingFilter));
             setActiveTag(pendingFilter);
+          } else {
+            setActiveTag(null);
           }
+          
+          // Apply search filter
+          if (pendingSearch) {
+            const query = pendingSearch.toLowerCase();
+            filtered = filtered.filter(p => 
+              p.title.toLowerCase().includes(query) ||
+              p.description.toLowerCase().includes(query) ||
+              p.tags.some(tag => tag.toLowerCase().includes(query))
+            );
+          }
+          
+          setFilteredProjects(filtered);
           setIsAnimating(false);
         }}
       >
@@ -126,9 +167,9 @@ const Projects = () => {
               ))
             ) : (
               <div className="text-center py-12 text-muted-foreground col-span-full">
-                <p>No projects found matching the selected filter.</p>
+                <p>No projects found matching your search or filter.</p>
                 <button onClick={clearFilter} className="mt-4 text-primary hover:underline">
-                  Clear filter and show all projects
+                  Clear all filters and show all projects
                 </button>
               </div>
             )}

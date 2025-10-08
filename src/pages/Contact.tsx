@@ -14,7 +14,7 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: <Github size={20} />,
-      url: "https://github.comhttps://github.com/Firestarss",
+      url: "https://github.com/Firestarss",
     },
     {
       name: "LinkedIn",
