@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { getImageUrl } from '@/lib/images';
 import type { Components } from 'react-markdown';
 
@@ -13,7 +14,7 @@ interface MarkdownRendererProps {
  * for both local and external images
  */
 const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
-  // Custom components to handle images
+  // Custom components to handle images and HTML elements
   const components: Components = {
     img: ({ src, alt, ...props }) => {
       // Process the image source through our utility
@@ -25,8 +26,13 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
           alt={alt || ''} 
           {...props}
           loading="lazy"
+          className="markdown-image"
         />
       );
+    },
+    // Handle HTML div elements to support custom layouts
+    div: ({ className: divClassName, ...props }) => {
+      return <div className={divClassName} {...props} />;
     }
   };
 
@@ -34,6 +40,7 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
     <div className={className}>
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={components}
       >
         {children}

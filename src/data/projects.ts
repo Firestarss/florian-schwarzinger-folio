@@ -106,9 +106,45 @@ We're currently in the prototyping phase, testing various actuator configuration
     techStack: ["Python", "OpenCV", "ROS", "Arduino", "NumPy", "Kociemba Algorithm", "HSV Color Space"],
     content: `# Rubik's Cube Robot - Markdown Feature Showcase
 
-This project description demonstrates **every markdown feature** supported by react-markdown.
+This project description demonstrates **every markdown feature** supported by react-markdown, including advanced image layouts!
 
-![Rubik's Cube](/images/projects/rubiks-cube-robot/hero.jpg)
+## Single Image Example
+
+Images in markdown are displayed at 70% width by default, centered on the page:
+
+![Rubik's Cube Hero](/images/projects/rubiks-cube-robot/hero.jpg)
+
+## Multiple Images Side-by-Side
+
+You can place multiple images next to each other using a div with class "image-row":
+
+<div class="image-row">
+
+![Robot Gripper](/images/projects/rubiks-cube-robot/gripper.jpg)
+![Color Detection System](/images/projects/rubiks-cube-robot/color-detection.jpg)
+
+</div>
+
+## HTML Image Rendering
+
+You can also use HTML img tags directly in markdown for more control:
+
+<div class="image-row">
+  <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Robot Assembly" />
+  <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Electronics Setup" />
+</div>
+
+## Image Grid Layout
+
+For a grid of multiple images, use the "image-grid" class:
+
+<div class="image-grid">
+
+![Vision System](/images/projects/rubiks-cube-robot/vision-system.jpg)
+![Gripper Close-up](/images/projects/rubiks-cube-robot/gripper.jpg)
+![Solved Cube](/images/projects/rubiks-cube-robot/solved-cube.jpg)
+
+</div>
 
 ## Headers and Text Formatting
 
@@ -212,17 +248,22 @@ Here are some useful links:
 - [Kociemba Algorithm Explanation](https://www.speedsolving.com)
 - Visit [OpenCV Documentation](https://docs.opencv.org) for computer vision details
 
-## Images
+## More Image Examples
 
-Here's an example of embedded images in the project:
+Single images are automatically sized to 70% width:
 
-![Robot Gripper Close-up](/images/projects/rubiks-cube-robot/gripper.jpg)
+![Robot Assembly Process](/images/projects/rubiks-cube-robot/assembly.jpg)
 
-*The custom-designed gripper mechanism with servo motors*
+*The robot assembly process showing mechanical components*
 
-![Color Detection](/images/projects/rubiks-cube-robot/color-detection.jpg)
+You can also create a comparison view with two images:
 
-*Computer vision system detecting cube face colors*
+<div class="image-row">
+
+![Before Solving](/images/projects/rubiks-cube-robot/hero.jpg)
+![After Solving](/images/projects/rubiks-cube-robot/solved-cube.jpg)
+
+</div>
 
 ## Tables
 
