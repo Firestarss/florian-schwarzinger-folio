@@ -42,7 +42,6 @@ const About = () => {
             </div>
           </div>
           <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/10"></div>
             <img 
               src={getProfileImage("about-hero.jpg")}
               alt="Robotics engineering workspace with advanced robotic systems and equipment" 
