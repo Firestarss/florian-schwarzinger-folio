@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { fadeInAnimation } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { getProfileImage } from "@/lib/images";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
@@ -27,19 +28,17 @@ const About = () => {
               designing and implementing cutting-edge solutions for industrial and research applications.
             </p>
             <div className="flex space-x-4">
-            <Link 
-              to="/projects" 
-              className="px-5 py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-            >
-              View Projects
-            </Link>
+              <Button asChild size="lg">
+                <Link to="/projects">
+                  View Projects
+                </Link>
+              </Button>
 
-            <Link 
-              to="/contact" 
-              className="px-5 py-2.5 border border-border rounded-md hover:bg-muted/50 transition-colors"
-            >
-              Get in Touch
-            </Link>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/contact">
+                  Get in Touch
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-lg">
