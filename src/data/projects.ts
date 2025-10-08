@@ -21,7 +21,8 @@ export interface Project {
   // Visibility controls
   showInProjects?: boolean; // If false, hidden from Projects page (defaults to true)
   showInTerminal?: boolean; // If false, hidden from terminal sub-projects (defaults to true)
-  showInRandom?: boolean; // If false, excluded from random selection. If undefined, included only if both showInProjects and showInTerminal are not false
+  showInRandomCommand?: boolean; // If false, excluded from terminal random command. Defaults to showInTerminal value if undefined
+  showInRandomButton?: boolean; // If false, excluded from random button on projects page. Defaults to showInProjects value if undefined
 }
 export const projects: Project[] = [
   {
@@ -33,7 +34,6 @@ export const projects: Project[] = [
     tags: ["AI/ML", "Motion Planning", "Experimental"],
     showInProjects: false,
     showInTerminal: true,
-    showInRandom: true,
     content: `# The Hidden Project
 
 Congratulations! You found the secret project accessible only through the terminal.

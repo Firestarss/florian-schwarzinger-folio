@@ -17,10 +17,10 @@ const Projects = () => {
 
   const goToRandomProject = () => {
     const randomEligibleProjects = projects.filter(p => {
-      if (p.showInRandom !== undefined) {
-        return p.showInRandom;
+      if (p.showInRandomButton !== undefined) {
+        return p.showInRandomButton;
       }
-      return p.showInProjects !== false && p.showInTerminal !== false;
+      return p.showInProjects !== false;
     });
     
     if (randomEligibleProjects.length === 0) return;

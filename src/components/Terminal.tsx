@@ -151,10 +151,10 @@ const Terminal = () => {
       
       if (trimmedInput === 'random') {
         const randomEligibleProjects = projects.filter(p => {
-          if (p.showInRandom !== undefined) {
-            return p.showInRandom;
+          if (p.showInRandomCommand !== undefined) {
+            return p.showInRandomCommand;
           }
-          return p.showInProjects !== false && p.showInTerminal !== false;
+          return p.showInTerminal !== false;
         });
         
         if (randomEligibleProjects.length === 0) {
