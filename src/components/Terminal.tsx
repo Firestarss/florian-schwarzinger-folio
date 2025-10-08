@@ -10,6 +10,8 @@ const Terminal = () => {
     "Welcome to Florian's terminal. Type \"help\" for available commands.",
   ]);
   const [awaitingProjectSelection, setAwaitingProjectSelection] = useState(false);
+  const [awaitingPassword, setAwaitingPassword] = useState(false);
+  const [passwordAttempts, setPasswordAttempts] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -59,6 +61,13 @@ const Terminal = () => {
   const processCommand = (cmd: string) => {
     const lowercaseCmd = cmd.toLowerCase().trim();
     if (!lowercaseCmd) return '';
+
+    // Hidden admin command (not in help menu)
+    if (lowercaseCmd === 'sudo access-all') {
+      setAwaitingPassword(true);
+      setPasswordAttempts(0);
+      return 'Enter password:';
+    }
 
     if (lowercaseCmd === 'help') {
       const helpCommands = {
@@ -145,9 +154,48 @@ const Terminal = () => {
     e.preventDefault();
     const newOutput = [...output, `> ${input}`];
     
+    if (awaitingPassword) {
+      // Simple password check (change this to your preferred password)
+      const PASSWORD = 'fl0r14n2025'; // Obscure password
+      
+      if (input.trim() === PASSWORD) {
+        newOutput.push('Access granted. Listing all projects (including hidden):');
+        newOutput.push('');
+        newOutput.push(...projects.map((p, idx) => {
+          const visibility = [];
+          if (p.showInProjects !== false) visibility.push('public');
+          if (p.showInTerminal) visibility.push('terminal');
+          if (!p.showInProjects && !p.showInTerminal) visibility.push('hidden');
+          return `${idx + 1}. ${p.title} [${visibility.join(', ')}]`;
+        }));
+        newOutput.push('');
+        newOutput.push('Enter a number to navigate to any project.');
+        setAwaitingPassword(false);
+        setAwaitingProjectSelection(true);
+      } else {
+        const newAttempts = passwordAttempts + 1;
+        setPasswordAttempts(newAttempts);
+        
+        if (newAttempts >= 3) {
+          newOutput.push('Access denied. Too many failed attempts.');
+          setAwaitingPassword(false);
+          setPasswordAttempts(0);
+        } else {
+          newOutput.push(`Incorrect password. Attempt ${newAttempts}/3. Try again:`);
+        }
+      }
+      
+      setOutput(newOutput);
+      setInput('');
+      return;
+    }
+    
     if (awaitingProjectSelection) {
       const trimmedInput = input.trim().toLowerCase();
-      const terminalProjects = projects.filter(p => p.showInTerminal !== false);
+      // Use all projects if coming from admin command, otherwise filter
+      const terminalProjects = output.some(line => line.includes('including hidden'))
+        ? projects
+        : projects.filter(p => p.showInTerminal !== false);
       
       if (trimmedInput === 'random') {
         const randomEligibleProjects = projects.filter(p => {
@@ -187,6 +235,8 @@ const Terminal = () => {
     if (result === '__CLEAR__') {
       setOutput([]);
       setAwaitingProjectSelection(false);
+      setAwaitingPassword(false);
+      setPasswordAttempts(0);
     } else if (result) {
       newOutput.push(result);
       setOutput(newOutput);
@@ -233,7 +283,7 @@ const Terminal = () => {
               <span className="text-primary mr-2">{'>'}</span>
               <input
                 ref={inputRef}
-                type="text"
+                type={awaitingPassword ? "password" : "text"}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
