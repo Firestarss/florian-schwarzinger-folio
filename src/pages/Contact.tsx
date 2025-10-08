@@ -43,21 +43,23 @@ const Contact = () => {
       className="max-w-5xl mx-auto"
     >
       {/* Professional Headshot Hero Section */}
-      <div className="flex flex-col items-center mb-12 text-center">
-        <Avatar className="h-40 w-40 mb-6 border-4 border-primary shadow-xl">
+      <div className="flex items-center gap-6 mb-8">
+        <Avatar className="h-32 w-32 border-4 border-primary shadow-xl flex-shrink-0">
           <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian Schwarzinger - Professional Headshot" />
           <AvatarFallback>FS</AvatarFallback>
         </Avatar>
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Florian Schwarzinger</h1>
-        <p className="text-xl text-muted-foreground mb-4">Robotics Engineer</p>
-        <p className="text-muted-foreground max-w-2xl">
-          Let's connect! Feel free to reach out via the form below or through social media.
-        </p>
+        <div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-1">Florian Schwarzinger</h1>
+          <p className="text-xl text-muted-foreground mb-3">Robotics Engineer</p>
+          <p className="text-muted-foreground">
+            Let's connect! Feel free to reach out via the form below or through social media.
+          </p>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Get in Touch</h2>
+          <h2 className="text-xl font-bold mb-4 inline-block border-b-2 border-primary pb-2">Get in Touch</h2>
           
           {formSuccess ? (
             <div className="bg-muted/50 p-6 rounded-lg border border-border text-center">
@@ -78,9 +80,9 @@ const Contact = () => {
         </div>
 
         <div>
-          <h2 className="text-xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Connect</h2>
+          <h2 className="text-xl font-bold mb-4 inline-block border-b-2 border-primary pb-2">Connect</h2>
           
-          <div className="mb-8">
+          <div className="mb-6">
             <p className="text-muted-foreground mb-4">
               Find me on these platforms:
             </p>
@@ -104,8 +106,8 @@ const Contact = () => {
           </div>
 
           <div>
-            <h2 className="text-xl font-bold mb-4">Resume</h2>
-            <p className="text-muted-foreground mb-4">
+            <h2 className="text-xl font-bold mb-3">Resume</h2>
+            <p className="text-muted-foreground mb-3">
               Download my resume to learn more about my experience and qualifications.
             </p>
             <Button asChild variant="hero" size="lg" className="text-base">
