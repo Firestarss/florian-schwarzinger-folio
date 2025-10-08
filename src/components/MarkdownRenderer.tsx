@@ -33,6 +33,19 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
     // Handle HTML div elements to support custom layouts
     div: ({ className: divClassName, ...props }) => {
       return <div className={divClassName} {...props} />;
+    },
+    // Remove paragraph wrapping for images inside layout containers
+    p: ({ children, ...props }) => {
+      // Check if this paragraph only contains an image
+      const hasOnlyImage = children && typeof children === 'object' && 
+        !Array.isArray(children) && 
+        (children as any).type === 'img';
+      
+      if (hasOnlyImage) {
+        return <>{children}</>;
+      }
+      
+      return <p {...props}>{children}</p>;
     }
   };
 
