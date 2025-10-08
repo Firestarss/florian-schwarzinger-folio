@@ -12,9 +12,23 @@ const Terminal = () => {
   const [awaitingProjectSelection, setAwaitingProjectSelection] = useState(false);
   const [awaitingPassword, setAwaitingPassword] = useState(false);
   const [passwordAttempts, setPasswordAttempts] = useState(0);
+  const [isLockedOut, setIsLockedOut] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Check for lockout on mount
+  useEffect(() => {
+    const lockoutEnd = localStorage.getItem('terminal_lockout');
+    if (lockoutEnd) {
+      const endTime = parseInt(lockoutEnd);
+      if (Date.now() < endTime) {
+        setIsLockedOut(true);
+      } else {
+        localStorage.removeItem('terminal_lockout');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -64,8 +78,15 @@ const Terminal = () => {
 
     // Hidden admin command (not in help menu)
     if (lowercaseCmd === 'sudo access-all') {
+      // Check if locked out
+      const lockoutEnd = localStorage.getItem('terminal_lockout');
+      if (lockoutEnd && Date.now() < parseInt(lockoutEnd)) {
+        const remainingMinutes = Math.ceil((parseInt(lockoutEnd) - Date.now()) / 60000);
+        return `Access temporarily locked. Please try again in ${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''}.`;
+      }
       setAwaitingPassword(true);
       setPasswordAttempts(0);
+      setIsLockedOut(false);
       return 'Enter password:';
     }
 
@@ -152,7 +173,9 @@ const Terminal = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newOutput = [...output, `> ${input}`];
+    // Hide password input in output
+    const displayInput = awaitingPassword ? '•'.repeat(input.length) : input;
+    const newOutput = [...output, `> ${displayInput}`];
     
     if (awaitingPassword) {
       // Simple password check (change this to your preferred password)
@@ -177,7 +200,12 @@ const Terminal = () => {
         setPasswordAttempts(newAttempts);
         
         if (newAttempts >= 3) {
+          // Lock out for 10 minutes
+          const lockoutEnd = Date.now() + (10 * 60 * 1000);
+          localStorage.setItem('terminal_lockout', lockoutEnd.toString());
+          setIsLockedOut(true);
           newOutput.push('Access denied. Too many failed attempts.');
+          newOutput.push('This command is locked for 10 minutes.');
           setAwaitingPassword(false);
           setPasswordAttempts(0);
         } else {
