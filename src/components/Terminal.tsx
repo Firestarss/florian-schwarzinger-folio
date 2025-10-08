@@ -171,17 +171,27 @@ const Terminal = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const hashPassword = async (password: string): Promise<string> => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Hide password input in output
     const displayInput = awaitingPassword ? '•'.repeat(input.length) : input;
     const newOutput = [...output, `> ${displayInput}`];
     
     if (awaitingPassword) {
-      // Simple password check (change this to your preferred password)
-      const PASSWORD = '12345'; // Change this password
+      // Stored password hash (SHA-256 hash of "12345")
+      // To change password: console.log(await hashPassword("your_password"))
+      const PASSWORD_HASH = '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5';
       
-      if (input.trim() === PASSWORD) {
+      const inputHash = await hashPassword(input.trim());
+      if (inputHash === PASSWORD_HASH) {
         newOutput.push('Access granted. Listing all projects (including hidden):');
         newOutput.push('');
         newOutput.push(...projects.map((p, idx) => {
