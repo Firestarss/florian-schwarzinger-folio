@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { fadeInAnimation } from "@/lib/utils";
 import { getProfileImage } from "@/lib/images";
 
@@ -110,16 +111,17 @@ const Contact = () => {
             <p className="text-muted-foreground mb-4">
               Download my resume to learn more about my experience and qualifications.
             </p>
-            <a
-              href={resumeUrl}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-            >
-              <Download size={18} className="mr-2" />
-              Download Resume
-            </a>
+            <Button asChild variant="hero" size="lg">
+              <a
+                href={resumeUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download size={18} />
+                Download Resume
+              </a>
+            </Button>
           </div>
         </div>
       </div>

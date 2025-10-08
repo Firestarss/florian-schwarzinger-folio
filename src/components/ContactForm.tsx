@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
 interface ContactFormProps {
   onSuccess: () => void;
@@ -216,13 +217,15 @@ const ContactForm = ({ onSuccess }: ContactFormProps) => {
         )}
       </div>
 
-      <button
+      <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-6 py-3 font-medium text-primary-foreground bg-primary rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background disabled:opacity-70 disabled:pointer-events-none transition-colors"
+        variant="hero"
+        size="lg"
+        className="w-full"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
-      </button>
+      </Button>
     </form>
   );
 };
