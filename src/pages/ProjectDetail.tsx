@@ -92,13 +92,13 @@ const ProjectDetail = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
+            <Button asChild variant="hero" size="lg">
               <Link to="/projects">
                 <FolderOpen size={18} className="mr-2" />
                 Browse All Projects
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="hero-outline" size="lg">
               <Link to="/">
                 <Home size={18} className="mr-2" />
                 Back to Home

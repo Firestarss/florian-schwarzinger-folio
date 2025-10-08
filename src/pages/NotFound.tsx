@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Construction, Home, Search } from "lucide-react";
+import { Construction, Home, FolderOpen } from "lucide-react";
 
 const NotFound = () => {
   const robotQuotes = [
@@ -48,15 +48,15 @@ const NotFound = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg">
+          <Button asChild variant="hero" size="lg">
             <Link to="/">
               <Home size={18} className="mr-2" />
               Back to Home
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="hero-outline" size="lg">
             <Link to="/projects">
-              <Search size={18} className="mr-2" />
+              <FolderOpen size={18} className="mr-2" />
               Browse Projects
             </Link>
           </Button>
