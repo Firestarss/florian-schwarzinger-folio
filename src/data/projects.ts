@@ -1,4 +1,4 @@
-import { getImageUrl, getProjectImage } from '@/lib/images';
+import { getImageUrl, getProjectImage } from "@/lib/images";
 
 export interface Project {
   id: string;
@@ -6,18 +6,18 @@ export interface Project {
   description: string; // Short description
   image: string; // Hero image
   tags: string[];
-  
+
   // Main story content (markdown) - the heart of the page
   content: string;
-  
+
   // Optional elements
-  gallery?: { src: string; alt: string; }[];
+  gallery?: { src: string; alt: string }[];
   videoUrl?: string;
   challenges?: string;
   keyFeatures?: string;
   lessonsLearned?: string;
   techStack?: string[]; // Optional array of technologies used
-  
+
   // Visibility controls
   showInProjects?: boolean; // If false, hidden from Projects page (defaults to true)
   showInTerminal?: boolean; // If false, hidden from terminal sub-projects (defaults to true)
@@ -27,11 +27,13 @@ export const projects: Project[] = [
   {
     id: "terminal-secret",
     title: "The Hidden Project",
-    description: "A secret experimental project exploring advanced AI-driven motion planning. Only accessible via the terminal interface.",
+    description:
+      "A secret experimental project exploring advanced AI-driven motion planning. Only accessible via the terminal interface.",
     image: getProjectImage("autonomous-navigation", "visualization.jpg"),
     tags: ["AI/ML", "Motion Planning", "Experimental"],
     showInProjects: false,
     showInTerminal: true,
+    showInRandom: true,
     content: `# The Hidden Project
 
 Congratulations! You found the secret project accessible only through the terminal.
@@ -52,12 +54,13 @@ This project represents experimental work that's not ready for public showcase b
 
 > *"The best way to predict the future is to invent it."* - Alan Kay
 
-Stay curious, and keep exploring!`
+Stay curious, and keep exploring!`,
   },
   {
     id: "wip-exoskeleton-v2",
     title: "Advanced Exoskeleton System v2",
-    description: "Next-generation powered exoskeleton with enhanced force feedback and adaptive control. Currently in development.",
+    description:
+      "Next-generation powered exoskeleton with enhanced force feedback and adaptive control. Currently in development.",
     image: getProjectImage("exoskeleton", "hero.jpg"),
     tags: ["Robotics", "Biomechanics", "Control Systems", "WIP"],
     showInProjects: false,
@@ -89,12 +92,13 @@ We're currently in the prototyping phase, testing various actuator configuration
 - Creating more natural movement patterns
 - Ensuring safety under all operating conditions
 
-*This page is accessible only via direct URL for development and testing purposes.*`
+*This page is accessible only via direct URL for development and testing purposes.*`,
   },
   {
     id: "rubiks-cube-robot",
     title: "Rubik's Cube Robot",
-    description: "An autonomous robotic system capable of solving a standard 3x3 Rubik's Cube in under 10 seconds using computer vision and advanced solving algorithms.",
+    description:
+      "An autonomous robotic system capable of solving a standard 3x3 Rubik's Cube in under 10 seconds using computer vision and advanced solving algorithms.",
     image: getProjectImage("rubiks-cube-robot", "hero.jpg"),
     tags: ["Computer Vision", "Robotics", "OpenCV", "Python", "ROS", "Machine Learning"],
     techStack: ["Python", "OpenCV", "ROS", "Arduino", "NumPy", "Kociemba Algorithm", "HSV Color Space"],
@@ -293,20 +297,20 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
     gallery: [
       {
         src: getProjectImage("rubiks-cube-robot", "assembly.jpg"),
-        alt: "Robot mechanical assembly with servo motors"
+        alt: "Robot mechanical assembly with servo motors",
       },
       {
         src: getProjectImage("rubiks-cube-robot", "vision-system.jpg"),
-        alt: "Computer vision color detection system"
+        alt: "Computer vision color detection system",
       },
       {
         src: getProjectImage("rubiks-cube-robot", "solved-cube.jpg"),
-        alt: "Solved Rubik's Cube"
+        alt: "Solved Rubik's Cube",
       },
       {
         src: getProjectImage("rubiks-cube-robot", "electronics.jpg"),
-        alt: "Control electronics and wiring"
-      }
+        alt: "Control electronics and wiring",
+      },
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     challenges: `## Challenges & Solutions
@@ -361,12 +365,13 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
 - Implement machine learning for color detection instead of hard-coded thresholds
 - Add voice commands for hands-free operation
 - Create a mobile app for wireless control
-- Optimize for one-handed solving to compete in speed-solving competitions`
+- Optimize for one-handed solving to compete in speed-solving competitions`,
   },
   {
     id: "autonomous-nav",
     title: "Autonomous Navigation System",
-    description: "A robust navigation system for industrial robots, featuring SLAM algorithms and dynamic obstacle avoidance for warehouse environments.",
+    description:
+      "A robust navigation system for industrial robots, featuring SLAM algorithms and dynamic obstacle avoidance for warehouse environments.",
     image: getProjectImage("autonomous-navigation", "hero.jpg"),
     tags: ["Robotics", "Computer Vision", "AI/ML"],
     content: `It started with a simple observation: warehouse robots were struggling to navigate dynamic environments. They'd stop at every unexpected obstacle, waiting for human intervention. I knew we could do better.
@@ -408,14 +413,15 @@ Looking back, what started as frustration with rigid navigation systems turned i
       { src: getProjectImage("autonomous-navigation", "visualization.jpg"), alt: "Navigation system visualization" },
       { src: getProjectImage("autonomous-navigation", "sensors.jpg"), alt: "Circuit board and sensors" },
       { src: getProjectImage("autonomous-navigation", "dashboard.jpg"), alt: "System monitoring dashboard" },
-      { src: getProjectImage("autonomous-navigation", "code.jpg"), alt: "Code implementation" }
+      { src: getProjectImage("autonomous-navigation", "code.jpg"), alt: "Code implementation" },
     ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
   {
     id: "arm-control",
     title: "Precision Robotic Arm Controller",
-    description: "High-precision control system for a 6-DOF robotic arm used in sensitive material handling and assembly tasks.",
+    description:
+      "High-precision control system for a 6-DOF robotic arm used in sensitive material handling and assembly tasks.",
     image: getProjectImage("robotic-arm", "hero.jpg"),
     tags: ["Robotics", "Control Systems", "Mechatronics"],
     content: `When you're assembling semiconductor components or medical devices, "close enough" doesn't cut it. We're talking about precision measured in microns—that's millionths of a meter. One tremor, one miscalculation, and you've ruined an expensive part.
@@ -447,13 +453,14 @@ In production, the arm reduced assembly time by 35% while maintaining accuracy t
 What started as a challenge in precision engineering became a lesson in sensor fusion and adaptive control. Sometimes the best solutions come from combining different sensing modalities, letting the system perceive its environment the way humans do—through multiple senses working together.`,
     gallery: [
       { src: getProjectImage("robotic-arm", "control-interface.jpg"), alt: "Control interface" },
-      { src: getProjectImage("robotic-arm", "system-code.jpg"), alt: "System code" }
-    ]
+      { src: getProjectImage("robotic-arm", "system-code.jpg"), alt: "System code" },
+    ],
   },
   {
     id: "drone-swarm",
     title: "Multi-Drone Coordination System",
-    description: "Software framework enabling autonomous coordination of drone swarms for environmental monitoring and mapping applications.",
+    description:
+      "Software framework enabling autonomous coordination of drone swarms for environmental monitoring and mapping applications.",
     image: getProjectImage("drone-coordination", "hero.jpg"),
     tags: ["Robotics", "Distributed Systems", "AI/ML"],
     content: `One drone can map an area. But twelve drones working together? That's when things get interesting.
@@ -501,13 +508,14 @@ That's the beauty of distributed systems—resilience and intelligence arise fro
     gallery: [
       { src: getProjectImage("drone-coordination", "field-testing.jpg"), alt: "Field testing setup" },
       { src: getProjectImage("drone-coordination", "control-station.jpg"), alt: "Control station" },
-      { src: getProjectImage("drone-coordination", "swarm-data.jpg"), alt: "Swarm coordination data visualization" }
-    ]
+      { src: getProjectImage("drone-coordination", "swarm-data.jpg"), alt: "Swarm coordination data visualization" },
+    ],
   },
   {
     id: "vision-system",
     title: "Advanced Machine Vision System",
-    description: "Computer vision system for real-time object detection, classification and quality control in manufacturing settings.",
+    description:
+      "Computer vision system for real-time object detection, classification and quality control in manufacturing settings.",
     image: getProjectImage("machine-vision", "hero.jpg"),
     tags: ["Computer Vision", "AI/ML", "Manufacturing"],
     content: `Quality control in manufacturing is tedious, repetitive work. Human inspectors get tired, miss defects, and can't keep up with modern production speeds. But what if a machine could see defects smaller than 0.1mm while inspecting 120 items per minute without ever getting tired?
@@ -551,13 +559,14 @@ Building this system taught me that the best AI solutions aren't always the most
 Quality control might seem mundane, but when you're catching defects that would cost thousands of dollars downstream, every fraction of a percent in accuracy matters.`,
     gallery: [
       { src: getProjectImage("machine-vision", "defect-detection.jpg"), alt: "Real-time defect detection in action" },
-      { src: getProjectImage("machine-vision", "processing-pipeline.jpg"), alt: "Vision processing pipeline" }
-    ]
+      { src: getProjectImage("machine-vision", "processing-pipeline.jpg"), alt: "Vision processing pipeline" },
+    ],
   },
   {
     id: "exoskeleton",
     title: "Assistive Exoskeleton Design",
-    description: "Lightweight exoskeleton with adaptive control systems to assist with rehabilitation and mobility for patients with limited motor functions.",
+    description:
+      "Lightweight exoskeleton with adaptive control systems to assist with rehabilitation and mobility for patients with limited motor functions.",
     image: getProjectImage("exoskeleton", "hero.jpg"),
     tags: ["Mechatronics", "Biomedical", "Hardware"],
     content: `Imagine losing the ability to lift your arm. Simple tasks—eating, dressing, reaching for things—become exhausting struggles. I wanted to build something that could give people that capability back without making them feel like they're wearing a machine.
@@ -596,13 +605,14 @@ Sometimes the most meaningful engineering challenges aren't about pushing techni
     gallery: [
       { src: getProjectImage("exoskeleton", "prototype.jpg"), alt: "Exoskeleton prototype assembly" },
       { src: getProjectImage("exoskeleton", "testing.jpg"), alt: "User testing session" },
-      { src: getProjectImage("exoskeleton", "biomechanics.jpg"), alt: "Biomechanics analysis" }
-    ]
+      { src: getProjectImage("exoskeleton", "biomechanics.jpg"), alt: "Biomechanics analysis" },
+    ],
   },
   {
     id: "teleoperation",
     title: "Haptic Teleoperation Interface",
-    description: "A teleoperation system with haptic feedback enabling precise remote control of robotic systems in hazardous environments.",
+    description:
+      "A teleoperation system with haptic feedback enabling precise remote control of robotic systems in hazardous environments.",
     image: getProjectImage("haptic-interface", "hero.jpg"),
     tags: ["Robotics", "HCI", "Control Systems"],
     content: `Sending robots into dangerous environments is one thing. Controlling them precisely from a distance is another challenge entirely. The problem with traditional remote control is the disconnect—you're watching through a camera, guessing at forces, and struggling with tasks that would be trivial with your own hands.
@@ -644,8 +654,11 @@ That's the goal of good teleoperation design: making the technology transparent 
 
 This project reinforced a principle I've carried into other work: when building human-machine interfaces, the best designs are the ones that feel natural enough to become invisible.`,
     gallery: [
-      { src: getProjectImage("haptic-interface", "operator-setup.jpg"), alt: "Operator control station with haptic device" },
-      { src: getProjectImage("haptic-interface", "force-feedback.jpg"), alt: "Force feedback mechanism close-up" }
-    ]
-  }
+      {
+        src: getProjectImage("haptic-interface", "operator-setup.jpg"),
+        alt: "Operator control station with haptic device",
+      },
+      { src: getProjectImage("haptic-interface", "force-feedback.jpg"), alt: "Force feedback mechanism close-up" },
+    ],
+  },
 ];
