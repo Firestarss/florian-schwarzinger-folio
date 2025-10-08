@@ -70,6 +70,14 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+  
+  /* GPU acceleration for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
 }
 
 /* Transitions */
