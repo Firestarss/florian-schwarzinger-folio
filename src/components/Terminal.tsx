@@ -179,7 +179,7 @@ const Terminal = () => {
     
     if (awaitingPassword) {
       // Simple password check (change this to your preferred password)
-      const PASSWORD = 'fl0r14n2025'; // Obscure password
+      const PASSWORD = '12345'; // Change this password
       
       if (input.trim() === PASSWORD) {
         newOutput.push('Access granted. Listing all projects (including hidden):');
@@ -188,7 +188,7 @@ const Terminal = () => {
           const visibility = [];
           if (p.showInProjects !== false) visibility.push('public');
           if (p.showInTerminal) visibility.push('terminal');
-          if (!p.showInProjects && !p.showInTerminal) visibility.push('hidden');
+          if (p.showInProjects === false && !p.showInTerminal) visibility.push('url-only');
           return `${idx + 1}. ${p.title} [${visibility.join(', ')}]`;
         }));
         newOutput.push('');
