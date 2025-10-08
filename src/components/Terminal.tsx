@@ -184,7 +184,6 @@ const Terminal = () => {
     const newOutput = [...output, `> ${displayInput}`];
 
     if (awaitingPassword) {
-      // Stored password hash (SHA-256 hash of "12345")
       // To change password: console.log(await hashPassword("your_password"))
       const PASSWORD_HASH = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5";
 
@@ -192,7 +191,7 @@ const Terminal = () => {
       if (inputHash === PASSWORD_HASH) {
         newOutput.push("Access granted. Listing all projects (including hidden):");
         newOutput.push("");
-        
+
         // Group projects by visibility status
         const grouped = {
           urlOnly: [] as typeof projects,
@@ -200,11 +199,11 @@ const Terminal = () => {
           publicOnly: [] as typeof projects,
           both: [] as typeof projects,
         };
-        
+
         projects.forEach((p) => {
           const inProjects = p.showInProjects !== false;
           const inTerminal = p.showInTerminal !== false;
-          
+
           if (!inProjects && !inTerminal) {
             grouped.urlOnly.push(p);
           } else if (inTerminal && !inProjects) {
@@ -215,10 +214,10 @@ const Terminal = () => {
             grouped.both.push(p);
           }
         });
-        
+
         // Display grouped projects with continuous numbering
         let projectIndex = 1;
-        
+
         if (grouped.urlOnly.length > 0) {
           newOutput.push("URL-ONLY (hidden from both terminal and projects page):");
           grouped.urlOnly.forEach((p) => {
@@ -227,7 +226,7 @@ const Terminal = () => {
           });
           newOutput.push("");
         }
-        
+
         if (grouped.terminalOnly.length > 0) {
           newOutput.push("TERMINAL-ONLY (hidden from projects page):");
           grouped.terminalOnly.forEach((p) => {
@@ -236,7 +235,7 @@ const Terminal = () => {
           });
           newOutput.push("");
         }
-        
+
         if (grouped.publicOnly.length > 0) {
           newOutput.push("PUBLIC-ONLY (hidden from terminal):");
           grouped.publicOnly.forEach((p) => {
@@ -245,7 +244,7 @@ const Terminal = () => {
           });
           newOutput.push("");
         }
-        
+
         if (grouped.both.length > 0) {
           newOutput.push("PUBLIC & TERMINAL (visible everywhere):");
           grouped.both.forEach((p) => {
@@ -254,7 +253,7 @@ const Terminal = () => {
           });
           newOutput.push("");
         }
-        
+
         newOutput.push("Enter a number to navigate to any project.");
         setAwaitingPassword(false);
         setAwaitingProjectSelection(true);
