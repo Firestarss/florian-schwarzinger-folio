@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Youtube, FileText, Images } from "lucide-react";
+import { ArrowLeft, Youtube, FileText, Images, CircuitBoard, Home, FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -45,13 +45,67 @@ const ProjectDetail = () => {
   }, [id]);
   
   if (!project) {
+    const projectQuotes = [
+      "This project must've been left in the prototype bin...",
+      "Looks like this project file got corrupted.",
+      "My database search came up empty on this one.",
+      "This project ID doesn't match any records in my archives.",
+      "I've scanned all project folders—nothing here!",
+    ];
+
+    const randomQuote = projectQuotes[Math.floor(Math.random() * projectQuotes.length)];
+
     return (
-      <div className="py-20 text-center">
-        <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
-        <p className="text-muted-foreground mb-8">The project you're looking for doesn't exist.</p>
-        <Button asChild>
-          <Link to="/projects">Back to Projects</Link>
-        </Button>
+      <div className="min-h-[60vh] flex items-center justify-center px-4">
+        <motion.div 
+          className="text-center max-w-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.div
+            className="mb-8 flex justify-center"
+            animate={{ 
+              rotate: [0, 10, -10, 10, 0],
+              scale: [1, 1.05, 1, 1.05, 1]
+            }}
+            transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+          >
+            <CircuitBoard size={80} className="text-primary" />
+          </motion.div>
+          
+          <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Project Missing
+          </h1>
+          
+          <p className="text-xl md:text-2xl font-medium mb-3">
+            Can't Find That Project
+          </p>
+          
+          <p className="text-lg text-muted-foreground mb-8 italic">
+            "{randomQuote}"
+          </p>
+          
+          <p className="text-muted-foreground mb-8">
+            The project you're searching for might have been moved, deleted, or never existed. 
+            Let's explore what's actually in the workshop.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg">
+              <Link to="/projects">
+                <FolderOpen size={18} className="mr-2" />
+                Browse All Projects
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link to="/">
+                <Home size={18} className="mr-2" />
+                Back to Home
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
       </div>
     );
   }
