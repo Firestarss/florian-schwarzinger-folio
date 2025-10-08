@@ -41,14 +41,13 @@ const About = () => {
               </Button>
             </div>
           </div>
-          <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-lg">
+          <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-[0_0_0_1px_hsl(var(--border)/0.3),0_8px_32px_-8px_hsl(var(--foreground)/0.15)]">
             <img 
               src={getProfileImage("about-hero.jpg")}
               alt="Robotics engineering workspace with advanced robotic systems and equipment" 
               loading="lazy"
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 shadow-[inset_0_0_60px_20px_hsl(var(--background))] pointer-events-none"></div>
           </div>
         </div>
       </section>
