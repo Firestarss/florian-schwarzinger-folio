@@ -34,7 +34,7 @@ const About = () => {
                 </Link>
               </Button>
 
-              <Button asChild variant="outline" size="lg" className="text-base font-semibold border-primary/30 hover:border-primary/50 bg-background/50">
+              <Button asChild variant="outline" size="lg" className="text-base font-semibold border-primary/30 hover:border-primary/50 bg-muted/30">
                 <Link to="/contact">
                   Get in Touch
                 </Link>
