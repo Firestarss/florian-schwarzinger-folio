@@ -48,6 +48,7 @@ const About = () => {
               loading="lazy"
               className="w-full h-full object-cover object-center"
             />
+            <div className="absolute inset-0 shadow-[inset_0_0_60px_20px_hsl(var(--background))] pointer-events-none"></div>
           </div>
         </div>
       </section>
