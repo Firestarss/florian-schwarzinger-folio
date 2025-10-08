@@ -190,7 +190,7 @@ const Terminal = () => {
       const inputHash = await hashPassword(input.trim());
       if (inputHash === PASSWORD_HASH) {
         newOutput.push("Access granted. Listing all projects (including hidden):");
-        newOutput.push("");
+        newOutput.push("\u00A0");
 
         // Group projects by visibility status
         const grouped = {
@@ -224,7 +224,7 @@ const Terminal = () => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
             projectIndex++;
           });
-          newOutput.push("");
+          newOutput.push("\u00A0");
         }
 
         if (grouped.terminalOnly.length > 0) {
@@ -233,7 +233,7 @@ const Terminal = () => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
             projectIndex++;
           });
-          newOutput.push("");
+          newOutput.push("\u00A0");
         }
 
         if (grouped.publicOnly.length > 0) {
@@ -242,7 +242,7 @@ const Terminal = () => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
             projectIndex++;
           });
-          newOutput.push("");
+          newOutput.push("\u00A0");
         }
 
         if (grouped.both.length > 0) {
@@ -251,7 +251,7 @@ const Terminal = () => {
             newOutput.push(`  ${projectIndex}. ${p.title}`);
             projectIndex++;
           });
-          newOutput.push("");
+          newOutput.push("\u00A0");
         }
 
         newOutput.push("Enter a number to navigate to any project.");
