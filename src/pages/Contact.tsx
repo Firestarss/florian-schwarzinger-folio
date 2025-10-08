@@ -73,7 +73,7 @@ const Contact = () => {
           <h2 className="text-xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Connect</h2>
           
           <div className="flex items-center mb-6 gap-4">
-            <Avatar className="h-16 w-16 border-2 border-primary">
+            <Avatar className="h-32 w-32 border-2 border-primary">
               <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian" />
               <AvatarFallback>FS</AvatarFallback>
             </Avatar>
