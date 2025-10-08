@@ -34,6 +34,8 @@ export const projects: Project[] = [
     tags: ["AI/ML", "Motion Planning", "Experimental"],
     showInProjects: false,
     showInTerminal: true,
+    showInRandomCommand: false,
+    showInRandomButton: true,
     content: `# The Hidden Project
 
 Congratulations! You found the secret project accessible only through the terminal.
