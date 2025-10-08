@@ -282,10 +282,43 @@ const Terminal = () => {
 
     if (awaitingProjectSelection) {
       const trimmedInput = input.trim().toLowerCase();
+      
       // Use all projects if coming from admin command, otherwise filter
-      const terminalProjects = output.some((line) => line.includes("including hidden"))
-        ? projects
-        : projects.filter((p) => p.showInTerminal !== false);
+      let terminalProjects;
+      if (output.some((line) => line.includes("including hidden"))) {
+        // Reconstruct the same order that was displayed after password authentication
+        const grouped = {
+          urlOnly: [] as typeof projects,
+          terminalOnly: [] as typeof projects,
+          publicOnly: [] as typeof projects,
+          both: [] as typeof projects,
+        };
+
+        projects.forEach((p) => {
+          const inProjects = p.showInProjects !== false;
+          const inTerminal = p.showInTerminal !== false;
+
+          if (!inProjects && !inTerminal) {
+            grouped.urlOnly.push(p);
+          } else if (inTerminal && !inProjects) {
+            grouped.terminalOnly.push(p);
+          } else if (inProjects && !inTerminal) {
+            grouped.publicOnly.push(p);
+          } else {
+            grouped.both.push(p);
+          }
+        });
+
+        // Flatten in the same order as displayed: url-only, terminal-only, public-only, both
+        terminalProjects = [
+          ...grouped.urlOnly,
+          ...grouped.terminalOnly,
+          ...grouped.publicOnly,
+          ...grouped.both,
+        ];
+      } else {
+        terminalProjects = projects.filter((p) => p.showInTerminal !== false);
+      }
 
       if (trimmedInput === "random") {
         const randomEligibleProjects = projects.filter((p) => {
