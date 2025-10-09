@@ -194,41 +194,6 @@ const ProjectDetail = () => {
         </div>
       )}
 
-      {/* Downloads */}
-      {project.files && project.files.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-2 flex items-center">
-            <FolderOpen className="text-primary mr-2" size={28} />
-            Downloads
-          </h2>
-          <Separator className="mb-6" />
-
-          <div className="flex flex-col gap-3">
-            {project.files.map((file, index) => (
-              <a
-                key={index}
-                href={file.url}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/10 hover:border-primary/40 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <FileText className="text-primary group-hover:scale-110 transition-transform" size={24} />
-                  <div>
-                    <p className="font-medium">{file.name}</p>
-                    {file.type && <p className="text-sm text-muted-foreground">{file.type}</p>}
-                  </div>
-                </div>
-                <Button variant="outline" size="sm" className="shrink-0">
-                  Download
-                </Button>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Challenges & Solutions */}
       {project.challenges && (
         <div className="mb-12">

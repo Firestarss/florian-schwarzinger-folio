@@ -38,7 +38,7 @@ export const projects: Project[] = [
     showInRandomButton: true,
     content: `# The Hidden Project
 
-Congratulations!! You found the secret project accessible only through the terminal.
+Congratulations! You found the secret project accessible only through the terminal.
 
 ## What is this?
 
@@ -700,23 +700,6 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
       {
         src: getProjectImage("rubiks-cube-robot", "electronics.jpg"),
         alt: "Control electronics and wiring",
-      },
-    ],
-    files: [
-      {
-        name: "Rubiks Cube Robot CAD Model (.step)",
-        url: "/files/rubiks-cube-robot/cad-model.step",
-        type: "CAD",
-      },
-      {
-        name: "Firmware Source Code (.zip)",
-        url: "/files/rubiks-cube-robot/firmware.zip",
-        type: "Code",
-      },
-      {
-        name: "Bill of Materials (.pdf)",
-        url: "/files/rubiks-cube-robot/bom.pdf",
-        type: "Document",
       },
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
