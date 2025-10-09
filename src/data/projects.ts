@@ -448,6 +448,116 @@ This section demonstrates various HTML techniques for advanced image control bey
       <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Complete development environment</p>
     </div>
   </div>
+
+---
+
+# 📐 Mathematical Equations in Markdown
+
+This section demonstrates the markdown renderer's ability to display mathematical equations using LaTeX syntax via KaTeX.
+
+## Inline Math
+
+You can include math inline with your text using single dollar signs. For example, the quadratic formula is $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ and Einstein's famous equation is $E = mc^2$.
+
+The time complexity of the Kociemba algorithm is approximately $O(n^2)$ where $n$ represents the cube state complexity.
+
+## Display Math (Block Equations)
+
+For larger equations, use double dollar signs to display them on their own line:
+
+$$
+\\text{Rotation Matrix} = \\begin{bmatrix}
+\\cos\\theta & -\\sin\\theta & 0 \\\\
+\\sin\\theta & \\cos\\theta & 0 \\\\
+0 & 0 & 1
+\\end{bmatrix}
+$$
+
+### Solving Algorithm Complexity
+
+The number of possible permutations of a Rubik's Cube is:
+
+$$
+N = \\frac{8! \\times 3^8 \\times 12! \\times 2^{12}}{12} = 43,252,003,274,489,856,000
+$$
+
+This astronomical number (approximately $4.3 \\times 10^{19}$) represents all possible cube configurations!
+
+### Kinematics Equations
+
+The servo motor position control uses PID calculations:
+
+$$
+u(t) = K_p e(t) + K_i \\int_0^t e(\\tau)d\\tau + K_d \\frac{de(t)}{dt}
+$$
+
+Where:
+- $K_p$ is the proportional gain
+- $K_i$ is the integral gain  
+- $K_d$ is the derivative gain
+- $e(t)$ is the error at time $t$
+
+### Computer Vision Color Detection
+
+The HSV color space conversion formula:
+
+$$
+H = \\begin{cases}
+0° & \\text{if } \\Delta = 0 \\\\
+60° \\times \\left(\\frac{G-B}{\\Delta} \\mod 6\\right) & \\text{if } C_{max} = R \\\\
+60° \\times \\left(\\frac{B-R}{\\Delta} + 2\\right) & \\text{if } C_{max} = G \\\\
+60° \\times \\left(\\frac{R-G}{\\Delta} + 4\\right) & \\text{if } C_{max} = C
+\\end{cases}
+$$
+
+### Statistical Analysis
+
+The mean solve time and standard deviation across 100 trials:
+
+$$
+\\bar{x} = \\frac{1}{n}\\sum_{i=1}^n x_i \\quad \\text{and} \\quad \\sigma = \\sqrt{\\frac{1}{n}\\sum_{i=1}^n (x_i - \\bar{x})^2}
+$$
+
+Our results: $\\bar{x} = 2.3s$ with $\\sigma = 0.4s$
+
+### Optimization Function
+
+The path optimization uses gradient descent:
+
+$$
+\\theta_{new} = \\theta_{old} - \\alpha \\nabla J(\\theta)
+$$
+
+Where $\\alpha$ is the learning rate and $J(\\theta)$ is the cost function.
+
+### Matrix Transformations
+
+3D rotation around the Z-axis by angle $\\theta$:
+
+$$
+R_z(\\theta) = \\begin{pmatrix}
+\\cos\\theta & -\\sin\\theta & 0 & 0 \\\\
+\\sin\\theta & \\cos\\theta & 0 & 0 \\\\
+0 & 0 & 1 & 0 \\\\
+0 & 0 & 0 & 1
+\\end{pmatrix}
+$$
+
+### Advanced Notation
+
+Greek letters: $\\alpha, \\beta, \\gamma, \\Delta, \\Sigma, \\Omega$
+
+Calculus: $\\frac{d}{dx}\\int_a^b f(x)dx = f(b) - f(a)$
+
+Set theory: $A \\cup B$, $A \\cap B$, $A \\subseteq B$, $x \\in A$
+
+Limits: $\\lim_{x \\to \\infty} \\frac{1}{x} = 0$
+
+Summations: $\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}$
+
+Products: $\\prod_{i=1}^{n} i = n!$
+
+---
   <div style="position: relative; border-radius: 8px; overflow: hidden;">
     <img src="/images/projects/rubiks-cube-robot/lab-ultrawide.jpg" alt="Testing facility" style="width: 100%; display: block; height: 250px; object-fit: cover;" />
     <div style="position: absolute; top: 0; left: 0; right: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); padding: 1rem; color: white;">
