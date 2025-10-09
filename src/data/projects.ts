@@ -38,7 +38,7 @@ export const projects: Project[] = [
     showInRandomButton: true,
     content: `# The Hidden Project
 
-Congratulations! You found the secret project accessible only through the terminal.
+Congratulations!! You found the secret project accessible only through the terminal.
 
 ## What is this?
 
