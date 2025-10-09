@@ -1,11 +1,8 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
 import rehypeRaw from 'rehype-raw';
-import rehypeKatex from 'rehype-katex';
 import { getImageUrl } from '@/lib/images';
 import type { Components } from 'react-markdown';
-import 'katex/dist/katex.min.css';
 
 interface MarkdownRendererProps {
   children: string;
@@ -61,8 +58,8 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
   return (
     <div className={className}>
       <ReactMarkdown 
-        remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeRaw, rehypeKatex]}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={components}
       >
         {children}
