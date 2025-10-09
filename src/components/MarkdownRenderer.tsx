@@ -20,16 +20,13 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
       // Process the image source through our utility
       const processedSrc = src ? getImageUrl(src) : '';
       
-      // Only add markdown-image class if no custom class is provided
-      const finalClassName = imgClassName || "markdown-image";
-      
       return (
         <img 
           src={processedSrc} 
           alt={alt || ''} 
           {...props}
           loading="lazy"
-          className={finalClassName}
+          className={imgClassName}
         />
       );
     },

@@ -165,13 +165,24 @@ Ultra-wide and panoramic images work great for showcasing entire workstations:
 
 # 🎨 Advanced HTML Image Styling Guide
 
-This section demonstrates various HTML techniques for advanced image control beyond basic markdown.
+This section demonstrates various HTML techniques for advanced image control beyond basic markdown. All width control is now manual - no default 70% sizing.
 
-## Full-Width Hero Image
+## Image Width Control Examples
 
-<div style="width: 100%; margin: 2rem 0;">
-  <img src="/images/projects/rubiks-cube-robot/hero.jpg" alt="Full width hero showcase" style="width: 100%; height: auto; border-radius: 8px;" />
-</div>
+### Full-Width (100%)
+<img src="/images/projects/rubiks-cube-robot/hero.jpg" alt="Full width hero" style="width: 100%; height: auto; border-radius: 8px; margin: 2rem 0;" />
+
+### 80% Width, Centered
+<img src="/images/projects/rubiks-cube-robot/lab-ultrawide.jpg" alt="80% width" style="width: 80%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;" />
+
+### 70% Width, Centered (Classic)
+<img src="/images/projects/rubiks-cube-robot/workstation-wide.jpg" alt="70% width" style="width: 70%; height: auto; display: block; margin: 2rem auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);" />
+
+### 50% Width, Centered
+<img src="/images/projects/rubiks-cube-robot/robot-portrait.jpg" alt="50% width" style="width: 50%; height: auto; display: block; margin: 2rem auto; border-radius: 8px;" />
+
+### Fixed Pixel Width (400px)
+<img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="400px width" style="width: 400px; height: auto; display: block; margin: 2rem auto; border-radius: 8px;" />
 
 ## Side-by-Side Comparison with Labels
 
