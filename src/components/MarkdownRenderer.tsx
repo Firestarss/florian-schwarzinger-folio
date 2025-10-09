@@ -16,9 +16,12 @@ interface MarkdownRendererProps {
 const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
   // Custom components to handle images and HTML elements
   const components: Components = {
-    img: ({ src, alt, ...props }) => {
+    img: ({ src, alt, className: imgClassName, ...props }) => {
       // Process the image source through our utility
       const processedSrc = src ? getImageUrl(src) : '';
+      
+      // Only add markdown-image class if no custom class is provided
+      const finalClassName = imgClassName || "markdown-image";
       
       return (
         <img 
@@ -26,7 +29,7 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
           alt={alt || ''} 
           {...props}
           loading="lazy"
-          className="markdown-image"
+          className={finalClassName}
         />
       );
     },

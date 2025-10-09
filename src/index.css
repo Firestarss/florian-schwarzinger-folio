@@ -251,7 +251,7 @@
     @apply rounded-lg my-4 max-w-full h-auto;
   }
   
-  /* Markdown Images - Smaller Width */
+  /* Markdown Images - Default 70% width (can be overridden with custom classes) */
   .prose .markdown-image {
     max-width: 70%;
     height: auto;
