@@ -607,12 +607,8 @@ Single images are automatically sized to 70% width:
 
 You can also create a comparison view with two images:
 
-<div class="image-row">
-
 ![Before Solving](/images/projects/rubiks-cube-robot/hero.jpg)
 ![After Solving](/images/projects/rubiks-cube-robot/solved-cube.jpg)
-
-</div>
 
 ## Tables
 
