@@ -142,6 +142,25 @@ For a grid of multiple images, use the "image-grid" class:
   <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Solved Cube" />
 </div>
 
+## Mixed Aspect Ratio Grid
+
+You can mix different aspect ratios in a grid for dynamic layouts:
+
+<div class="image-grid">
+  <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="Precise Gripper Mechanism" />
+  <img src="/images/projects/rubiks-cube-robot/robot-portrait.jpg" alt="Full Robot Assembly" />
+  <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Electronics and Wiring" />
+</div>
+
+## Wide Format Layouts
+
+Ultra-wide and panoramic images work great for showcasing entire workstations:
+
+<div class="image-grid">
+  <img src="/images/projects/rubiks-cube-robot/workstation-wide.jpg" alt="Complete Workstation Setup" />
+  <img src="/images/projects/rubiks-cube-robot/lab-ultrawide.jpg" alt="Laboratory Environment" />
+</div>
+
 ## Headers and Text Formatting
 
 This section shows different **header levels** and *text formatting* options.
