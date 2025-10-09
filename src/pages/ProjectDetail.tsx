@@ -204,27 +204,43 @@ const ProjectDetail = () => {
           <Separator className="mb-6" />
 
           <div className="flex flex-col gap-3">
-            {project.files.map((file, index) => (
-              <a
-                key={index}
-                href={file.url}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/10 hover:border-primary/40 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <FileText className="text-primary group-hover:scale-110 transition-transform" size={24} />
-                  <div>
-                    <p className="font-medium">{file.name}</p>
-                    {file.type && <p className="text-sm text-muted-foreground">{file.type}</p>}
+            {project.files.map((file, index) => {
+              const ext = file.name.split(".").pop()?.toLowerCase();
+              let Icon = FileText;
+              if (ext === "pdf") Icon = FileText;
+              else if (["zip", "rar", "7z"].includes(ext)) Icon = Archive;
+              else if (["step", "stl", "igs", "obj"].includes(ext)) Icon = Cube;
+              else if (["py", "js", "cpp", "ino", "c", "zip"].includes(ext)) Icon = Code2;
+              else if (["jpg", "png", "gif", "jpeg"].includes(ext)) Icon = Image;
+              else if (["csv", "xlsx", "xls"].includes(ext)) Icon = Table;
+              else if (["txt", "md"].includes(ext)) Icon = FileText;
+
+              return (
+                <a
+                  key={index}
+                  href={file.url}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/80 hover:border-primary/40 transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon className="text-primary group-hover:scale-110 transition-transform" size={24} />
+                    <div>
+                      <p className="font-medium">{file.name}</p>
+                      {file.type && <p className="text-sm text-muted-foreground">{file.type}</p>}
+                    </div>
                   </div>
-                </div>
-                <Button variant="outline" size="sm" className="shrink-0">
-                  Download
-                </Button>
-              </a>
-            ))}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90"
+                  >
+                    Download
+                  </Button>
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
