@@ -194,12 +194,12 @@ This section demonstrates various HTML techniques for advanced image control bey
 
 ## Side-by-Side Comparison with Labels
 
-<div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
-  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 1rem); text-align: center;">
+<div style="display: flex; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
+  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 0.75rem); text-align: center;">
     <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Phase 1: Initial Assembly" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
     <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Phase 1: Initial Assembly</p>
   </div>
-  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 1rem); text-align: center;">
+  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 0.75rem); text-align: center;">
     <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Phase 2: Electronics Integration" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
     <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Phase 2: Electronics Integration</p>
   </div>
@@ -208,13 +208,13 @@ This section demonstrates various HTML techniques for advanced image control bey
 ## Single Photo with Label
 
 <div style="text-align: center; margin: 2rem 0;">
-  <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Solved Rubik's Cube" style="width: 60%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
+  <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Solved Rubik's Cube" style="width: 60%; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
   <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Final Result: Perfectly Solved Cube</p>
 </div>
 
 ## Circular Profile Images
 
-<div style="display: flex; gap: 2rem; align-items: center; margin: 2rem 0; flex-wrap: wrap;">
+<div style="display: flex; gap: 2rem; align-items: center; justify-content: center; margin: 2rem 0; flex-wrap: wrap;">
   <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="Detail 1" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #555;" />
   <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Detail 2" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #555;" />
   <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Detail 3" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #555;" />
