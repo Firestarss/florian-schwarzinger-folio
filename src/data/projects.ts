@@ -268,12 +268,12 @@ This section demonstrates various HTML techniques for advanced image control bey
 
 ## Split Screen Comparison
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 2rem 0; border-radius: 8px; overflow: hidden;">
-  <div style="position: relative;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem auto; width: 80%;">
+  <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
     <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Assembly phase" style="width: 100%; height: 300px; object-fit: cover;" />
     <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 0.5rem 1rem; border-radius: 4px; color: white; font-weight: bold;">Phase 1</div>
   </div>
-  <div style="position: relative;">
+  <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
     <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Completed phase" style="width: 100%; height: 300px; object-fit: cover;" />
     <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 0.5rem 1rem; border-radius: 4px; color: white; font-weight: bold;">Phase 2</div>
   </div>
