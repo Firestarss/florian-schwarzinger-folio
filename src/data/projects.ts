@@ -184,17 +184,32 @@ This section demonstrates various HTML techniques for advanced image control bey
 ### Fixed Pixel Width (400px)
 <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="400px width" style="width: 400px; height: auto; display: block; margin: 2rem auto; border-radius: 8px;" />
 
+## Centered Profile Images
+
+<div style="display: flex; gap: 2rem; justify-content: center; align-items: center; margin: 2rem 0; flex-wrap: wrap;">
+  <img src="/images/profile/avatar.jpg" alt="Profile Avatar" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);" />
+  <img src="/images/profile/avatar.jpg" alt="Profile Avatar 2" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);" />
+  <img src="/images/profile/avatar.jpg" alt="Profile Avatar 3" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);" />
+</div>
+
 ## Side-by-Side Comparison with Labels
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
-  <div style="text-align: center;">
-    <img src="/images/projects/rubiks-cube-robot/color-detection.jpg" alt="Before: Color Detection System" style="width: 100%; border-radius: 8px; border: 2px solid #333;" />
-    <p style="margin-top: 0.5rem; font-weight: bold; color: #888;">Color Detection System</p>
+<div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
+  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 1rem); text-align: center;">
+    <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Phase 1: Initial Assembly" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
+    <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Phase 1: Initial Assembly</p>
   </div>
-  <div style="text-align: center;">
-    <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="After: Solved Cube" style="width: 100%; border-radius: 8px; border: 2px solid #333;" />
-    <p style="margin-top: 0.5rem; font-weight: bold; color: #888;">Final Result</p>
+  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 1rem); text-align: center;">
+    <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Phase 2: Electronics Integration" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
+    <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Phase 2: Electronics Integration</p>
   </div>
+</div>
+
+## Single Photo with Label
+
+<div style="text-align: center; margin: 2rem 0;">
+  <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Solved Rubik's Cube" style="width: 60%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
+  <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Final Result: Perfectly Solved Cube</p>
 </div>
 
 ## Circular Profile Images

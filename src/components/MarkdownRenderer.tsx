@@ -20,13 +20,17 @@ const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
       // Process the image source through our utility
       const processedSrc = src ? getImageUrl(src) : '';
       
+      // Apply default markdown-image class only to images without custom classes
+      // This allows HTML images with classes/styles to bypass the default 70% width
+      const finalClassName = imgClassName || "markdown-image";
+      
       return (
         <img 
           src={processedSrc} 
           alt={alt || ''} 
           {...props}
           loading="lazy"
-          className={imgClassName}
+          className={finalClassName}
         />
       );
     },

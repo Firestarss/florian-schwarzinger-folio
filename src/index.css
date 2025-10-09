@@ -251,6 +251,16 @@
     @apply rounded-lg my-4 max-w-full h-auto;
   }
   
+  /* Default styling for markdown-syntax images (![]()), 70% width centered */
+  .prose .markdown-image {
+    max-width: 70%;
+    height: auto;
+    margin: 1.5rem auto;
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  
   /* Strong/Bold */
   .prose strong {
     @apply font-bold text-foreground;
@@ -265,7 +275,7 @@
 /* Multi-column image layouts for markdown */
 .image-row {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin: 1.5rem 0;
   flex-wrap: wrap;
   justify-content: center;
@@ -274,7 +284,7 @@
 .image-row img {
   flex: 1;
   min-width: 250px;
-  max-width: calc(50% - 0.5rem);
+  max-width: calc(50% - 0.75rem);
   height: auto;
   object-fit: cover;
   border-radius: 0.5rem;
