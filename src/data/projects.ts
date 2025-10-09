@@ -119,8 +119,8 @@ Images in markdown are displayed at 70% width by default, centered on the page:
 You can place multiple images next to each other using a div with class "image-row":
 
 <div class="image-row">
-![Robot Gripper](/images/projects/rubiks-cube-robot/gripper.jpg)
-![Color Detection System](/images/projects/rubiks-cube-robot/color-detection.jpg)
+  <img src="/images/projects/rubiks-cube-robot/gripper.jpg" alt="Robot Gripper" />
+  <img src="/images/projects/rubiks-cube-robot/color-detection.jpg" alt="Color Detection System" />
 </div>
 
 ## HTML Image Rendering
@@ -137,9 +137,9 @@ You can also use HTML img tags directly in markdown for more control:
 For a grid of multiple images, use the "image-grid" class:
 
 <div class="image-grid">
-![Vision System](/images/projects/rubiks-cube-robot/vision-system.jpg)
-![Gripper Close-up](/images/projects/rubiks-cube-robot/gripper.jpg)
-![Solved Cube](/images/projects/rubiks-cube-robot/solved-cube.jpg)
+  <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Vision System" />
+  <img src="/images/projects/rubiks-cube-robot/gripper.jpg" alt="Gripper Close-up" />
+  <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Solved Cube" />
 </div>
 
 ## Headers and Text Formatting
