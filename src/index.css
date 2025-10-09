@@ -287,10 +287,11 @@
   justify-content: center;
 }
 
-.image-row img {
+/* Higher specificity to override .prose .markdown-image */
+.prose .image-row img {
   flex: 1;
   min-width: 250px;
-  max-width: calc(50% - 0.75rem);
+  max-width: calc(50% - 0.75rem) !important;
   height: auto;
   object-fit: cover;
   border-radius: 0.5rem;
@@ -306,8 +307,10 @@
   margin: 1.5rem 0;
 }
 
-.image-grid img {
-  width: 100%;
+/* Higher specificity to override .prose .markdown-image */
+.prose .image-grid img {
+  width: 100% !important;
+  max-width: 100% !important;
   height: 200px;
   object-fit: cover;
   border-radius: 0.5rem;
