@@ -194,12 +194,12 @@ This section demonstrates various HTML techniques for advanced image control bey
 
 ## Side-by-Side Comparison with Labels
 
-<div style="display: flex; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
-  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 0.75rem); text-align: center;">
+<div style="display: flex; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
+  <div style="flex: 1; min-width: 250px; max-width: 48%; text-align: center; margin: 0 1%;">
     <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Phase 1: Initial Assembly" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
     <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Phase 1: Initial Assembly</p>
   </div>
-  <div style="flex: 1; min-width: 250px; max-width: calc(50% - 0.75rem); text-align: center;">
+  <div style="flex: 1; min-width: 250px; max-width: 48%; text-align: center; margin: 0 1%;">
     <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Phase 2: Electronics Integration" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);" />
     <p style="margin-top: 0.5rem; font-weight: 600; color: #888;">Phase 2: Electronics Integration</p>
   </div>
@@ -319,6 +319,177 @@ This section demonstrates various HTML techniques for advanced image control bey
   </div>
   <div style="border: 3px solid #444; padding: 0.5rem; background: #1a1a1a; border-radius: 8px;">
     <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Featured 3" style="width: 200px; display: block; border-radius: 4px;" />
+  </div>
+</div>
+
+## Corner Badge Labels
+
+<div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
+  <div style="position: relative; width: 280px;">
+    <img src="/images/projects/rubiks-cube-robot/gripper.jpg" alt="Latest component" style="width: 100%; border-radius: 8px;" />
+    <div style="position: absolute; top: -8px; right: -8px; background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-weight: bold; font-size: 0.85rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">NEW</div>
+  </div>
+  <div style="position: relative; width: 280px;">
+    <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Featured system" style="width: 100%; border-radius: 8px;" />
+    <div style="position: absolute; top: -8px; right: -8px; background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-weight: bold; font-size: 0.85rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">FEATURED</div>
+  </div>
+  <div style="position: relative; width: 280px;">
+    <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Updated component" style="width: 100%; border-radius: 8px;" />
+    <div style="position: absolute; top: -8px; right: -8px; background: linear-gradient(135deg, #43e97b, #38f9d7); color: #1a1a1a; padding: 0.4rem 1rem; border-radius: 20px; font-weight: bold; font-size: 0.85rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">v2.0</div>
+  </div>
+</div>
+
+## Top Banner with Icon Labels
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <div style="background: linear-gradient(90deg, #667eea, #764ba2); color: white; padding: 0.6rem; text-align: center; font-weight: 600;">⚙️ Mechanical Design</div>
+    <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Mechanical design" style="width: 100%; display: block;" />
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <div style="background: linear-gradient(90deg, #f093fb, #f5576c); color: white; padding: 0.6rem; text-align: center; font-weight: 600;">🔌 Electronics</div>
+    <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Electronics setup" style="width: 100%; display: block;" />
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <div style="background: linear-gradient(90deg, #4facfe, #00f2fe); color: white; padding: 0.6rem; text-align: center; font-weight: 600;">👁️ Vision System</div>
+    <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Vision system" style="width: 100%; display: block;" />
+  </div>
+</div>
+
+## Timeline Labels with Dates
+
+<div style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0; max-width: 700px; margin-left: auto; margin-right: auto;">
+  <div style="display: flex; gap: 1.5rem; align-items: center;">
+    <div style="min-width: 120px; text-align: right;">
+      <div style="font-size: 1.1rem; font-weight: bold; color: #ff8c42;">Jan 2024</div>
+      <div style="font-size: 0.85rem; color: #888;">Week 1-2</div>
+    </div>
+    <div style="flex: 1; position: relative;">
+      <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Initial prototype" style="width: 100%; border-radius: 8px; border: 2px solid #333;" />
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 1rem; color: white;">
+        <strong>Initial Prototype</strong>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; gap: 1.5rem; align-items: center;">
+    <div style="min-width: 120px; text-align: right;">
+      <div style="font-size: 1.1rem; font-weight: bold; color: #ff8c42;">Feb 2024</div>
+      <div style="font-size: 0.85rem; color: #888;">Week 5-6</div>
+    </div>
+    <div style="flex: 1; position: relative;">
+      <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Electronics integration" style="width: 100%; border-radius: 8px; border: 2px solid #333;" />
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 1rem; color: white;">
+        <strong>Electronics Integration</strong>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; gap: 1.5rem; align-items: center;">
+    <div style="min-width: 120px; text-align: right;">
+      <div style="font-size: 1.1rem; font-weight: bold; color: #43e97b;">Mar 2024</div>
+      <div style="font-size: 0.85rem; color: #888;">Week 9-10</div>
+    </div>
+    <div style="flex: 1; position: relative;">
+      <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Final testing" style="width: 100%; border-radius: 8px; border: 2px solid #43e97b;" />
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 1rem; color: white;">
+        <strong>✓ Complete & Tested</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Ribbon-Style Labels
+
+<div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
+  <div style="position: relative; width: 280px;">
+    <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="Award winning design" style="width: 100%; border-radius: 8px;" />
+    <div style="position: absolute; top: 15px; left: -10px; background: #ffd700; color: #1a1a1a; padding: 0.5rem 1.5rem 0.5rem 1rem; font-weight: bold; font-size: 0.9rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3); clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);">🏆 BEST DESIGN</div>
+  </div>
+  <div style="position: relative; width: 280px;">
+    <img src="/images/projects/rubiks-cube-robot/robot-portrait.jpg" alt="Innovation award" style="width: 100%; border-radius: 8px;" />
+    <div style="position: absolute; top: 15px; left: -10px; background: #c0c0c0; color: #1a1a1a; padding: 0.5rem 1.5rem 0.5rem 1rem; font-weight: bold; font-size: 0.9rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3); clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);">⚡ INNOVATIVE</div>
+  </div>
+</div>
+
+## Numbered Step Indicators
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Step 1" style="width: 100%; display: block;" />
+    <div style="position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.3rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">1</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); padding: 0.8rem; color: white; font-weight: 500;">Design & Assembly</div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Step 2" style="width: 100%; display: block;" />
+    <div style="position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; background: #4facfe; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.3rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">2</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); padding: 0.8rem; color: white; font-weight: 500;">Wire & Program</div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Step 3" style="width: 100%; display: block;" />
+    <div style="position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; background: #a78bfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.3rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">3</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); padding: 0.8rem; color: white; font-weight: 500;">Calibrate Vision</div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Step 4" style="width: 100%; display: block;" />
+    <div style="position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; background: #43e97b; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.3rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">4</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); padding: 0.8rem; color: white; font-weight: 500;">Test & Optimize</div>
+  </div>
+</div>
+
+## Multi-Layer Text Overlays
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/workstation-wide.jpg" alt="Development setup" style="width: 100%; display: block; height: 250px; object-fit: cover;" />
+    <div style="position: absolute; top: 0; left: 0; right: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); padding: 1rem; color: white;">
+      <div style="font-size: 0.8rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;">Development</div>
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 1.5rem; color: white;">
+      <h4 style="margin: 0 0 0.3rem 0; font-size: 1.2rem;">Workstation Setup</h4>
+      <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Complete development environment</p>
+    </div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/lab-ultrawide.jpg" alt="Testing facility" style="width: 100%; display: block; height: 250px; object-fit: cover;" />
+    <div style="position: absolute; top: 0; left: 0; right: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); padding: 1rem; color: white;">
+      <div style="font-size: 0.8rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;">Testing</div>
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 1.5rem; color: white;">
+      <h4 style="margin: 0 0 0.3rem 0; font-size: 1.2rem;">Laboratory Facility</h4>
+      <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">State-of-the-art testing equipment</p>
+    </div>
+  </div>
+</div>
+
+## Using Generated Images
+
+Here are examples using the newly generated AI images with various labeling styles:
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+  <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <img src="/images/projects/rubiks-cube-robot/servo-motors.jpg" alt="Servo motor array" style="width: 100%; display: block; height: 220px; object-fit: cover;" />
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)); padding: 1.2rem; color: white;">
+      <h4 style="margin: 0 0 0.3rem 0;">Precision Servo Array</h4>
+      <p style="margin: 0; font-size: 0.85rem; opacity: 0.85;">High-torque actuators for cube manipulation</p>
+    </div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <img src="/images/projects/rubiks-cube-robot/testing-environment.jpg" alt="Testing lab" style="width: 100%; display: block; height: 220px; object-fit: cover;" />
+    <div style="position: absolute; top: 12px; right: 12px; background: rgba(67, 233, 123, 0.95); color: #1a1a1a; padding: 0.4rem 0.9rem; border-radius: 6px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 8px rgba(67, 233, 123, 0.4);">ACTIVE</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)); padding: 1.2rem; color: white;">
+      <h4 style="margin: 0;">Testing Environment</h4>
+    </div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <img src="/images/projects/rubiks-cube-robot/control-panel.jpg" alt="Control interface" style="width: 100%; display: block; height: 220px; object-fit: cover;" />
+    <div style="position: absolute; top: 12px; left: 12px; width: 35px; height: 35px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 8px rgba(0,0,0,0.4);">⚡</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.85); padding: 1rem; color: white; text-align: center; font-weight: 600;">Control Panel Interface</div>
+  </div>
+  <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <img src="/images/projects/rubiks-cube-robot/sensor-array.jpg" alt="Sensor systems" style="width: 100%; display: block; height: 220px; object-fit: cover;" />
+    <div style="position: absolute; top: 15px; left: -8px; background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 0.4rem 1.2rem 0.4rem 1rem; font-weight: bold; font-size: 0.85rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3); clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%);">VISION</div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)); padding: 1.2rem; color: white;">
+      <h4 style="margin: 0;">Advanced Sensor Array</h4>
+    </div>
   </div>
 </div>
 
