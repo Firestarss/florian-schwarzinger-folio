@@ -222,12 +222,13 @@ const ProjectDetail = () => {
                   download
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/80 hover:border-primary/40 transition-all"
+                  className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/10 hover:border-primary/40 transition-all"
                 >
-                  <div className="flex items-center gap-3">
-                    <Icon className="text-primary group-hover:scale-110 transition-transform" size={24} />
-                    <div>
-                      <p className="font-medium">{file.name}</p>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <Icon className="text-primary group-hover:scale-110 transition-transform shrink-0" size={24} />
+                    <div className="flex flex-col min-w-0">
+                      {/* Full file name (including extension) */}
+                      <p className="font-medium break-all">{file.name}</p>
                       {file.type && <p className="text-sm text-muted-foreground">{file.type}</p>}
                     </div>
                   </div>
