@@ -108,6 +108,8 @@ We're currently in the prototyping phase, testing various actuator configuration
 
 This project description demonstrates **every markdown feature** supported by react-markdown, including advanced image layouts!
 
+Next AI prompt: **"Add an "Additional Files" Section functionality to the sub-project pages is separate from the content section that we have been editing for this long. Allow this section to hold downloadable files that will likely not be photos. My idea here is if I have like CAD files or other misc. files, i can add them here for people to download and inspect themselves if they so choose. as always, let this section be optional but include an example of it in the rubiks cube robot page"**
+
 ## Single Image Example
 
 Images in markdown are displayed at 70% width by default, centered on the page:
