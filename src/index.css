@@ -246,12 +246,12 @@
     @apply border-border my-8;
   }
   
-  /* Images */
+  /* Base image styling */
   .prose img {
-    @apply rounded-lg my-4 max-w-full h-auto;
+    @apply rounded-lg my-4;
   }
   
-  /* Default styling for markdown-syntax images (![]()), 70% width centered */
+  /* Default styling for pure markdown-syntax images (![](path)) without custom styling */
   .prose .markdown-image {
     max-width: 70%;
     height: auto;
@@ -259,6 +259,12 @@
     display: block;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  
+  /* HTML images with custom styling get full flexibility */
+  .prose img:not(.markdown-image) {
+    max-width: 100%;
+    height: auto;
   }
   
   /* Strong/Bold */

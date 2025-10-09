@@ -16,18 +16,20 @@ interface MarkdownRendererProps {
 const MarkdownRenderer = ({ children, className }: MarkdownRendererProps) => {
   // Custom components to handle images and HTML elements
   const components: Components = {
-    img: ({ src, alt, className: imgClassName, ...props }) => {
+    img: ({ src, alt, className: imgClassName, style, ...props }) => {
       // Process the image source through our utility
       const processedSrc = src ? getImageUrl(src) : '';
       
-      // Apply default markdown-image class only to images without custom classes
-      // This allows HTML images with classes/styles to bypass the default 70% width
-      const finalClassName = imgClassName || "markdown-image";
+      // Only apply markdown-image class if the image has NO custom styling
+      // This distinguishes pure markdown ![](path) from HTML <img> with style/class
+      const hasCustomStyling = imgClassName || style;
+      const finalClassName = hasCustomStyling ? imgClassName : "markdown-image";
       
       return (
         <img 
           src={processedSrc} 
           alt={alt || ''} 
+          style={style}
           {...props}
           loading="lazy"
           className={finalClassName}
