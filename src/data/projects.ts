@@ -161,6 +161,143 @@ Ultra-wide and panoramic images work great for showcasing entire workstations:
   <img src="/images/projects/rubiks-cube-robot/lab-ultrawide.jpg" alt="Laboratory Environment" />
 </div>
 
+---
+
+# 🎨 Advanced HTML Image Styling Guide
+
+This section demonstrates various HTML techniques for advanced image control beyond basic markdown.
+
+## Full-Width Hero Image
+
+<div style="width: 100%; margin: 2rem 0;">
+  <img src="/images/projects/rubiks-cube-robot/hero.jpg" alt="Full width hero showcase" style="width: 100%; height: auto; border-radius: 8px;" />
+</div>
+
+## Side-by-Side Comparison with Labels
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+  <div style="text-align: center;">
+    <img src="/images/projects/rubiks-cube-robot/color-detection.jpg" alt="Before: Color Detection System" style="width: 100%; border-radius: 8px; border: 2px solid #333;" />
+    <p style="margin-top: 0.5rem; font-weight: bold; color: #888;">Color Detection System</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="After: Solved Cube" style="width: 100%; border-radius: 8px; border: 2px solid #333;" />
+    <p style="margin-top: 0.5rem; font-weight: bold; color: #888;">Final Result</p>
+  </div>
+</div>
+
+## Circular Profile Images
+
+<div style="display: flex; gap: 2rem; align-items: center; margin: 2rem 0; flex-wrap: wrap;">
+  <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="Detail 1" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #555;" />
+  <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Detail 2" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #555;" />
+  <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Detail 3" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #555;" />
+</div>
+
+## Image with Caption and Description Box
+
+<div style="max-width: 600px; margin: 2rem auto; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+  <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Assembly Process" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;" />
+  <h4 style="margin: 0 0 0.5rem 0; color: #fff;">Assembly Process</h4>
+  <p style="margin: 0; color: #aaa; font-size: 0.9rem;">The mechanical assembly required precise calibration of servo motors and careful alignment of the gripper mechanism to ensure smooth cube manipulation.</p>
+</div>
+
+## Floating Image with Text Wrap
+
+<div style="margin: 2rem 0;">
+  <img src="/images/projects/rubiks-cube-robot/robot-portrait.jpg" alt="Robot portrait" style="float: left; width: 250px; margin: 0 1.5rem 1rem 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" />
+  <p>This advanced robotic system represents months of iterative design and testing. The vertical assembly allows for optimal camera positioning while maintaining a compact footprint. Each component was carefully selected to balance performance with power consumption.</p>
+  <p>The modular design enables easy maintenance and upgrades. Future iterations could incorporate machine learning for adaptive solving strategies or support for larger cube variants.</p>
+  <div style="clear: both;"></div>
+</div>
+
+## Asymmetric Grid Layout
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin: 2rem 0;">
+  <img src="/images/projects/rubiks-cube-robot/workstation-wide.jpg" alt="Main workstation" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="Detail 1" style="width: 100%; border-radius: 8px;" />
+    <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Detail 2" style="width: 100%; border-radius: 8px;" />
+  </div>
+</div>
+
+## Image Gallery with Hover Effect
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <img src="/images/projects/rubiks-cube-robot/gripper.jpg" alt="Component 1" style="width: 100%; border-radius: 8px; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+  <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Component 2" style="width: 100%; border-radius: 8px; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+  <img src="/images/projects/rubiks-cube-robot/color-detection.jpg" alt="Component 3" style="width: 100%; border-radius: 8px; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+  <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Component 4" style="width: 100%; border-radius: 8px; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+</div>
+
+## Featured Image with Gradient Overlay
+
+<div style="position: relative; max-width: 800px; margin: 2rem auto; border-radius: 12px; overflow: hidden;">
+  <img src="/images/projects/rubiks-cube-robot/lab-ultrawide.jpg" alt="Laboratory setup" style="width: 100%; display: block;" />
+  <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem; color: white;">
+    <h3 style="margin: 0 0 0.5rem 0;">Complete Laboratory Setup</h3>
+    <p style="margin: 0; opacity: 0.9;">State-of-the-art development environment with testing infrastructure</p>
+  </div>
+</div>
+
+## Split Screen Comparison
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 2rem 0; border-radius: 8px; overflow: hidden;">
+  <div style="position: relative;">
+    <img src="/images/projects/rubiks-cube-robot/assembly.jpg" alt="Assembly phase" style="width: 100%; height: 300px; object-fit: cover;" />
+    <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 0.5rem 1rem; border-radius: 4px; color: white; font-weight: bold;">Phase 1</div>
+  </div>
+  <div style="position: relative;">
+    <img src="/images/projects/rubiks-cube-robot/solved-cube.jpg" alt="Completed phase" style="width: 100%; height: 300px; object-fit: cover;" />
+    <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.7); padding: 0.5rem 1rem; border-radius: 4px; color: white; font-weight: bold;">Phase 2</div>
+  </div>
+</div>
+
+## Masonry-Style Layout
+
+<div style="column-count: 3; column-gap: 1rem; margin: 2rem 0;">
+  <img src="/images/projects/rubiks-cube-robot/grip-closeup.jpg" alt="Image 1" style="width: 100%; margin-bottom: 1rem; border-radius: 8px; display: block;" />
+  <img src="/images/projects/rubiks-cube-robot/robot-portrait.jpg" alt="Image 2" style="width: 100%; margin-bottom: 1rem; border-radius: 8px; display: block;" />
+  <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Image 3" style="width: 100%; margin-bottom: 1rem; border-radius: 8px; display: block;" />
+  <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Image 4" style="width: 100%; margin-bottom: 1rem; border-radius: 8px; display: block;" />
+  <img src="/images/projects/rubiks-cube-robot/color-detection.jpg" alt="Image 5" style="width: 100%; margin-bottom: 1rem; border-radius: 8px; display: block;" />
+</div>
+
+## Image with Stats Overlay
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+  <div style="position: relative; border-radius: 12px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/workstation-wide.jpg" alt="Workstation metrics" style="width: 100%; display: block; filter: brightness(0.7);" />
+    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;">
+      <div style="font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem;">98%</div>
+      <div style="font-size: 1.2rem; opacity: 0.9;">Success Rate</div>
+    </div>
+  </div>
+  <div style="position: relative; border-radius: 12px; overflow: hidden;">
+    <img src="/images/projects/rubiks-cube-robot/hero.jpg" alt="Speed metrics" style="width: 100%; display: block; filter: brightness(0.7);" />
+    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;">
+      <div style="font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem;">2.3s</div>
+      <div style="font-size: 1.2rem; opacity: 0.9;">Average Solve</div>
+    </div>
+  </div>
+</div>
+
+## Bordered Feature Images
+
+<div style="display: flex; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center;">
+  <div style="border: 3px solid #444; padding: 0.5rem; background: #1a1a1a; border-radius: 8px;">
+    <img src="/images/projects/rubiks-cube-robot/gripper.jpg" alt="Featured 1" style="width: 200px; display: block; border-radius: 4px;" />
+  </div>
+  <div style="border: 3px solid #444; padding: 0.5rem; background: #1a1a1a; border-radius: 8px;">
+    <img src="/images/projects/rubiks-cube-robot/electronics.jpg" alt="Featured 2" style="width: 200px; display: block; border-radius: 4px;" />
+  </div>
+  <div style="border: 3px solid #444; padding: 0.5rem; background: #1a1a1a; border-radius: 8px;">
+    <img src="/images/projects/rubiks-cube-robot/vision-system.jpg" alt="Featured 3" style="width: 200px; display: block; border-radius: 4px;" />
+  </div>
+</div>
+
+---
+
 ## Headers and Text Formatting
 
 This section shows different **header levels** and *text formatting* options.
