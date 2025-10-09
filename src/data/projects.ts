@@ -16,12 +16,7 @@ export interface Project {
   challenges?: string;
   keyFeatures?: string;
   lessonsLearned?: string;
-  techStack?: string[];
-  files?: {
-    name: string; // Full filename, e.g. "cube_robot.stl"
-    url: string; // Path or external URL to the file
-    type?: string; // Optional descriptor, e.g. "CAD Model", "Source Code"
-  }[];
+  techStack?: string[]; // Optional array of technologies used
 
   // Visibility controls
   showInProjects?: boolean; // If false, hidden from Projects page (defaults to true)
@@ -29,7 +24,6 @@ export interface Project {
   showInRandomCommand?: boolean; // If false, excluded from terminal random command. Defaults to showInTerminal value if undefined
   showInRandomButton?: boolean; // If false, excluded from random button on projects page. Defaults to showInProjects value if undefined
 }
-
 export const projects: Project[] = [
   {
     id: "terminal-secret",

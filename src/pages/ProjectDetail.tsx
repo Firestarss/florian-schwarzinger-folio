@@ -1,18 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import {
-  ArrowLeft,
-  Youtube,
-  FileText,
-  Images,
-  CircuitBoard,
-  Home,
-  FolderOpen,
-  Archive,
-  Cube,
-  Code2,
-  Table,
-} from "lucide-react";
+import { ArrowLeft, Youtube, FileText, Images, CircuitBoard, Home, FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -216,44 +204,27 @@ const ProjectDetail = () => {
           <Separator className="mb-6" />
 
           <div className="flex flex-col gap-3">
-            {project.files.map((file, index) => {
-              const ext = file.name.split(".").pop()?.toLowerCase();
-              let Icon = FileText;
-              if (ext === "pdf") Icon = FileText;
-              else if (["zip", "rar", "7z"].includes(ext)) Icon = Archive;
-              else if (["step", "stl", "igs", "obj"].includes(ext)) Icon = Cube;
-              else if (["py", "js", "cpp", "ino", "c", "zip"].includes(ext)) Icon = Code2;
-              else if (["jpg", "png", "gif", "jpeg"].includes(ext)) Icon = Image;
-              else if (["csv", "xlsx", "xls"].includes(ext)) Icon = Table;
-              else if (["txt", "md"].includes(ext)) Icon = FileText;
-
-              return (
-                <a
-                  key={index}
-                  href={file.url}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/10 hover:border-primary/40 transition-all"
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <Icon className="text-primary group-hover:scale-110 transition-transform shrink-0" size={24} />
-                    <div className="flex flex-col min-w-0">
-                      {/* Full file name (including extension) */}
-                      <p className="font-medium break-all">{file.name}</p>
-                      {file.type && <p className="text-sm text-muted-foreground">{file.type}</p>}
-                    </div>
+            {project.files.map((file, index) => (
+              <a
+                key={index}
+                href={file.url}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between border border-border rounded-lg p-4 hover:bg-accent/10 hover:border-primary/40 transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <FileText className="text-primary group-hover:scale-110 transition-transform" size={24} />
+                  <div>
+                    <p className="font-medium">{file.name}</p>
+                    {file.type && <p className="text-sm text-muted-foreground">{file.type}</p>}
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90"
-                  >
-                    Download
-                  </Button>
-                </a>
-              );
-            })}
+                </div>
+                <Button variant="outline" size="sm" className="shrink-0">
+                  Download
+                </Button>
+              </a>
+            ))}
           </div>
         </div>
       )}
