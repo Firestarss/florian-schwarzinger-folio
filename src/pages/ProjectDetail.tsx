@@ -1,6 +1,18 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Youtube, FileText, Images, CircuitBoard, Home, FolderOpen } from "lucide-react";
+import {
+  ArrowLeft,
+  Youtube,
+  FileText,
+  Images,
+  CircuitBoard,
+  Home,
+  FolderOpen,
+  Archive,
+  Cube,
+  Code2,
+  Table,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
