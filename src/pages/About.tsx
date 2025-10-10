@@ -41,7 +41,7 @@ const About = () => {
               </Button>
             </div>
           </div>
-          <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-[0_0_0_1px_hsl(var(--border)/0.3),0_8px_32px_-8px_hsl(var(--foreground)/0.15)]">
+          <div className="relative h-64 md:h-80 bg-muted rounded-lg overflow-hidden shadow-[0_0_0_1px_hsl(40_100%_70%/0.12),0_4px_18px_-3px_hsl(20_100%_50%/0.18)]">
             <img 
               src={getProfileImage("about-hero.jpg")}
               alt="Robotics engineering workspace with advanced robotic systems and equipment" 

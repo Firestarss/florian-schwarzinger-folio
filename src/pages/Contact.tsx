@@ -15,7 +15,7 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: <Github size={20} />,
-      url: "https://github.com/Firestarss",
+      url: "https://www.github.com/Firestarss",
     },
     {
       name: "LinkedIn",
@@ -45,7 +45,7 @@ const Contact = () => {
       {/* Professional Headshot Hero Section */}
       <div className="flex items-center gap-6 mb-8">
         <Avatar className="h-32 w-32 border-4 border-primary shadow-xl flex-shrink-0">
-          <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian Schwarzinger - Professional Headshot" />
+          <AvatarImage src={getProfileImage("avatar.jpg")} alt="Florian Schwarzinger - Headshot" />
           <AvatarFallback>FS</AvatarFallback>
         </Avatar>
         <div>
