@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Youtube, FileText, Images, CircuitBoard, Home, FolderOpen } from "lucide-react";
+import { ArrowLeft, Youtube, FileText, Images, CircuitBoard, Home, FolderOpen, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import FileDownload from "@/components/FileDownload";
 
 const GalleryImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
@@ -191,6 +192,18 @@ const ProjectDetail = () => {
               />
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Project Files */}
+      {project.files && project.files.length > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-2 flex items-center">
+            <Download className="text-primary mr-2" size={28} />
+            Project Files
+          </h2>
+          <Separator className="mb-6" />
+          <FileDownload files={project.files} />
         </div>
       )}
 

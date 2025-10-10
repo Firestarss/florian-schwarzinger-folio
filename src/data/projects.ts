@@ -13,6 +13,7 @@ export interface Project {
   // Optional elements
   gallery?: { src: string; alt: string }[];
   videoUrl?: string;
+  files?: { name: string; url: string; size?: string; type?: string }[];
   challenges?: string;
   keyFeatures?: string;
   lessonsLearned?: string;
