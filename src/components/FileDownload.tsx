@@ -1,38 +1,112 @@
-import { FileText, FileImage, FileVideo, FileArchive, FileCode, File, Download } from "lucide-react";
+import { FileText, FileImage, FileVideo, FileArchive, FileCode, File, Download, Box, Boxes, Layers, Cpu, Wrench, Printer, Database, Settings, FileJson, FileSpreadsheet, Binary } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 interface FileItem {
   name: string;
   url: string;
-  size?: string;
-  type?: string;
 }
 
 interface FileDownloadProps {
   files: FileItem[];
 }
 
-const getFileIcon = (filename: string, type?: string) => {
+const getFileIcon = (filename: string) => {
   const ext = filename.split('.').pop()?.toLowerCase();
   const iconClass = "text-primary";
   const iconSize = 24;
 
-  // Check type first if provided
-  if (type) {
-    if (type.startsWith('image/')) return <FileImage className={iconClass} size={iconSize} />;
-    if (type.startsWith('video/')) return <FileVideo className={iconClass} size={iconSize} />;
-    if (type.includes('pdf')) return <FileText className={iconClass} size={iconSize} />;
-  }
-
-  // Check by extension
   switch (ext) {
+    // SolidWorks CAD files
+    case 'sldprt':
+      return <Box className={iconClass} size={iconSize} />;
+    case 'sldasm':
+      return <Boxes className={iconClass} size={iconSize} />;
+    case 'slddrw':
+      return <Layers className={iconClass} size={iconSize} />;
+    
+    // 3D CAD models
+    case 'step':
+    case 'stp':
+    case 'igs':
+    case 'iges':
+    case 'f3d':
+    case 'fcstd':
+      return <Box className={iconClass} size={iconSize} />;
+    
+    // 3D printing & models
+    case 'stl':
+    case '3mf':
+    case 'blend':
+    case 'fbx':
+    case 'obj':
+      return <Printer className={iconClass} size={iconSize} />;
+    
+    // 2D CAD drawings
+    case 'dxf':
+    case 'dwg':
+      return <Layers className={iconClass} size={iconSize} />;
+    
+    // PCB & Electronics
+    case 'sch':
+    case 'brd':
+    case 'kicad_pcb':
+    case 'gerber':
+    case 'lbr':
+      return <Cpu className={iconClass} size={iconSize} />;
+    
+    // ROS & Robotics
+    case 'roslaunch':
+    case 'urdf':
+    case 'bag':
+      return <Settings className={iconClass} size={iconSize} />;
+    
+    // Arduino & Embedded
+    case 'ino':
+      return <Cpu className={iconClass} size={iconSize} />;
+    
+    // Programming - Code files
+    case 'py':
+    case 'cpp':
+    case 'c':
+    case 'h':
+    case 'js':
+    case 'ts':
+    case 'tsx':
+    case 'jsx':
+    case 'java':
+    case 'sh':
+    case 'bat':
+      return <FileCode className={iconClass} size={iconSize} />;
+    
+    // Web files
+    case 'html':
+    case 'css':
+      return <FileCode className={iconClass} size={iconSize} />;
+    
+    // Data & Config files
+    case 'json':
+      return <FileJson className={iconClass} size={iconSize} />;
+    case 'xml':
+    case 'yaml':
+    case 'yml':
+      return <Settings className={iconClass} size={iconSize} />;
+    case 'csv':
+    case 'xlsx':
+    case 'xls':
+      return <FileSpreadsheet className={iconClass} size={iconSize} />;
+    case 'bom':
+      return <Database className={iconClass} size={iconSize} />;
+    
     // Documents
     case 'pdf':
     case 'doc':
     case 'docx':
+    case 'pptx':
+      return <FileText className={iconClass} size={iconSize} />;
+    case 'md':
     case 'txt':
-    case 'rtf':
       return <FileText className={iconClass} size={iconSize} />;
     
     // Images
@@ -47,8 +121,8 @@ const getFileIcon = (filename: string, type?: string) => {
     
     // Video
     case 'mp4':
-    case 'avi':
     case 'mov':
+    case 'avi':
     case 'wmv':
     case 'flv':
     case 'webm':
@@ -60,39 +134,61 @@ const getFileIcon = (filename: string, type?: string) => {
     case '7z':
     case 'tar':
     case 'gz':
+    case 'tgz':
       return <FileArchive className={iconClass} size={iconSize} />;
     
-    // Code/CAD
-    case 'js':
-    case 'ts':
-    case 'tsx':
-    case 'jsx':
-    case 'py':
-    case 'java':
-    case 'cpp':
-    case 'c':
-    case 'h':
-    case 'css':
-    case 'html':
-    case 'json':
-    case 'xml':
-    case 'yaml':
-    case 'sldprt':
-    case 'sldasm':
-    case 'slddrw':
-    case 'stl':
-    case 'step':
-    case 'iges':
-    case 'dwg':
-    case 'dxf':
-      return <FileCode className={iconClass} size={iconSize} />;
+    // Executables
+    case 'exe':
+    case 'appimage':
+    case 'deb':
+      return <Binary className={iconClass} size={iconSize} />;
     
     default:
       return <File className={iconClass} size={iconSize} />;
   }
 };
 
+const formatFileSize = (bytes: number): string => {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+};
+
 const FileDownload = ({ files }: FileDownloadProps) => {
+  const [fileSizes, setFileSizes] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    const fetchFileSizes = async () => {
+      const sizes: { [key: string]: string } = {};
+      
+      await Promise.all(
+        files.map(async (file) => {
+          try {
+            const response = await fetch(file.url, { method: 'HEAD' });
+            const contentLength = response.headers.get('content-length');
+            if (contentLength) {
+              sizes[file.name] = formatFileSize(parseInt(contentLength, 10));
+            } else {
+              // Fallback: fetch the full file to get size
+              const fullResponse = await fetch(file.url);
+              const blob = await fullResponse.blob();
+              sizes[file.name] = formatFileSize(blob.size);
+            }
+          } catch (error) {
+            console.error(`Failed to fetch size for ${file.name}:`, error);
+            sizes[file.name] = 'Unknown size';
+          }
+        })
+      );
+      
+      setFileSizes(sizes);
+    };
+
+    fetchFileSizes();
+  }, [files]);
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {files.map((file, index) => (
@@ -100,12 +196,12 @@ const FileDownload = ({ files }: FileDownloadProps) => {
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 min-w-0 flex-1">
               <div className="flex-shrink-0">
-                {getFileIcon(file.name, file.type)}
+                {getFileIcon(file.name)}
               </div>
               <div className="min-w-0 flex-1">
                 <p className="font-medium truncate">{file.name}</p>
-                {file.size && (
-                  <p className="text-sm text-muted-foreground">{file.size}</p>
+                {fileSizes[file.name] && (
+                  <p className="text-sm text-muted-foreground">{fileSizes[file.name]}</p>
                 )}
               </div>
             </div>
