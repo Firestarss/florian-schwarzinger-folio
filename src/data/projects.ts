@@ -757,6 +757,44 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
 - Add voice commands for hands-free operation
 - Create a mobile app for wireless control
 - Optimize for one-handed solving to compete in speed-solving competitions`,
+    files: [
+      {
+        name: "cube-solver-algorithm.py",
+        url: "/resume-florian-schwarzinger.pdf",
+        size: "45 KB",
+        type: "text/x-python",
+      },
+      {
+        name: "robot-cad-model.sldprt",
+        url: "/resume-florian-schwarzinger.pdf",
+        size: "8.2 MB",
+        type: "application/octet-stream",
+      },
+      {
+        name: "color-calibration-data.json",
+        url: "/resume-florian-schwarzinger.pdf",
+        size: "12 KB",
+        type: "application/json",
+      },
+      {
+        name: "servo-control-firmware.ino",
+        url: "/resume-florian-schwarzinger.pdf",
+        size: "28 KB",
+        type: "text/x-arduino",
+      },
+      {
+        name: "project-documentation.pdf",
+        url: "/resume-florian-schwarzinger.pdf",
+        size: "2.4 MB",
+        type: "application/pdf",
+      },
+      {
+        name: "test-results.zip",
+        url: "/resume-florian-schwarzinger.pdf",
+        size: "156 KB",
+        type: "application/zip",
+      },
+    ],
   },
   {
     id: "autonomous-nav",
