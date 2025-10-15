@@ -12,7 +12,7 @@
  * @returns Resolved image URL
  * 
  * @example
- * getImageUrl('/images/hero.jpg') // => '/your-repo/images/hero.jpg' (on GitHub Pages)
+ * getImageUrl('/files/hero.jpg') // => '/your-repo/files/hero.jpg' (on GitHub Pages)
  * getImageUrl('https://example.com/image.jpg') // => 'https://example.com/image.jpg'
  */
 export function getImageUrl(path: string): string {
@@ -36,10 +36,10 @@ export function getImageUrl(path: string): string {
  * 
  * @example
  * getProjectImage('rubiks-cube-robot', 'hero.jpg')
- * // => '/your-repo/images/projects/rubiks-cube-robot/hero.jpg'
+ * // => '/your-repo/files/projects/rubiks-cube-robot/hero.jpg'
  */
 export function getProjectImage(projectId: string, imageName: string): string {
-  return getImageUrl(`images/projects/${projectId}/${imageName}`);
+  return getImageUrl(`files/projects/${projectId}/${imageName}`);
 }
 
 /**
@@ -50,10 +50,10 @@ export function getProjectImage(projectId: string, imageName: string): string {
  * @returns Resolved image URL
  * 
  * @example
- * getProfileImage('avatar.jpg') // => '/your-repo/images/profile/avatar.jpg'
+ * getProfileImage('avatar.jpg') // => '/your-repo/files/profile/avatar.jpg'
  */
 export function getProfileImage(imageName: string): string {
-  return getImageUrl(`images/profile/${imageName}`);
+  return getImageUrl(`files/profile/${imageName}`);
 }
 
 /**
