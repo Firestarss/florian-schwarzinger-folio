@@ -1,6 +1,6 @@
 /**
- * Centralized image utility functions for handling both local and external images
- * This provides a consistent interface for image paths across the application
+ * Centralized file utility functions for handling both local and external files
+ * This provides a consistent interface for file paths across the application
  */
 
 /**
@@ -54,6 +54,50 @@ export function getProjectImage(projectId: string, imageName: string): string {
  */
 export function getProfileImage(imageName: string): string {
   return getImageUrl(`images/profile/${imageName}`);
+}
+
+/**
+ * Get a general file path
+ * Convenience function for accessing any file in the public directory
+ * 
+ * @param filePath - The file path relative to public directory
+ * @returns Resolved file URL
+ * 
+ * @example
+ * getFileUrl('resume.pdf') // => '/your-repo/resume.pdf'
+ */
+export function getFileUrl(filePath: string): string {
+  return getImageUrl(filePath);
+}
+
+/**
+ * Get a project-specific file path
+ * Convenience function for accessing project files with consistent structure
+ * 
+ * @param projectId - The project identifier
+ * @param fileName - The file name (with extension)
+ * @returns Resolved file URL
+ * 
+ * @example
+ * getProjectFile('rubiks-cube-robot', 'algorithm.py')
+ * // => '/your-repo/files/projects/rubiks-cube-robot/algorithm.py'
+ */
+export function getProjectFile(projectId: string, fileName: string): string {
+  return getImageUrl(`files/projects/${projectId}/${fileName}`);
+}
+
+/**
+ * Get a profile file path
+ * Convenience function for accessing profile files
+ * 
+ * @param fileName - The file name (with extension)
+ * @returns Resolved file URL
+ * 
+ * @example
+ * getProfileFile('resume.pdf') // => '/your-repo/files/profile/resume.pdf'
+ */
+export function getProfileFile(fileName: string): string {
+  return getImageUrl(`files/profile/${fileName}`);
 }
 
 /**

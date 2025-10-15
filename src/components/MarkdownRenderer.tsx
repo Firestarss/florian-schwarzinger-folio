@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import { getImageUrl } from '@/lib/images';
+import { getImageUrl } from '@/lib/files';
 import type { Components } from 'react-markdown';
 
 interface MarkdownRendererProps {

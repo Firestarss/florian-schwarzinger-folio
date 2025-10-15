@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInAnimation } from "@/lib/utils";
 import { Link } from "react-router-dom";
-import { getProfileImage } from "@/lib/images";
+import { getProfileImage } from "@/lib/files";
 import { Button } from "@/components/ui/button";
 
 const About = () => {

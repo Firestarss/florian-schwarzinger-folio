@@ -1,4 +1,4 @@
-import { getImageUrl, getProjectImage } from "@/lib/images";
+import { getImageUrl, getProjectImage } from "@/lib/files";
 
 export interface Project {
   id: string;

@@ -5,7 +5,7 @@ import ContactForm from "../components/ContactForm";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { fadeInAnimation } from "@/lib/utils";
-import { getProfileImage } from "@/lib/images";
+import { getProfileImage } from "@/lib/files";
 
 const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false);
