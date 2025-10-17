@@ -1,4 +1,4 @@
-import { getImageUrl, getProjectImage } from "@/lib/files";
+import { getImageUrl, getProjectImage, getFileUrl } from "@/lib/files";
 
 export interface Project {
   id: string;
@@ -760,23 +760,23 @@ The project continues to evolve with improvements in speed, accuracy, and reliab
     files: [
       {
         name: "cube-solver-algorithm.py",
-        url: "/resume-florian-schwarzinger.pdf",
+        url: getFileUrl("resume-florian-schwarzinger.pdf"),
       },
       {
         name: "robot-cad-model.sldprt",
-        url: "/resume-florian-schwarzinger.pdf",
+        url: getFileUrl("resume-florian-schwarzinger.pdf"),
       },
       {
         name: "color-calibration-data.json",
-        url: "/resume-florian-schwarzinger.pdf",
+        url: getFileUrl("resume-florian-schwarzinger.pdf"),
       },
       {
         name: "servo-control-firmware.ino",
-        url: "/resume-florian-schwarzinger.pdf",
+        url: getFileUrl("resume-florian-schwarzinger.pdf"),
       },
       {
         name: "project-documentation.pdf",
-        url: "/resume-florian-schwarzinger.pdf",
+        url: getFileUrl("resume-florian-schwarzinger.pdf"),
       },
       {
         name: "test-results.zip",
