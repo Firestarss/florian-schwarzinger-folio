@@ -74,36 +74,15 @@ const About = () => {
         <h2 className="text-2xl font-bold mb-6 inline-block border-b-2 border-primary pb-2">Skills & Expertise</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h3 className="font-semibold mb-3 text-foreground">Technical Skills</h3>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center">
-                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Robot Operating System (ROS/ROS2)
-              </li>
-              <li className="flex items-center">
-                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Computer Vision & Sensor Fusion
-              </li>
-              <li className="flex items-center">
-                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Machine Learning for Robotics
-              </li>
-              <li className="flex items-center">
-                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                CAD/CAM Software
-              </li>
-              <li className="flex items-center">
-                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Embedded Systems Programming
-              </li>
-            </ul>
-          </div>
-          <div>
             <h3 className="font-semibold mb-3 text-foreground">Programming</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Python & C++
+                Python
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                C / C++
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
@@ -111,40 +90,61 @@ const About = () => {
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Control Systems Design
+                ROS / ROS2
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Real-time Operating Systems
-              </li>
-              <li className="flex items-center">
-                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Path Planning Algorithms
+                Embedded C (Arduino, STM32)
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-3 text-foreground">Tools & Platforms</h3>
+            <h3 className="font-semibold mb-3 text-foreground">Hardware</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Git & Version Control
+                CNC Machining & Manual Mills/Lathes
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Docker & Containerization
+                3D Printing (FDM, SLA)
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Linux & Ubuntu Systems
+                SolidWorks / Onshape
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Gazebo & RViz Simulation
+                PCB Design (KiCad, Altium)
               </li>
               <li className="flex items-center">
                 <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
-                Hardware Prototyping
+                Soldering & Wire Harness Assembly
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-3 text-foreground">Software</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Git & GitHub
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Jira & Confluence
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Jenkins / CI-CD Pipelines
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                TestRail & Test Automation
+              </li>
+              <li className="flex items-center">
+                <span className="h-2 w-2 rounded-full bg-primary mr-2"></span>
+                Docker & Linux Systems
               </li>
             </ul>
           </div>
